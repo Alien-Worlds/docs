@@ -5,28 +5,37 @@ import BlockExplorerLinks from '@site/src/components/BlockExplorerLinks';
 
 ## msig.worlds <BlockExplorerLinks contract="msig.worlds"/>
 
-
-This contract is responsible for holding the secured funds for worker proposals until the elected custodians or an agreed arbitrator releases the funds to the receiver or the escrow time limit expires which would allow returning of funds to the sender. The intention is that this contract would be locked to even prevent code modification from malicious custodians. This would be achieved by deleting the owner and active keys on the account after the contract code has been set. This desire for immutability is another reason for this contract to be separate and simple from the other code contracts in the code. The hope is that this code never needs to be modified. In the unfortunate (and hopefully very unlikely) scenario that this code does need to be modified the custodians would need to get the required agreement from the current block producers to reset the owner key for this account.
+This smart contract manages and executes multisig transactions on behalf of the DAOs. It functions very similar to the native `eosio.msig` smart contract with the main exception that it allows Wax Cloud Wallet accounts to call the actions on this contract which are blocked on `eosio.msig`. 
+For our own needs with the DAOs we have added some additional functionality including:
+* Blocking specific actions that the planet DAOs should not be permitted to execute
+* Retaining proposals after they have been executed or cancelled so they be seen for historical purposes. `eosio.msig` automatically removes all proposals once they have been completed for any purpose.
+* Proposals are grouped by the `dac_id` for the DAO rather than the creator.
 
 ## Actions:
 ---
-### Initialise an escrow transaction - `init`
+### Propose a transaction - `propose`
 
-An escrow transaction must be initialised specifying all the required fields including the sender, intended receiver, expiry time, arbitrator, memo for the eventual transfer action. There is also an optional external key which can be used as a cross-contract reference key rather than only relying on the internal auto-incrementing key which would otherwise lead to key collisions in time.
+A proposal can only be proposed a current custodian for a DAO to avoid spam proposals. 
+The proposal must include:
+* account name of the proposer - a current custodian
+* a name for the proposal - must be a `name` type
+* The requested permissions required to approve the transaction
+* dac_id for the DAO associated with the proposal - this helps with sorting in the tables
+* metadata - free form key/value storage that can be associated with the proposal
+* The transaction to be executed upon approval. This must be satisfiable by the requested permissions and should be encoded into a hex format in the same way as is required for `eosio.msig` proposals.
 
-### Transfer funds for an escrow - `transfer` 
+### Approve a proposal - `approve`
+Each proposal must be approved with a sufficient threshold before being executed. The allowed approvers are only the current custodians for the DAO related to the proposal. They must specify the `proposal_ name`, the permission `level` being used to approve the proposal and the `dac_id` to disambiguate the same `proposal_name` from proposals with the same name on other DAOs.
 
-Funds for an escrow would need to be transferred to escrow contract using the usual `transfer` action as seen and replicated by most EOS based token contracts. This contract’s code relies on the built-in notifications that the transfer action directs to both the sender and receiver of accounts of the transfer. When a transfer notification is received by the escrow contract the `transfer` action implementation will verify the sender has an empty escrow record and assigns the amount transferred into that escrow record for later processing by the other actions in the escrow contract code. An initialised escrow record may be cancelled with the `cancel` action provided it is called before the transfer action has populated the escrow.
+### Unapprove a proposal - `unapprove`
+If a proposal has previously been approved by one of the custodians but now they have changed their mind. They may unapprove to remove their approval as long as they do that before the proposal has been executed. If the proposal has since expired, then the proposal will not be able to be executed anyway.
 
-### Approval or un-approval of an escrow - `approve` and `unapprove` 
-Once an escrow has been initialised and populated with a transfer action the next step would be to approve the escrow either by the sender, the nominated arbitrator or receiver. Two approvals are required from any of these three accounts to allow the `claim` action to be performed. `unapprove` may be subsequently called to remove an existing approval by the relevant actor.
+### Cancel a propsal - `cancel`
+If a proposal has been created in error it can be cancelled before the transaction expiry by the creator of the proposal with this action. No one else will be permitted to cancel the proposal.
 
-### Claim an approved escrow payment - `claim` 
+### Execute the proposal transaction - `exec`
 
-The claim action can only be executed by the intended receiver for an escrow payment and will only succeed with the correct approval state for the escrow record. At this point, the escrowed amount will be transferred to the nominated service company account so that payments can be processed to the intended receiver.
+Once there has been sufficient approval granted to the proposal it can be executed. This will perform all the actions listed in the encoded transaction. If there is any logic causing an assertion in the execution eg. insufficient funds for a transfer, the transaction will remain in a  pending state until it can be executed or it expires.
 
-_Note: The service company step is not included for technical reasons but is a legal requirement to have sufficient interfacing with the traditional legal world. As much as we would like to perform all actions in the safety of cryptographically secured smart contract environment the world is not ready :( ._
-
-### Refund after expiry - `refund` 
-
-While the funds in the escrow account must be locked up for a certain duration they must also be available after expiry time has passed if there has not been sufficient approval from the sender or the arbitrator otherwise there could be funds locked in the account permanently. The `refund` action provides this mechanism and can only be called by the sender if the expiry time has passed. Then the escrowed amount will be transferred back the sender and the escrow record will be removed to prevent a double refund scenario.
+### Block specific actions - `blockaction`
+The block action feature allows for specific actions from specific contracts to be blocked from being able to be executed for specified DAO. This is reserved for admin use and can help prevent the the DAOs performing dangerous actions.

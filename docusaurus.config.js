@@ -18,7 +18,7 @@ const config = {
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  // organizationName: 'alienworlds', // Usually your GitHub org/user name.
+  // organizationName: 'alienworlds', // Usually your GitHub org/user name. 
   // projectName: 'docusaurus', // Usually your repo name.
 
   onBrokenLinks: 'throw',
@@ -65,23 +65,23 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       // Replace with your project's social card
-      image: 'img/docusaurus-social-card.jpg',
+      image: 'img/alienworlds-logo.webp',
       navbar: {
         title: 'Alien Worlds Docs',
         logo: {
-          alt: 'My Site Logo',
-          src: 'img/logo.svg',
+          alt: 'Alien Worlds Logo',
+          src: 'img/alienworlds-logo.png',
         },
         items: [
           // {
           //   type: 'doc',
-          //   docId: 'intro',
+          //   docId: 'overview',
           //   position: 'left',
           //   label: 'Tutorial',
           // },
           // { to: '/blog', label: 'Blog', position: 'left' },
           {
-            href: 'https://github.com/facebook/docusaurus',
+            href: 'https://github.com/alienworlds/docs',
             label: 'GitHub',
             position: 'right',
           },

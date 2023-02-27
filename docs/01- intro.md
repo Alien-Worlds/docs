@@ -1,3 +1,8 @@
+---
+slug: /
+id: overview
+---
+
 # Technical Overview
 
 ## Game platform overview
