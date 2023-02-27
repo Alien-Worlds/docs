@@ -81,7 +81,7 @@ const config = {
           // },
           // { to: '/blog', label: 'Blog', position: 'left' },
           {
-            href: 'https://github.com/alienworlds/docs',
+            href: 'https://github.com/Alien-Worlds/docs',
             label: 'GitHub',
             position: 'right',
           },
