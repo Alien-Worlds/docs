@@ -9,13 +9,13 @@ Each trusted account could be configured to either send points on synchronously 
 Each trusted account can be configured to run in debug mode which will allow them to test the workflow with test accounts that will send `testaddpnts` actions to the core userpoints contract to help with testing and debugging.
 All the configurations will only be managed by Alien Worlds to grant the budget and switch between debug and active modes
 
-import BlockExplorerLinks from '@site/src/components/BlockExplorerLinks';
+import {BlockExplorerContractLinks, BlockExplorerActionLinks} from '@site/src/components/BlockExplorerLinks';
 
 ## Contract details:
 
-Core UserPoints smart contract: `uspts.worlds` <BlockExplorerLinks contract="uspts.worlds"/>
+Core UserPoints smart contract: `uspts.worlds` <BlockExplorerContractLinks contract="uspts.worlds"/>
 
-Point Proxy smart contract: `ptpxy.worlds`  <BlockExplorerLinks contract="ptpxy.worlds"/>
+Point Proxy smart contract: `ptpxy.worlds`  <BlockExplorerContractLinks contract="ptpxy.worlds"/>
 
 ``` ts
 // Point Proxy config/state details for each trusted account:

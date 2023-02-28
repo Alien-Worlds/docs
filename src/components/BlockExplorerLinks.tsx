@@ -1,13 +1,13 @@
 import React from 'react';
 
-export default function BlockExplorerLinks({ contract }) {
+export function BlockExplorerContractLinks({ contract }) {
     return (<span>
         <a href={"https://wax.bloks.io/account/" + contract} style={{
             backgroundColor: 'green',
             padding: '0.2rem',
-            border_radius: '25px'
+            border_radius: '25px',
         }}>
-            <img src="https://bloks.io/img/bloks_logomark_white.svg" width="30px" height="25px" />
+            <img src="/img/bloks_logomark_white.png" width="25px" height="25px" />
         </a>
         <span style={{
             padding: '0.2rem',
@@ -16,7 +16,57 @@ export default function BlockExplorerLinks({ contract }) {
             backgroundColor: 'green',
             padding: '0.2rem',
         }}>
-            <img src="https://waxblock.io/common/images/wax-block-footer-logo.png" width="110px" height="25px" />
+            <img src="/img/waxblocks-logo.png" width="25px" height="25px" />
+        </a>
+    </span>)
+};
+
+export function BlockExplorerActionLinks({ contract, action }) {
+    return (<span>
+        <code>{`${contract}::${action}`}</code>
+        <span style={{
+            padding: '0.2rem',
+        }} />
+        <a href={`https://wax.bloks.io/account/${contract}?loadContract=true&tab=Actions&action=${action}`} style={{
+            backgroundColor: 'green',
+            padding: '0.2rem',
+            border_radius: '25px',
+        }}>
+            <img src="/img/bloks_logomark_white.png" width="25px" height="25px" />
+        </a>
+        <span style={{
+            padding: '0.2rem',
+        }} />
+        <a href={`https://waxblock.io/account/${contract}?action=${action}#contract-actions`} style={{
+            backgroundColor: 'green',
+            padding: '0.2rem',
+        }}>
+            <img src="/img/waxblocks-logo.png" width="25px" height="25px" />
+        </a>
+    </span>)
+};
+
+export function BlockExplorerTableLinks({ contract, table }) {
+    return (<span>
+        <code>{`${contract}::${table}`}</code>
+        <span style={{
+            padding: '0.2rem',
+        }} />
+        <a href={`https://wax.bloks.io/account/${contract}?loadContract=true&tab=Tables&table=${table}&limit=100`} style={{
+            backgroundColor: 'green',
+            padding: '0.2rem',
+            border_radius: '25px',
+        }}>
+            <img src="/img/bloks_logomark_white.png" width="25px" height="25px" />
+        </a>
+        <span style={{
+            padding: '0.2rem',
+        }} />
+        <a href={`https://waxblock.io/account/${contract}?&table=${table}#contract-tables`} style={{
+            backgroundColor: 'green',
+            padding: '0.2rem',
+        }}>
+            <img src="/img/waxblocks-logo.png" width="25px" height="25px" />
         </a>
     </span>)
 };

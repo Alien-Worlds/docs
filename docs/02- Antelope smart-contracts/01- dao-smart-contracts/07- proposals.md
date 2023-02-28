@@ -1,8 +1,8 @@
 # Proposals
 
-import BlockExplorerLinks from '@site/src/components/BlockExplorerLinks';
+import {BlockExplorerContractLinks, BlockExplorerActionLinks} from '@site/src/components/BlockExplorerLinks';
 
-## prop.worlds <BlockExplorerLinks contract="prop.worlds"/>
+## prop.worlds <BlockExplorerContractLinks contract="prop.worlds"/>
 
 This contract is responsible for managing the project proposals related to a DAO. It is once again built with many configuration options to be customised for each DAO.
 
