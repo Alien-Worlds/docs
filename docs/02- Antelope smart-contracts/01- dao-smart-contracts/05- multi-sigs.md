@@ -3,7 +3,7 @@
 
 import {BlockExplorerContractLinks, BlockExplorerActionLinks} from '@site/src/components/BlockExplorerLinks';
 
-## msig.worlds <BlockExplorerContractLinks contract="msig.worlds"/>
+## <BlockExplorerContractLinks contract="msig.worlds"/>
 
 This smart contract manages and executes multisig transactions on behalf of the DAOs. It functions very similar to the native `eosio.msig` smart contract with the main exception that it allows Wax Cloud Wallet accounts to call the actions on this contract which are blocked on `eosio.msig`. 
 For our own needs with the DAOs we have added some additional functionality including:

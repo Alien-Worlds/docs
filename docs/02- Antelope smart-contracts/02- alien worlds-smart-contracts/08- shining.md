@@ -1,28 +1,11 @@
 # Shining
 Administer the upgrading of NFT's to a more advanced NFT through an upgrading process referred to as shining.
 
-## Blockchain account: `s.federation`
+import {BlockExplorerContractLinks, BlockExplorerActionLinks, BlockExplorerTableLinks} from '@site/src/components/BlockExplorerLinks';
+
+## <BlockExplorerContractLinks contract="s.federation"/>
 
 This contract manages the shining of NFT tokens. The owner of particular NFTs can transfer the NFT as well as a TLM amount to this contract in order to exchange the NFT for a different one. For an NFT type to be exchangeable for another type it needs to be added to the lookup table with an associated cost for the exchange. During the process of shining the old NFT that the user submits is destroyed and a new NFT is created. The Trilium deposited for the shining is also burnt so this has the effect of decreasing the total Trilium in existence.
-
-## Technical view of Permissions on chain
-
-**-- Permission Name** - Requirements to satisfy
-
-**-- -- -- -- -- Child Permission Name** - Requirements to satisfy
-
-**-- -- -- -- -- -- -- Linked to Contract::Action**
-
-```
-owner - requires federation @active
-    active - requires PUB_K1_7sCYfweZorEdVrFuXMo79pF39rFcgjtShinEnWozGJYYgahsku
-        burn - requires s.federation@eosio.code
-            alien.worlds::burn
-            alien.worlds::retire
-            atomicassets::burnasset
-        mint - requires s.federation@eosio.code
-            atomicassets::mintasset
-```
 
 ## Actions
 
@@ -33,7 +16,7 @@ owner - requires federation @active
 * `nfttransfer` - This tracks NFT transfers into this account. When an NFTs transfer is attempted, there is a check to find a matching record in the lookups table for the NFT templates. If an active record is found, there is a check for an associated deposit that would cover the cost of the shining process for each NFT. If all the checks are satisfied the received NFTs and deposited TLM are burned and a new NFT is created for the sending account.
   * requires auth of the `atomicassets` contract with the transfer NFT action related to this collection only.
 
-## Storage
+## Tables
 
 * Lookups Table to store potential NFTs that can be shined
   * uint32: from

@@ -1,4 +1,4 @@
-# User Points Proxy Smart Contract
+# User Points Proxy
 
 Within the suite of Alien Worlds Smart contracts, one of them is responsible for the rewarding of alien.worlds NFTs as determined by non-transferrable user points. The user points are intended to be distributed to users for performing various game-related activities in the Alien Worlds metaverse. But this is also an avenue for malicious actors to be able to potentially get free NFTs if this mechanism is not well protected from bad actors.
 Up until now, the only use case to be rewarded user points has been mining activity with the plan to gradually add other Alien Worlds activities but still within the safe boundaries of the Alien Worlds suite of smart contracts. With the Points Proxy Smart Contract, we are introducing an open way for 3rd parties to be able to add user points in a safe and regulated way. This would be regulated in the form of trusted accounts being granted the ability to distribute a given budget of points to any chosen user's accounts over a chosen time period. Once that budget has been exceeded for the given time period that trusted account will not be able to add any more points until that time window has expired. Each trusted account could have its configuration set such that the points can be scaled with a multiplier factor and could be set to send the points directly into the core user points contract or to send them in batches to provide another layer of control for the trusted account before passing the points directly to AlienWorlds User points.
@@ -9,13 +9,12 @@ Each trusted account could be configured to either send points on synchronously 
 Each trusted account can be configured to run in debug mode which will allow them to test the workflow with test accounts that will send `testaddpnts` actions to the core userpoints contract to help with testing and debugging.
 All the configurations will only be managed by Alien Worlds to grant the budget and switch between debug and active modes
 
+## Contract details:
 import {BlockExplorerContractLinks, BlockExplorerActionLinks} from '@site/src/components/BlockExplorerLinks';
 
-## Contract details:
+UserPoints <BlockExplorerContractLinks contract="uspts.worlds"/>
 
-Core UserPoints smart contract: `uspts.worlds` <BlockExplorerContractLinks contract="uspts.worlds"/>
-
-Point Proxy smart contract: `ptpxy.worlds`  <BlockExplorerContractLinks contract="ptpxy.worlds"/>
+User Points Proxy <BlockExplorerContractLinks contract="ptpxy.worlds"/>
 
 ``` ts
 // Point Proxy config/state details for each trusted account:

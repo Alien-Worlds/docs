@@ -1,4 +1,8 @@
-# Daily Trillium Allocation for Landowners
+# Land Ratings
+
+import {BlockExplorerContractLinks, BlockExplorerActionLinks, BlockExplorerTableLinks} from '@site/src/components/BlockExplorerLinks';
+
+## <BlockExplorerContractLinks contract="awlndratings"/>
 
 ### Problem Statement:
 
@@ -6,7 +10,6 @@ Each day TLM token needs to be distributed to each account that holds a Land NFT
 
 ```
 AmountDueForAccount = (terra.worlds TLM balance) / (the total number of land NFTs) x (number of land NFTs held by account)
-
 
 ```
 

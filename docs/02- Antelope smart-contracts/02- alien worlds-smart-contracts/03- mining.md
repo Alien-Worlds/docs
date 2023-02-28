@@ -1,46 +1,15 @@
 # Mining
 Used by all planets for controlling the mining actions and mining rewards so that users are able to earn tokens or NFTs from the land within each planet.
 
-## Blockchain account: `m.federation`
+import {BlockExplorerContractLinks, BlockExplorerActionLinks} from '@site/src/components/BlockExplorerLinks';
+
+## <BlockExplorerContractLinks contract="m.federation"/>
 
 A key activity within their Alien Worlds universe is mining. Users must perform computational work to guess a large number that solves a mathematical puzzle within a particular number range as determined difficulty factors within this contract. This is similar to the Proof of Work mining algorithm as utilised in Bitcoin.
 
 Miners would run the algorithm on their local machines until they get a result that would satisfy the difficulty set in the contract. Once they have a satisfactory result they would submit it to the contract. Then once it has been checked to be satisfactory in the contract code it would pay out earnings as Trilium to the miner and the landowner along with a chance to also win an NFT for mining. The level of difficulty varies based on ease factors with the land, the luck factor of the miner. These different factors provide creative avenues for users to form strategies to maximise the chances of winning the most Trilium or NFTs
 
 While the most frequently run actions on this contract will be mining there are some other actions to support the mining, such as setting parameters, filling the available Trilium and NFTs that could be mined, processing the random values required for part of the mining algorithm. The allowed permissions to run all these actions are restricted to the minimum allowed permissions to enable the mining operations to work.
-
-## Technical view of Permissions on chain
-
-**-- Permission Name** - Requirements to satisfy
-
-**-- -- -- -- -- Child Permission Name** - Requirements to satisfy
-
-**-- -- -- -- -- -- -- Linked to Contract::Action**
-
-```
-owner - requires federation@active
-    active - requires PUB_K1_8UNvtBz9Bs62Hoayf5HSaZMgfB26tEFMypjur2dfcHBR1GJTF1
-        claim - requires m.federation@eosio.code
-                m.federation::claimnfts
-        issue - requires m.federation@eosio.code
-                atomicassets::mintasset
-                atomicassets::setassetdata
-        log - requires m.federation@eosio.code
-                m.federation::logmine
-                m.federation::logrand
-        rando - requires PUB_K1_5rFHu5XjbCASyD7nARANDoXhQgfDJQBaGpvSPdTaAh7CQb3q6U
-                m.federation::receiverand
-        random - requires m.federation@eosio.code
-                federation::miningnft
-                federation::miningstart
-                orng.wax::requestrand
-        setparam - requires either eosusacardzz@airdrops or PUB_K1_7JUT21YpUHbgiEgpBQuCXGmzsmsWupuPWQV25kKxUyWyvq91KF
-                m.federation::setparam
-                m.federation::testparam
-        xfer - requires m.federation@eosio.code
-                alien.worlds::transfer
-                federation::setprofitshr
-```
 
 ## Actions
 
@@ -86,7 +55,7 @@ owner - requires federation@active
 * `setnfts(name rarity, vector<uint32_t> template_ids)` - Adds new NFTs to the mining bucket ready to be won through mining.
   * requires auth `self`
 
-## Storage
+## Tables
 
 * Miners table to store details about each miner's recent mining activity and current mining location.
   * name: miner

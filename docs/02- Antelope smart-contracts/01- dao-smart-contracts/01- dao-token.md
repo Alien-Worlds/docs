@@ -2,7 +2,7 @@
 
 import {BlockExplorerContractLinks, BlockExplorerActionLinks} from '@site/src/components/BlockExplorerLinks';
 
-## token.worlds <BlockExplorerContractLinks contract="token.worlds"/>
+## <BlockExplorerContractLinks contract="token.worlds"/>
 
 This is where it all started. The EOSDAC Token is held in this smart contract. It started as a clone from the main `eosio.token` contract code which is used for the EOS token and most likely the starting point for all the tokens that are running on all the EOS chains. We added some functionality to this contract to suit our needs for the launching of the DAO and the initial airdrop including the following:
 

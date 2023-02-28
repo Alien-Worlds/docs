@@ -2,6 +2,7 @@ import React from 'react';
 
 export function BlockExplorerContractLinks({ contract }) {
     return (<span>
+        Blockchain: <code>{`${contract}`}</code>
         <a href={"https://wax.bloks.io/account/" + contract} style={{
             backgroundColor: 'green',
             padding: '0.2rem',

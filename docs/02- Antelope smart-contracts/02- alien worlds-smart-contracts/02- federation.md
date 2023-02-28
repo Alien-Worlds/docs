@@ -2,7 +2,9 @@
 
 Central administrator of common management behaviour across all planets and NFTs
 
-## Blockchain account: `federation` on [Bloks.io](https://www.wax.bloks.io/account/federation#keys)
+import {BlockExplorerContractLinks, BlockExplorerActionLinks} from '@site/src/components/BlockExplorerLinks';
+
+## <BlockExplorerContractLinks contract="federation"/>
 
 Each of the planets in the Alien Worlds federation contributes and competes in a wider ecosystem where each planet and member involved in each planet can win or earn Trilium tokens or NFTs as well as performing various exchange interactions with their planet specific token. In order to govern the rules and common behaviour between all the planets the Federation performs some key roles to hold everything together, including:
 
@@ -13,100 +15,6 @@ Each of the planets in the Alien Worlds federation contributes and competes in a
 * Managing the staking of Trilium tokens for staking rewards.
 
 The permissions to perform the actions on this contract are customised to ensure that only the minimum amount of access has been granted for that particular action to succeed. For example, a user staking can only be performed by the individual user account that is staking. Planet claiming rewards can only be performed by a planet account rather than an individual user. The administrative actions such as managing planets require the simultaneous permission of multiple users as detailed in the `active` permission below. This ensures a high level of security and prevents potential malicious or accidental harm caused by unauthorised users of the system.
-
-## Technical view of Permissions on chain
-
-**-- Permission Name** - Requirements to satisfy
-
-**-- -- -- -- -- Child Permission Name** - Requirements to satisfy
-
-* `owner`
-  *   Requires threshold of 3 from:
-
-      advik.worlds@active (+1)
-
-      aamir.worlds@active (+1)
-
-      anya.worlds@active (+1)
-
-      aarav.worlds@active (+1)
-  * `active`
-    *   Requires threshold of 2 from:
-
-        advik.worlds@active (+1)
-
-        aamir.worlds@active (+1)
-
-        anya.worlds@active (+1)
-
-        aarav.worlds@active (+1)
-    * `claim`
-      *   Requires
-
-          Key: `PUB_K1_7sPaybfLLBb8asFuP4A9DDAKH1tku6gVbTxEF8eq5CEGib14eD`
-      *   link authed to action
-
-          `federation::filllandpot`
-    * `issue`
-      *   Requires
-
-          permission: `federation@eosio.code`
-      *   link authed to action
-
-          `alien.worlds::issue`
-
-          `atomicassets::mintasset`
-
-          `atomicassets::setassetdata`
-
-          `token.worlds::burn`
-
-          `token.worlds::issue`
-
-          `token.worlds::transfer`
-    * `log`
-      *   Requires
-
-          permission: `federation@eosio.code`
-      *   link authed to action
-
-          `federation::logclaim`
-    * `mint`
-      * Requires
-      * link authed to actions
-      *
-
-***
-
-```
-
-owner - requires weight of 3 from +1 aamir.worlds@active, +1 aarav.worlds@active, +1 advik.worlds@active, +1 anya.worlds@active
-    active - requires weight of 2 from +1 aamir.worlds@active, +1 aarav.worlds@active, +1 advik.worlds@active, +1 anya.worlds@active
-        claim - requires PUB_K1_7sPaybfLLBb8asFuP4A9DDAKH1tku6gVbTxEF8eq5CEGib14eD
-            federation::filllandpot
-        issue - requires federation@eosio.code
-            alien.worlds::issue
-            atomicassets::mintasset
-            atomicassets::setassetdata
-            token.worlds::burn
-            token.worlds::issue
-            token.worlds::transfer
-        log - requires federation@eosio.code
-            federation::logclaim
-        mint - requires PUB_K1_7Q7nKcbeEwzJCXngYW6Z1CwDG5M1fZmQgpminty18vNArVuH8A
-            atomicassets::burnasset
-            atomicassets::createtempl
-            atomictoolsx::announcelink
-            atomictoolsx::cancellink
-            federation::addplanet
-            federation::setmap
-            federation::updateplanet
-        refund - requires federation@eosio.code
-            federation::refund
-        xfer - requires federation@eosio.code
-            alien.worlds::transfer
-            m.federation::fill
-```
 
 ## Actions
 
@@ -159,7 +67,7 @@ Handle daily planet claims (weighted by staking and number of NFTs held by plane
 * `filllandpot` - distribute daily Trilium (TLM) tokens to land owners pot. WIP
   * requires auth `federation@claim`
 
-## Storage
+## Tables
 
 This contract stores the state relevent to all the planets, Land ownership, users and token staking.
 

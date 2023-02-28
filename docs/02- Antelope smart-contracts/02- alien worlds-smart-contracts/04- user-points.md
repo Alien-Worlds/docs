@@ -2,14 +2,14 @@
 
 import {BlockExplorerContractLinks, BlockExplorerActionLinks, BlockExplorerTableLinks} from '@site/src/components/BlockExplorerLinks';
 
-## uspts.worlds <BlockExplorerContractLinks contract="uspts.worlds"/>
+## <BlockExplorerContractLinks contract="uspts.worlds"/>
 
 User points is a mechanism to reward players for specific actions in the metaverse. The rewards are non-transferable to encourage users to focus on one account rather than trying to earn points through many accounts. The user points accumulate in two primary forms. One is redeemable points which the user can choose to redeem for NFT offers and the other is level points which continue to increase as the user earns more points, earning them level NFT rewards (AKA Rank NFTs) without the user needing to redeem the points. In addition to these point tallies there tracking for the most daily and most weekly userpoints that get reset with the user's next action on the following day/week as applicable.
 
 ```mermaid
 graph TD;
 User--mine-->Mining--addpoints-->UserPoints
-User-->redeemNFT-->UserPoints
+User--redeemNFT-->UserPoints
 UserPoints--send_NFT-->User
 
 Community_Member--create_NFT_offer-->UserPoints

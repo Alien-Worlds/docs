@@ -1,35 +1,11 @@
-# PackOpener
+# NFT Pack Opener
 Administer the awarding NFTs into Alien Worlds NFT packs in a way that ensures a high degree of randomness so buyers are not able to game the purchasing of NFT packs by seeing the NFT contents in advance of a purchase. This is a difficult task to achieve on a public, transparent blockchain.
 
-## Blockchain account: `open.worlds`
+import {BlockExplorerContractLinks, BlockExplorerActionLinks, BlockExplorerTableLinks} from '@site/src/components/BlockExplorerLinks';
+
+## <BlockExplorerContractLinks contract="open.worlds"/>
 
 The Pack opener contract provides a mechanism to create and transfer packs of NFTs without the actual contents of the packs been known before the packs have been opened. The contents of the packs can be pre-configured with crates of potential NFTs with assigned probabilities for each crate, but they would not be crystalised as actual NFTs until after the opening process, along with the further input of a random value.
-
-## Technical view of Permissions on chain
-
-**-- Permission Name** - Requirements to satisfy
-
-**-- -- -- -- -- Child Permission Name** - Requirements to satisfy
-
-**-- -- -- -- -- -- -- Linked to Contract::Action**
-
-```
-owner     1:    1 EOS8TpackZ64RR3zx7FiB4LrMqp5fRS343AvitC2sn842hcxBGRXA
-    active     1:    1 EOS8TpackZ64RR3zx7FiB4LrMqp5fRS343AvitC2sn842hcxBGRXA
-
-owner     1:    1 PUB_K1_88QRopenyixg1TzjmArDpspfKAeK2jmkCygARfFmRFipp8k9ra
-    active    1:    1  PUB_K1_88QRopenyixg1TzjmArDpspfKAeK2jmkCygARfFmRFipp8k9ra
-        claim 1:        1  open.worlds @eosio.code
-            open.worlds::claim
-        issue 1:        1  open.worlds @eosio.code
-            alien.worlds::transfer
-            atomicassets::mintasset
-            atomicassets::transfer
-        log 1:      1  open.worlds @eosio.code
-            open.worlds::logopen
-        random 1:       1  open.worlds @eosio.code
-            orng.wax::requestrand
-```
 
 ## Features
 
@@ -63,7 +39,7 @@ A pack has a name, symbol and bonus token asset. Once a pack has been added, it 
 * `receiverand(uint64_t assoc_id, checksum256 random_value)` When the random number returns, random assets or templates are chosen from the created assets table and a random amount of bonus tokens from the pack are also issued for the account opening the pack. All of these are added to a claim table and they can then be claimed in a deferred transaction.
 * `claim(name account, name pack_name)` The claim action is called at the end of processing of the random returned value in a deferred transaction. If there is an unexpected transaction failure during the claiming of assets (such as CPU timeout) the prepared assets from the random value processing will still be available to be claimed as a separate blockchain transaction. If the claiming was performed as an inline action from within the `receiverand` both actions could potentially fail (or be forced to fail by the claim receiver) if they wanted to selectively choose which NFTs or bonus tokens they would be rewarded from the receiverand action.
 
-## Storage
+## Tables
 
 * Packs table to store details of packs of cards that could be opened
   * name: packname

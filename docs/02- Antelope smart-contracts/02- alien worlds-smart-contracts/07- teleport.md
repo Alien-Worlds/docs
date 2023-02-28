@@ -1,17 +1,11 @@
 # Teleport
 Contract to handle the cross-chain movement of tokens between WAX, Ethereum and Binance Smart Chain - C++ smart contract.
 
-## Blockchain account: `other.worlds`
+import {BlockExplorerContractLinks, BlockExplorerActionLinks, BlockExplorerTableLinks} from '@site/src/components/BlockExplorerLinks';
+
+## <BlockExplorerContractLinks contract="other.worlds"/>
 
 The Teleport contract facilitates the transfer of TLM tokens between the Wax and Ethereum blockchains. All blockchains, at a base level, can only run as self-contained systems that are not able to interact with any external system (including other blockchains) without needing to trust specific data sources or oracles. Oracles could be utilised as a single data source providing a single trusted data feed or, preferably, multiple sources providing multiple data feeds that should agree on the same version of the truth. In order to transfer tokens between Wax and Ethereum, the same challenges apply and they can be overcome with oracles that monitor specific actions on one blockchain and write corresponding action to the other to signal the transfer of tokens. This EOSIO C++ contract would be installed on the WAX blockchain and its features include capturing tokens on the EOSIO side and processing a `teleport` action which is then processed by trusted oracles that then send the equivalent TLM tokens on the Ethereum side. This process is also reversible to receive tokens from the Ethereum contract and send them out on the EOSIO side. To prevent faults and potential points of centralisation the contract ensures a minimum number of oracles has verified each cross-chain transaction before the tokens are available for the intended recipient on the receiving blockchain.
-
-## Technical view of Permissions on chain
-
-**-- Permission Name** - Requirements to satisfy
-
-**-- -- -- -- -- Child Permission Name** - Requirements to satisfy
-
-owner - requires federation @active active - requires either [other.worlds@eosio.code](mailto:other.worlds@eosio.code) or PUB\_K1\_6XXHdC1zFjHj7rNaibWUZMKVotherUzGcHJBHE1SsZqNKWvLWL
 
 ## Features
 
@@ -38,7 +32,7 @@ Tursted oracles must be registered with the teleport contract in order to partic
 * `claimed(name oracle_name, uint64_t id, checksum256 to_eth, asset quantity)` - Marks a Wax initiated teleport as claimed on the Ethereum side of the teleport action.
   * requries auth of a registered oracle
 
-## Storage
+## Tables
 
 * Teleports table stores all the teleport actions initiated from the Wax chain including the amount, destination and the state of the transfers and oracle confirmations.
   * uint64\_t: id
