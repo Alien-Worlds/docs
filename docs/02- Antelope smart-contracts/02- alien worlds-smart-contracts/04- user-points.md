@@ -20,7 +20,7 @@ Community_Member--create_NFT_offer-->UserPoints
 ## Actions
 
 ### Earning Points - <BlockExplorerActionLinks contract="uspts.worlds" action="addpoints"/>
-User points could be earned from any authorised actions but for not the only action that is permitted to add points for a user is mining. The number of points added per mine is determined by the NFT Power applied to each mine event for mines with NFT tools above the abundant rarity type. The points are added via an authorised inline acction from the mine action. In the future other Alien Worlds metaverse actions will also have the ability to add user points. Other game/dapps smart contracts may also be added to have the ability to add user points via [user points proxy](./userpoints-proxy.md)
+User points could be earned from any authorised actions but for not the only action that is permitted to add points for a user is mining. The number of points added per mine is determined by the NFT Power applied to each mine event for mines with NFT tools above the abundant rarity type. The points are added via an authorised inline acction from the mine action. In the future other Alien Worlds metaverse actions will also have the ability to add user points. Other game/dapps smart contracts may also be added to have the ability to add user points via [user points proxy](./05-%20userpoints-proxy.md)
 
 ## Distributing/Minting new Alien Worlds NFTs
 
