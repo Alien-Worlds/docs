@@ -18,11 +18,12 @@ This contract manages all the nomination, voting, tallying of votes and appointm
 ## Actions:
 ---
 
-### Candidate nomination - `nominatecane`
+### Candidate nomination <BlockExplorerActionLinks contract="dao.worlds" action="nominatecane"/>
+
 
 To become an elected custodian for the DAO a valid member must first nominate as a candidate using the `nominatecane` action. This requires the account name of the account nominating and a request pay amount of tokens (configurable via the config). This action checks the user is a valid member and has staked sufficient tokens before succeeding. It also checks that the requested pay amount does not exceed the `requested_pay_max` from the config and if all these conditions are met will add the user as a votable candidate for future voting actions.
 
-### Voting - `votecust`
+### Voting <BlockExplorerActionLinks contract="dao.worlds" action="votecust"/>
 
 The voting is performed by the `votecust` action and requires voter account and a list of candidates that the voter would like to vote for. The votes follow the following rules:
 
@@ -34,7 +35,7 @@ The voting is performed by the `votecust` action and requires voter account and 
 * To remove a vote a voter would need to vote with an empty list of candidates.
 * Voting and changing staked DAO token details for a voting account will have a direct and immediate effect on the weight of each active vote but the only time the weight of votes matters is the block when the `newperiod` action is called (explained below).
 
-### New election periods - `newperiod`
+### New election periods <BlockExplorerActionLinks contract="dao.worlds" action="newperiod"/>
 
 For each valid candidate the vote weight will be continuously tracked based on changes triggered from the `votecust` action or from changes to the staked tokens in combination with the time since the `votecust` action was last called since votes decay over time. With these values being continuously tracked the actual election (at the time of `newperiod` running) only needs to take a snapshot of the candidates ordered by ranking derived from a combination of total vote weight most recent average time stamp (more details below). The number of candidates is configurable via the `numelected` field on the config. There are other checks required to be satisfied in order to successfully run the `newperiod` action including:
 
@@ -49,31 +50,31 @@ If all these checks succeed the following events are performed:
 * The permissions for operating the DAO accounts are updated to include the newly appointed custodians.
 * The current time is saved to use as a time reference for future calls the `newperiod` to ensure it’s not called too early for the next period.
 
-### Withdraw candidate - `withdrawcane`
+### Withdraw candidate <BlockExplorerActionLinks contract="dao.worlds" action="withdrawcane"/>
 This would be called by an existing candidate, including one that is currently an elected custodian when they would like to remove themselves from the next period of elections. A good use case for this action may be a custodian going on holidays with the intention of returning soon. Otherwise, this action could be used for any other reason for a candidate voluntarily withdrawing from participating in the DAO operations.
 
-### fire a candidate -`firecand`
+### fire a candidate <BlockExplorerActionLinks contract="dao.worlds" action="firecand"/>
 :::caution
 This feature is currently disabled since it's a potential vulverbility for DAO governance.
 :::
 This would be called by the currently elected custodians via the multi-sig auth account to remove a misbehaving candidate. 
 
-### fire a custodian - `firecust`
+### fire a custodian <BlockExplorerActionLinks contract="dao.worlds" action="firecust"/>
 :::caution
 This feature is currently disabled since it's a potential vulverbility for DAO governance.
 :::
  Similar to the `firecand` this action will remove a currently elected custodian as actioned by the other custodians. This will remove the custodian from elected custodian group, remove them as a potential candidate for future elections and finally update the account permissions to reflect the new reduced set of elected custodians.
 
-### resign a custodian - `resigncust`
+### resign a custodian <BlockExplorerActionLinks contract="dao.worlds" action="resigncust"/>
 This action must be run by an active custodian who would like to resign from being an active custodian. This would remove them from an eligible candidate and remove them from being an active custodian or a pending custodian.
 
-### Update requested pay -`updatereqpay`
+### Update requested pay <BlockExplorerActionLinks contract="dao.worlds" action="updatereqpay"/>
 A candidate may update their requested pay as a custodian. This will not take effect until the next period to prevent mid-period changes to custodian pay. The amount must be less than the max allowed as set by the DAO config for `requested_pay_max`.
 
-### Claim pay -`claimpay`
+### Claim pay <BlockExplorerActionLinks contract="dao.worlds" action="claimpay"/>
 This is the action called by an active custodian in order to receive the payment amount that is due to be paid to them. This can be either paid directly from the DAO's treasury account to the custodian or can be paid by a nominated service entity to handle parts of the process not covered by the blockchain actions.
 
-### Update config - `updateconfig`
+### Update config <BlockExplorerActionLinks contract="dao.worlds" action="updateconfig"/>
 There are several configurable options on DAO voting contract code to allow it to be customised for use without needing to recompile and deploy the code. The future plan is that this will allow different DAOs to operate using the same deployed code but with their own custom configurations. The changes are made by setting a new config object via this action with the following options:
   * `lockupasset`: The amount of DAO tokens that are required to be locked up by each candidate applying for election.
   * `maxvotes`: The maximum number of votes that each member can make for a candidate. default of 5.

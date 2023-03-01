@@ -8,26 +8,29 @@ User points is a mechanism to reward players for specific actions in the metaver
 
 ```mermaid
 graph TD;
-User--mine-->Mining--addpoints-->UserPoints
-User--redeemNFT-->UserPoints
-UserPoints--send_NFT-->User
+U[User] 
+M[Mining]
+P[User Points]
+C[Community Member]
 
-Community_Member--create_NFT_offer-->UserPoints
-
+U--mine-->M--addpoints-->P
+U--redeemNFT-->P
+P--send_NFT--->U
+C--create_NFT_offer---->P
 ```
 
 ---
 ## Actions
 
-### Earning Points - <BlockExplorerActionLinks contract="uspts.worlds" action="addpoints"/>
+### Earning Points <BlockExplorerActionLinks contract="uspts.worlds" action="addpoints"/>
 User points could be earned from any authorised actions but for not the only action that is permitted to add points for a user is mining. The number of points added per mine is determined by the NFT Power applied to each mine event for mines with NFT tools above the abundant rarity type. The points are added via an authorised inline acction from the mine action. In the future other Alien Worlds metaverse actions will also have the ability to add user points. Other game/dapps smart contracts may also be added to have the ability to add user points via [user points proxy](./05-%20userpoints-proxy.md)
 
 ## Distributing/Minting new Alien Worlds NFTs
 
-### Set points reward for claiming - <BlockExplorerActionLinks contract="uspts.worlds" action="setptsreward"/>
+### Set points reward for claiming <BlockExplorerActionLinks contract="uspts.worlds" action="setptsreward"/>
 NFT templates can be offered by the federation in exchange redeemable NFT user points. The offers would be set with action, specifying a `start` time , `end` time, the `template_id` and the `required` number of points to redeem for the NFT on offer. 
 
-### Redeeming User Points for new NFTs - <BlockExplorerActionLinks contract="uspts.worlds" action="redeempntnft"/>
+### Redeeming User Points for new NFTs <BlockExplorerActionLinks contract="uspts.worlds" action="redeempntnft"/>
 Redeemable user points can be redeemed by users for NFT offers as they see an offer for an NFT that is attractive for them to claim. If the template for the corresponding Atomic Assets template is full, this action will fail. It will also fail if it's before the `start` date or after the `end` date.
 
 ## Distributing existing NFTs
@@ -42,16 +45,38 @@ Each offer can only be managed by the creator of the offer. Each offer must have
 Once the offer is created, NFT assets matching the offer collection and template_id can be added to the offer by transferring the assets to `uspts.worlds` with a specific memo to match the `offer_id`. eg. To add an asset to `offer_id` 123 the memo should contain only "123"
 This will result in an offer's `available_count` being incremented and the `next_asset_id` being set to the lowest asset id matching the offer. 
 
-### Redeem user points for pre-minted NFTs - <BlockExplorerActionLinks contract="uspts.worlds" action="redeemprenft"/>
+### Redeem user points for pre-minted NFTs <BlockExplorerActionLinks contract="uspts.worlds" action="redeemprenft"/>
 
 This requires an offer_id  as is similar to current redeem action but the offers will be taken from the premint offers instead. Anyone redeeming a preminted NFT offer will always get the lowest mint NFT availble for that offer - assuming that lower mints are of greater value, the early redeemers should be rewarded. For each offer, the callback account could hold a smart contract that implements an action `logredeemnft` which could perform whatever smart contract logic they want at that point.
 Upon successful redemption, the NFT will be transferred to the redeemer and the optional callback logic will be executed.
 It's similar to the current process to redeem offers but the UI will need to call this action instead for the preminted offers:
 
+
+```mermaid
+sequenceDiagram
+autonumber
+actor C as Community NFT Creator
+actor P as NFT redeemer
+participant U as UserPoints Contract
+participant TP as (Optional) 3rd Party Contract for offer
+C->>U: Configure Offer
+activate U
+C->>TP: Deploy 3rd Party contract
+activate TP
+C->>U: Transfer NFTs matching offer
+deactivate U
+P->>U: redeem offer
+activate U
+U->>TP: callback to 3rd Party contract
+activate TP
+U-->>P: Transfer NFT
+deactivate U
+deactivate TP
+```
 ---
 ## Tables
 
-### Pre-mint Offers - <BlockExplorerTableLinks contract="uspts.worlds" table="premintoffrs"/>
+### Pre-mint Offers <BlockExplorerTableLinks contract="uspts.worlds" table="premintoffrs"/>
 The NFT offers available for pre-minted NFTs will be available at this table.
 Each row in this table makes an offer available for all NFTs associated with that offer - loaded via transferring the NFT with the `offer_id` in the memo. Only NFTs matching the collection and template id for an offer will be accepted for a specific transfer.
 The fields in this table include:
@@ -65,7 +90,7 @@ The fields in this table include:
 * `available_count` - Should track and display the number of assets available for this offer.
 * `next_asset_id` - Gives a hint of the next NFT asset that would be redeemed from this offer if there is one available.
 
-### Pre-mint assets - <BlockExplorerTableLinks contract="uspts.worlds" table="preassets"/>
+### Pre-mint assets <BlockExplorerTableLinks contract="uspts.worlds" table="preassets"/>
 The NFT assets available for pre-minted NFTs will be available at this table.
 Each row in this table links an NFT asset held by this account to an associated Premint offer - loaded via transferring the NFT with the `offer_id` in the memo. Only NFTs matching the collection and template id for an offer will be accepted for a specific transfer.
 The fields in this table include:
@@ -73,7 +98,7 @@ The fields in this table include:
 * `offer_id` - the offer that this NFT is associated with.
 
 
-### Userpoints - <BlockExplorerTableLinks contract="uspts.worlds" table="userpoints"/>
+### Userpoints <BlockExplorerTableLinks contract="uspts.worlds" table="userpoints"/>
 All the user points for all users are held in this table.
 The fields in this table include:
 * `user` - this is the asset ID for the NFT as identified through Atomic Assets.
@@ -85,7 +110,7 @@ The fields in this table include:
 * `last_action_timestamp` - This tracks the user's last point earning action. It is mainly used as an internal reference to signal when the daily and weekly points are reset. eg. If a user's last action was yesterday reset the daily points otherwise increment the daily points.
 * `milestones` - a future proofing field that allows for storing of custom key/value storage of milestones each user may achieve. This is not currently used for anything but will be used in future features.
 
-### Level Offers - <BlockExplorerTableLinks contract="uspts.worlds" table="leveloffers"/>
+### Level Offers <BlockExplorerTableLinks contract="uspts.worlds" table="leveloffers"/>
 The Level NFTs that can be redeemed by users when they achieve lifetime point levels are specified here. These would match the user's `total_points` value.
 The fields in this table include:
 * `id` - a unique id for the level offer
@@ -93,7 +118,7 @@ The fields in this table include:
 * `template_id` - the Atomic Assets template that will be minted for the user when they claim this level
 * `required` - the number of points required to redeem this level
 
-### Point Offers - <BlockExplorerTableLinks contract="uspts.worlds" table="pointoffers"/>
+### Point Offers <BlockExplorerTableLinks contract="uspts.worlds" table="pointoffers"/>
 The Redeemable Point NFTs that can be redeemed by users when they achieve points are specified here. These would match the user's `redeemable_points` value.
 The fields in this table include:
 * `id` - a unique id for the level offer
