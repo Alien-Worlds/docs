@@ -15,6 +15,29 @@ import {BlockExplorerContractLinks, BlockExplorerActionLinks} from '@site/src/co
 
 This contract manages all the nomination, voting, tallying of votes and appointment of custodians at the conclusion of each election period. The ultimate outcome from this contract’s actions is to manage the permissions on the relevent DAO msig account. These allowed actions will be driven various multi-sig transactions leveraging off the the built-in sophisticated permission management tools available in the Antelope blockchain protocol. The parameters for the operations of the election process can be changed via a configuration object set on the contract via the `updateconfig` action.
 
+### Voting and elections Flow
+```mermaid
+sequenceDiagram
+autonumber
+actor Tr as Trigger
+actor V as Voter
+participant T as Token
+participant St as Staking Rules
+participant D as DAO Voting
+V->>+T: Stakes tokens
+V->>+D: Voter Votes
+activate D
+D->>+St: Reads Vote Power
+St->>T: Reads token/Stake details
+St->>-D: Applys DAO staking rules for vote power
+Tr->>D: Run new period[every 7 days]
+D->>D: Get top Candidates
+D->>D: Set top candidates to custodians
+D->>D: Set chain permissions for DAO custodians
+deactivate D
+
+```
+
 ## Actions:
 ---
 

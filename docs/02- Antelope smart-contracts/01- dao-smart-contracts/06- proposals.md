@@ -1,4 +1,4 @@
-# Proposals
+# Worker Proposals
 
 import {BlockExplorerContractLinks, BlockExplorerActionLinks, BlockExplorerTableLinks} from '@site/src/components/BlockExplorerLinks';
 
@@ -142,7 +142,7 @@ The fields included are:
 * job_duration; (uint32_t) - job duration in seconds. This is used to calculate the duration of the escrow lock time.
 * category: (uint16_t) - A numerical category for the proposal - used for vote delegation
 
-### proposals <BlockExplorerTableLinks contract="prop.worlds" table="propvotes"/>
+### Votes on proposals <BlockExplorerTableLinks contract="prop.worlds" table="propvotes"/>
 This table holds all the details about the votes for a proposal scoped to the related DAO in the table. 
 
 The fields included are:
@@ -154,7 +154,7 @@ The fields included are:
 * delegatee (optional name) - optional value for when the vote has been delegated to another custodian.
 * comment_hash (optional string) - optional comment/info  that could be associated with the vote.
 
-### proposals <BlockExplorerTableLinks contract="prop.worlds" table="configs"/>
+### Configurations <BlockExplorerTableLinks contract="prop.worlds" table="configs"/>
 This singleton table holds all the details about the votes for a proposal scoped to the related DAO in the table.
 This is stored as a key/value store so that is can be evolved without needing to do table migrations.
 

@@ -1,4 +1,14 @@
 # DAO Smart Contracts
+The DAO system comprises a collection of smart contracts that operate representative voting for DAOs (Decentralised Autonomous Organisations). Having the system architected across multiple smart contracts opens up tremendous opportunity for customization and feature evolution. It also follows the software industry's best practice of avoiding large monolithic codebases.
+In the pursuit of creating decentralized systems all the business logic occurs in smart contracts on-chain.
+Key features include:
+* Token management used to represent vote power
+* Token Staking for variable timeframe used to scale vote power
+* Representative DAO structure (Token holders vote for a group of leaders for the DAO)
+* timeboxed government periods to facilitate changing the voted-in DAO leaders
+* Secured management of DAO-owned assets, ensuring authorized transfers only with DAO consensus.
+* Complex Proposal system, managing lifecycles from the start, completion  and dispute resolution
+* Referendum system, as a separate feature to facilitate occasional decisions that warrant wider community engagement
 
 ```mdx-code-block
 import DocCardList from '@theme/DocCardList';
