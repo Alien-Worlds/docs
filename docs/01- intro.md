@@ -33,7 +33,7 @@ The architecture of the Alien Worlds Platform utilises blockchain functionality 
     *   Period actions that should run at a set time of frequency
     *   Handling Personal Identifiable Information (PIP)
     *   Processing of blockchain data to manipulate into a different format
-    *   Processing large volumes of low-value data for aggregate results
+    *   Processing large volumes of low-value data for aggregate results 
     *   Cache processing
     *   End-user query endpoints
 
