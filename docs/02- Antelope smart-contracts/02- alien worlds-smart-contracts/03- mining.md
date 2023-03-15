@@ -63,7 +63,7 @@ stores details about each miner's recent mining activity and current mining loca
   * uint64: current land
   
 ### <BlockExplorerTableLinks contract="m.federation" table="bags"/>
-stores all the NFTs owned and locked by an account while they are used mining. This relates to te cooldown of mining tools.
+stores all the NFTs owned and locked by an account while they are used mining. This relates to the cooldown of mining tools.
   * name: account
   * vector: items
   * bool: locked
