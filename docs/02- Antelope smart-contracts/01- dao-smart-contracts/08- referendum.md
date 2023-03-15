@@ -4,7 +4,7 @@ import {BlockExplorerContractLinks, BlockExplorerActionLinks, BlockExplorerTable
 
 ## <BlockExplorerContractLinks contract="ref.worlds"/>
 
-This smart contract provides the ability for DAOs to run referendums for all token holders in the DAO. This provides an alternative voting protocol for specific key decisions that can be justified to run as a referendum. It's expected these will be for big decisions that would be more for conscientious voting rather than pagmatic business-as-usual voting.
+This smart contract provides the ability for DAOs to run referendums for all token holders in the DAO. This provides an alternative voting protocol for specific key decisions that can be justified to run as a referendum. It's expected these will be for big decisions that would be more for conscientious voting rather than pragmatic business-as-usual voting.
 
 Referendums have 3 types which determine the effectiveness of referendum outcome:
 * **Non-binding** - This simply captures the group opinion of the DAO. It doesn't lead to the execution of any logic.
