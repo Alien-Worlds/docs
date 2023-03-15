@@ -5,7 +5,7 @@ Key features include:
 * Token management used to represent vote power
 * Token Staking for variable timeframe used to scale vote power
 * Representative DAO structure (Token holders vote for a group of leaders for the DAO)
-* timeboxed government periods to facilitate changing the voted-in DAO leaders
+* Timeboxed governance periods to facilitate changing the voted-in DAO leaders
 * Secured management of DAO-owned assets, ensuring authorized transfers only with DAO consensus.
 * Complex Proposal system, managing lifecycles from the start, completion  and dispute resolution
 * Referendum system, as a separate feature to facilitate occasional decisions that warrant wider community engagement
