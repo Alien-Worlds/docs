@@ -123,7 +123,7 @@ This action adds a social media reference for the DAO eg. twitter, Telegram to g
 * medium
 
 ### Disable Social Media <BlockExplorerActionLinks contract="index.worlds" action="setsociallnk"/>
-This action disables the social media sharing rather than removing all the links. This is intended as a simple switch to disable all the social links in one action without deleting them all. And will be switch automatically when there has been a significant governance change in the DAO eg. more than 3 of the 5 custodians has changed in one election. This is because that is assumed to be a signifcant change in the "voice" of her DAO. The elected custodians can turn it back on with an MSIG proposal.
+This action disables the social media sharing rather than removing all the links. This is intended as a simple switch to disable all the social links in one action without deleting them all. And will be switch automatically when there has been a significant governance change in the DAO eg. more than 3 of the 5 custodians has changed in one election. This is because that is assumed to be a signifcant change in the "voice" of the DAO. The elected custodians can turn it back on with an MSIG proposal.
 
 # Tables
 ---
