@@ -14,7 +14,7 @@ import {BlockExplorerContractLinks, BlockExplorerActionLinks} from '@site/src/co
 
 ## <BlockExplorerContractLinks contract="stkvt.worlds"/>
 
-This contract acts as an intermediary between the DAO token contract and the Custodian voting contract to enable custom manipulation of the staked tokens data to suit a specific DAO. The code logic in this contract converts the tokens staked with the time they are staked to provide a vote weight which is then used in the custodian voting contract to determine the vote weight as applied to the voting.
+This contract acts as an intermediary between the DAO token contract and the Custodian voting contract to enable custom manipulation of the staked tokens data to suit a specific DAO. The code logic in this contract converts the tokens staked with the time they are staked to provide a vote weight, which is then used in the custodian voting contract to determine the vote weight as applied to the voting.
 
 The current formula works as follows:
 
