@@ -8,7 +8,7 @@ id: overview
 ## Game platform overview
 ----------------------
 
-The Alien Worlds gaming platform is evolving with functionality. There is a high level roadmap that is gradually being built out by the core technical team but is also being updated as new information comes to light [https://alienworlds.io/roadmap/](https://alienworlds.io/roadmap/). A core technical principle is to build re-usable pieces or core components in the metaverse that can be leveraged by the community to use, and build upon to increase utility for TLM and NFTs and enable communities to create their own value in the Alien Worlds Metaverse.
+The Alien Worlds gaming platform is evolving with functionality. A core technical principle is to build re-usable pieces or core components in the metaverse that can be leveraged by the community to use, and build upon to increase utility for TLM and NFTs and enable communities to create their own value in the Alien Worlds Metaverse.
 
 The initial functionality is focused on a means of distributing TLM and NFTs throughout the community through inflation and game mechanics in mining and as rewards through other novel competitions, led by both the Federation and the community. The long term goal of this distribution is to empower many individuals and smaller groups in the community to grow the metaverse and ultimately decentralise the control away from any single or large controlling entity. To achieve this successfully will be a gradual process to avoid unexpected collections of wealth and control to develop while also ensuring no major technical problems are introduced which could be difficult to fix later in a decentralised system. This diagram gives a high-level overview of the current and future tokenomics of the project.
 
