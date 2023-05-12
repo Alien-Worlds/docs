@@ -95,25 +95,30 @@ const config = {
             title: 'Docs',
             items: [
               {
-                label: 'Tutorial',
-                to: '/',
+                label: 'Smart Contracts',
+                to: '/Antelope%20smart-contracts/',
               },
+
             ],
           },
           {
             title: 'Community',
             items: [
               {
-                label: 'Stack Overflow',
-                href: 'https://stackoverflow.com/questions/tagged/docusaurus',
+                label: 'Telegram',
+                href: 'https://t.me/AlienWorldsOffical',
               },
               {
                 label: 'Discord',
-                href: 'https://discordapp.com/invite/docusaurus',
+                href: 'https://discord.io/alienworldsofficial',
               },
               {
                 label: 'Twitter',
-                href: 'https://twitter.com/docusaurus',
+                href: 'https://twitter.com/alienworlds',
+              },
+              {
+                label: 'Instagram',
+                href: 'https://www.instagram.com/alienworlds.io/',
               },
             ],
           },
@@ -131,8 +136,8 @@ const config = {
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()
-          } My Project, Inc.Built with Docusaurus.`,
+        // copyright: `Copyright © ${new Date().getFullYear()
+        // } Alien Worlds`,
       },
       prism: {
         theme: lightCodeTheme,

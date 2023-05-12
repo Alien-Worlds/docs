@@ -50,7 +50,7 @@ The fields included are:
 * proposal_name (name) - potentially human readable name for a proposal
 * proposer (name) - the account of the account who has created this proposal
 * packed_transaction (bytes) - the packed transaction data that would be executed upon approval of the MSIG transaction
-* earliest_exec_time (time_point?) - This is the earliest the transaction could be executed derived from the `wait` permissions on the packed transaction.
+* earliest_exec_time (optional<time_point>) - This is the earliest the transaction could be executed derived from the `wait` permissions on the packed transaction.
 * modified_date (time_point_sec) - Tracks when the proposal has had an update such as a vote to approve.
 * state (uint8) - The state of the proposal - PENDING = 0, EXECUTED = 1, CANCELLED = 2
 * metadata (array of string-string pairs) - open key/value storage that could be added to the MSIG proposal.
