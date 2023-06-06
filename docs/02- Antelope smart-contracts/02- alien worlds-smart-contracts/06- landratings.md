@@ -6,10 +6,10 @@ import {BlockExplorerContractLinks, BlockExplorerActionLinks, BlockExplorerTable
 
 ### Problem Statement:
 
-Each day TLM token needs to be distributed to each account that holds a Land NFT. The amount to distribute is calculated based on the balance in the `terra.worlds` wax account divided equally to each Land NFT. If one account holds multiple Land NFTs the share of the TLM should be multiplied accordingly.
+Each day TLM token needs to be distributed to each account that holds a Land NFT. The amount to distribute is calculated based on the balance in the `awlndratings` wax account divided equally to each Land NFT. If one account holds multiple Land NFTs the share of the TLM should be multiplied accordingly.
 
 ```
-AmountDueForAccount = (terra.worlds TLM balance) / (the total number of land NFTs) x (number of land NFTs held by account)
+AmountDueForAccount = (awlndratings TLM balance) / (the total number of land NFTs) x (number of land NFTs held by account)
 
 ```
 
@@ -38,7 +38,7 @@ By encoding this distribution logic in a smart contract all the above problems c
 
 Rather than transferring the due amounts during the pay cycle to the destination account the processing creates or adds to the existing payment due amount for the NFT owner. The reason to do it this way is that it prevents a potential problem of a destination account having executable code triggered from the transfer action. If they did they could block the whole batch of transfers or more subtly execute arbitrary code with CPU paid for the DTAL contract. With this approach, the destination account would need to call the `claim` action at their own convenience in order to trigger the transfer to their account. Then if they have executable code on their account they would manage and pay for the CPU/NET for that action. It could also make accounting easier for the DTAL receiver since they would determine when to receive their due TLM.
 
-For landowners to execute the `claim` action the user could do this via [wax.blocks.io](http://wax.blocks.io/) on the smart contract where they would just enter their account as a parameter and then sign the transaction. It could eventually be built into the game UI but since the game UI focuses around Wax cloud wallet whereas many landowners own the land NFTs outside cloud wallets this would make the UI a little confusing. It would be more closely linked to the Teleport UI which support both WCW and Anchor.
+For landowners to execute the `claim` action the user could do this via [wax.bloks.io](http://wax.bloks.io/) on the smart contract where they would just enter their account as a parameter and then sign the transaction. It could eventually be built into the game UI but since the game UI focuses around Wax cloud wallet whereas many landowners own the land NFTs outside cloud wallets this would make the UI a little confusing. It would be more closely linked to the Teleport UI which support both WCW and Anchor.
 
 The next step to take this approach is to set the code and switch from using the off-chain script version to the smart contract DTAL version. This would need to be an all or nothing switch since the distribution calculation would need to be either in contract or script but could not be partial in both.
 
