@@ -35,8 +35,8 @@ Set the current land to mine on for a given miner (mint a tool if the miner is n
 * Mining delay (when combined with land.delay and a global multiplier) should have elapsed enough time from previous mine. Previous mining time is taken from the most recent of the `miner.prev_mine` time or the `last_time` of each the tools in the mining bag.
 * Mining difficulty (from land difficulty) < 15
 * Hash the {account}{time}{nonce} from miner and check the result has leading 0s. (its easier if the player has a `.wam` account.
-* Total the luck of all the non-abundant tools
-* Multiply the total luck with the land.luck factor
+* Calculate the total the luck of all the non-abundant tools
+* Multiply the total luck with the luck factor applied from the land being mined on.
 * Send the result of the total and land factored luck to add NFT user points for the miner in the user points contract.
 * Checks to see if the miner is a flagged
 * Fill the mine bucket with TLM based on time since last mine and the fill rate.
