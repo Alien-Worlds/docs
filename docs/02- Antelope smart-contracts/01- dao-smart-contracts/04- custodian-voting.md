@@ -78,13 +78,13 @@ This would be called by an existing candidate, including one that is currently a
 
 ### fire a candidate <BlockExplorerActionLinks contract="dao.worlds" action="firecand"/>
 :::caution
-This feature is currently disabled since it's a potential vulverbility for DAO governance.
+This feature is currently disabled since it's a potential vulnerability for DAO governance.
 :::
 This would be called by the currently elected custodians via the multi-sig auth account to remove a misbehaving candidate. 
 
 ### fire a custodian <BlockExplorerActionLinks contract="dao.worlds" action="firecust"/>
 :::caution
-This feature is currently disabled since it's a potential vulverbility for DAO governance.
+This feature is currently disabled since it's a potential vulnerability for DAO governance.
 :::
  Similar to the `firecand` this action will remove a currently elected custodian as actioned by the other custodians. This will remove the custodian from elected custodian group, remove them as a potential candidate for future elections and finally update the account permissions to reflect the new, reduced set of elected custodians.
 
