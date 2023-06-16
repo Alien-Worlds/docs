@@ -17,6 +17,12 @@ function BlockchainLink({ url, dark_image, light_image }) {
         }}
         width="25px"
         height="25px"
+        // style={{
+        //   width: '15%',
+        //   aspectRatio: '1/1',
+        //   objectFit: 'contain',
+        //   mixBlendMode: 'color-burn',
+        // }}
       />
     </a>
   );
