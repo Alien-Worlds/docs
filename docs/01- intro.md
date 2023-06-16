@@ -77,4 +77,4 @@ Solidity based blockchains (Ethereum and BSC) have more industry acceptance base
 
 This diagram shows all the interactions between the contracts
 
-![](https://t18330827.p.clickup-attachments.com/t18330827/cee8a060-e3c8-445b-989b-803d8e3a4285/Alien%20World%20Arch.png)
+![](https://viewer.diagrams.net/?tags=%7B%7D&highlight=0000ff&edit=_blank&layers=1&nav=1&title=Alien%20World%20Arch.drawio#Uhttps%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D1Gn8CYAEDINJT1_WVTOfK2f09rCBJquXZ%26export%3Ddownload)
