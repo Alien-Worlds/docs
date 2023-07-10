@@ -13,4 +13,4 @@ Solidity based blockchains (Ethereum and BNB) have more industry acceptance base
 
 This diagram shows all the interactions between the contracts
 
-![](https://t18330827.p.clickup-attachments.com/t18330827/cee8a060-e3c8-445b-989b-803d8e3a4285/Alien%20World%20Arch.png)
+![](../Alien%20World%20Arch.drawio.png)
