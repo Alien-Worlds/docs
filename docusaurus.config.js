@@ -4,6 +4,76 @@
 const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
+const docusuarus_docs = [
+  // {
+  //   name: "aw-api-dao",
+  //   repo: "aw-api-dao",
+  // out_dir: "aw-api-dao",
+  // },
+  // {
+  //   name: "aw-history",
+  //   repo: "aw-history",
+  // out_dir: "Components/aw-history",
+  // },
+  {
+    name: "aw-history-dao",
+    repo: "aw-history-dao",
+    out_dir: "01-aw-history-dao",
+  },
+  {
+    name: "aw-api-starter-kit",
+    repo: "aw-api-starter-kit",
+    out_dir: "02-Components/01-aw-api-starter-kit",
+  },
+  {
+    name: "aw-core",
+    repo: "aw-core",
+    out_dir: "02-Components/02-aw-core",
+  },
+  {
+    name: "aw-storage-mongodb",
+    repo: "aw-storage-mongodb",
+    out_dir: "02-Components/03-aw-storage-mongodb",
+  },
+  {
+    name: "aw-antelope",
+    repo: "aw-antelope",
+    out_dir: "02-Components/04-aw-antelope",
+  },
+  {
+    name: "aw-workers",
+    repo: "aw-workers",
+    out_dir: "02-Components/05-aw-workers",
+  },
+  {
+    name: "aw-broadcast",
+    repo: "aw-broadcast",
+    out_dir: "02-Components/06-aw-broadcast",
+  },
+  // {
+  //   name: "aliengen",
+  //   repo: "aliengen",
+  // out_dir: "02-Components/aliengen",
+  // },
+  // {
+  //   name: "aw-history-starter-kit", // Currently the same as the api starter kit
+  //   repo: "aw-history-starter-kit",
+  // out_dir: "aw-history-starter-kit",
+  // }
+]
+  .map((input, idx) => ([
+    "docusaurus-plugin-remote-content",
+    {
+      name: input.name, // used by CLI, must be path safe
+      sourceBaseUrl: `https://raw.githubusercontent.com/Alien-Worlds/${input.repo}/master/`,
+      outDir: `docs/03-API tools/${input.out_dir}`, // the base directory to output to.
+      documents: ["README.md"], // the file names to download
+      performCleanup: false, // removes the downloaded files after generation
+    },
+  ]))
+
+console.log(JSON.stringify(docusuarus_docs, null, 2));
+
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Alien Worlds Smart Contracts',
@@ -34,6 +104,9 @@ const config = {
   markdown: {
     mermaid: true,
   },
+  plugins: [
+    ...docusuarus_docs,
+  ],
   themes: ['@docusaurus/theme-mermaid'],
   presets: [
     [
