@@ -84,6 +84,10 @@ const docusuarus_docs = [
       documents: input.docs || ["README.md"], // the file names to download
       performCleanup: false, // removes the downloaded files after generation,
       modifyContent: (filename, content) => {
+        let lines = content.split("\n")
+        lines.splice(1, 0, `\n### [Source](https://github.com/Alien-Worlds/${input.repo})`)
+        content = lines.join("\n")
+
         content = content.replace("## License\n\n", "")
         content = content.replace("This project is licensed under the terms of the MIT license. For more information, refer to the [LICENSE](./LICENSE) file.\n", "")
         return { filename, content }

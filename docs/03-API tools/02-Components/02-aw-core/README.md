@@ -1,5 +1,7 @@
 # api-core
 
+### [Source](https://github.com/Alien-Worlds/aw-core)
+
 A set of classes, functions used in both API and history tools. Designed not to duplicate the same code in different projects if there is no need to do so.
 
 ## Components

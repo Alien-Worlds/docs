@@ -1,5 +1,7 @@
 # DAO History Tools
 
+### [Source](https://github.com/Alien-Worlds/aw-history-dao)
+
 DAO History tools are a collection of tools designed to retrieve contract data associated with DAOs (Decentralized Autonomous Organizations) from the EOS blockchain. These tools are built upon the components of the history tools starter kit, which utilize MongoDB and EOS. The entire operational logic of the history tools is implemented through dependencies, meaning this repository solely contains scripts that execute individual processes and processors necessary for data processing from the designated "featured" contracts.
 
 The contract components are implemented through the `@alien-worlds/<contract_name>-common` packages. These components, such as repositories, entities, and mappers, are exclusively used in processors. All pertinent contracts, along with their actions and deltas, are encompassed within the `dao.featured.json` file. If you wish to modify or add a contract, action, or delta, you must include it in this JSON file and create or adjust an existing processor in the `processor/processors` directory. Additionally, you should consider potential modifications to the `index.ts` file to ensure that all available processors are included.

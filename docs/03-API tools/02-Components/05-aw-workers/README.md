@@ -1,5 +1,7 @@
 # Workers
 
+### [Source](https://github.com/Alien-Worlds/aw-workers)
+
 Welcome to the Workers package - a part of the Alien Worlds project, an open-source project. Workers is a package built on the node.js `workers_threads` module, enabling scripts to run in parallel.
 
 ## Dependencies

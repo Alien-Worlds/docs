@@ -1,5 +1,7 @@
 # Description of configuration variables
 
+### [Source](https://github.com/Alien-Worlds/aw-history-starter-kit)
+
 This is more of a description than a tutorial. Here you will find information about the configuration variables that must be provided for history tools to work.
 
 [Back to Readme](../README.md)
