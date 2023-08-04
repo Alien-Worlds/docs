@@ -219,7 +219,4 @@ if (worker) {
 
 We welcome contributions from the community. Before contributing, please read through the existing issues on this repository to prevent duplicate submissions. New feature requests and bug reports can be submitted as an issue. If you would like to contribute code, please open a pull request.
 
-## License
-
-This project is licensed under the terms of the MIT license. For more information, refer to the [LICENSE](./LICENSE) file.
 

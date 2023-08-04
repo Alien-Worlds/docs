@@ -8,7 +8,7 @@ The following libraries are included in the Alien Worlds core library collection
 
 ### **[aw-history-dao](01-aw-history-dao/README.md)**: 
 The DAO History Tools tie together various tools to collect and process block history for smart contracts related to the DAOs. They are built on top of the History Tools Starter Kit, which uses MongoDB and Antelope. The entire operational logic of the DAO History Tools is implemented through dependencies, meaning that this repository only contains scripts that execute individual processes and processors necessary for data processing.
-### **[aw-api-starter-kit](02-Components/01-aw-api-starter-kit/README.md)**: 
+### **[aw-api-history-starter-kit](02-Components/01-aw-api-history-starter-kit/README.md)**: 
 A boilerplate project that can be used to create a new API using the included component libraries as used in the `aw-history-dao`.
 ### **[aw-core](02-Components/02-aw-core/README.md)**: 
 The core library containing common code components and types used in other libraries.

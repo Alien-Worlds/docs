@@ -140,6 +140,3 @@ By using `aw-storage-mongodb`, you'll have a toolbox at your disposal to quickly
 
 We encourage contributions from the community. If you have suggestions or features you'd like to see in the api-core package, please open an issue. For pull requests, ensure your changes are well documented and include tests where possible.
 
-## License
-
-This project is licensed under the terms of the MIT license. For more information, refer to the [LICENSE](./LICENSE) file.

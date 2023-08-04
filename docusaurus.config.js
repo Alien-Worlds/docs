@@ -6,12 +6,12 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 const docusuarus_docs = [
   // {
-  //   name: "aw-api-dao",
+  //////   name: "aw-api-dao",
   //   repo: "aw-api-dao",
   // out_dir: "aw-api-dao",
   // },
   // {
-  //   name: "aw-history",
+  //////   name: "aw-history",
   //   repo: "aw-history",
   // out_dir: "Components/aw-history",
   // },
@@ -19,56 +19,75 @@ const docusuarus_docs = [
     name: "aw-history-dao",
     repo: "aw-history-dao",
     out_dir: "01-aw-history-dao",
+    baseUrl: "https://raw.githubusercontent.com/Alien-Worlds/aw-history-dao/main/",
+    docs: ["README.md"]
   },
   {
-    name: "aw-api-starter-kit",
-    repo: "aw-api-starter-kit",
-    out_dir: "02-Components/01-aw-api-starter-kit",
+    name: "aw-history-starter-kit",
+    repo: "aw-history-starter-kit",
+    baseUrl: "https://raw.githubusercontent.com/Alien-Worlds/aw-history-starter-kit/main/",
+    out_dir: "02-Components/01-aw-api-history-starter-kit",
+    docs: ["README.md"]
+  },
+  {
+    name: "aw-history-starter-kit-tutorials",
+    repo: "aw-history-starter-kit",
+    baseUrl: "https://raw.githubusercontent.com/Alien-Worlds/aw-history-starter-kit/main/tutorials/",
+    out_dir: "02-Components/01-aw-api-history-starter-kit/tutorials",
+    docs: ['using-history-tools-starter-kit.md', 'config-vars.md']
   },
   {
     name: "aw-core",
     repo: "aw-core",
+    baseUrl: "https://raw.githubusercontent.com/Alien-Worlds/aw-core/main/",
     out_dir: "02-Components/02-aw-core",
+    docs: ["README.md"]
   },
   {
     name: "aw-storage-mongodb",
     repo: "aw-storage-mongodb",
+    baseUrl: "https://raw.githubusercontent.com/Alien-Worlds/aw-storage-mongodb/main/",
     out_dir: "02-Components/03-aw-storage-mongodb",
+    docs: ["README.md"]
   },
   {
     name: "aw-antelope",
     repo: "aw-antelope",
     out_dir: "02-Components/04-aw-antelope",
+    docs: ["README.md"]
   },
   {
     name: "aw-workers",
     repo: "aw-workers",
     out_dir: "02-Components/05-aw-workers",
+    docs: ["README.md"]
   },
   {
     name: "aw-broadcast",
     repo: "aw-broadcast",
     out_dir: "02-Components/06-aw-broadcast",
+    docs: ["README.md"]
   },
-  // {
+  // // // {
   //   name: "aliengen",
   //   repo: "aliengen",
   // out_dir: "02-Components/aliengen",
   // },
-  // {
-  //   name: "aw-history-starter-kit", // Currently the same as the api starter kit
-  //   repo: "aw-history-starter-kit",
-  // out_dir: "aw-history-starter-kit",
-  // }
+
 ]
   .map((input, idx) => ([
     "docusaurus-plugin-remote-content",
     {
       name: input.name, // used by CLI, must be path safe
-      sourceBaseUrl: `https://raw.githubusercontent.com/Alien-Worlds/${input.repo}/master/`,
+      sourceBaseUrl: input.baseUrl || `https://raw.githubusercontent.com/Alien-Worlds/${input.repo}/master/`,
       outDir: `docs/03-API tools/${input.out_dir}`, // the base directory to output to.
-      documents: ["README.md"], // the file names to download
-      performCleanup: false, // removes the downloaded files after generation
+      documents: input.docs || ["README.md"], // the file names to download
+      performCleanup: false, // removes the downloaded files after generation,
+      modifyContent: (filename, content) => {
+        content = content.replace("## License\n\n", "")
+        content = content.replace("This project is licensed under the terms of the MIT license. For more information, refer to the [LICENSE](./LICENSE) file.\n", "")
+        return { filename, content }
+      }
     },
   ]))
 
