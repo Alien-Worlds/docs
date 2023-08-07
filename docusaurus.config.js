@@ -5,16 +5,16 @@ const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 const docusuarus_docs = [
-  // {
-  //////   name: "aw-api-dao",
-  //   repo: "aw-api-dao",
-  // out_dir: "aw-api-dao",
-  // },
-  // {
-  //////   name: "aw-history",
-  //   repo: "aw-history",
-  // out_dir: "Components/aw-history",
-  // },
+  {
+    name: "aw-api-dao",
+    repo: "aw-api-dao",
+    out_dir: "aw-api-dao",
+  },
+  {
+    name: "aw-history",
+    repo: "aw-history",
+    out_dir: "Components/aw-history",
+  },
   {
     name: "aw-history-dao",
     repo: "aw-history-dao",
