@@ -50,13 +50,13 @@ Additionally, it integrates with [New Relic](https://newrelic.com/) for applicat
 - **Method:** GET
 - **Description:** A quick endpoint to check if the API is responding. It can be used for basic connectivity testing.
 
-For more details on how to write your API using this starter kit, please refer to the [How to Write API](./tutorials/how-to-write-api.md) guide.
+For more details on how to write your API using this starter kit, please refer to the [How to create API](https://github.com/Alien-Worlds/aw-api-starter-kit/blob/main/tutorials/how-to-create-api.md) guide.
 
 ## Helpful links:
 
-- [How to create an API? (using starter kit)](./tutorials/how-to-write-api.md)
-- [API Core tutorials](https://github.com/Alien-Worlds/api-core/tree/main/tutorials)
-- [History Tools Starter Kit tutorials](https://github.com/Alien-Worlds/history-tools-starter-kit/tree/main/tutorials)
+- [How to create an API? (using starter kit)](https://github.com/Alien-Worlds/aw-api-starter-kit/blob/main/tutorials/how-to-create-api.md)
+- [API Core tutorials](https://github.com/Alien-Worlds/aw-core/tree/main/tutorials)
+- [History Tools Starter Kit tutorials](https://github.com/Alien-Worlds/aw-history-starter-kit/tree/main/tutorials)
 
 ## Contributing
 
