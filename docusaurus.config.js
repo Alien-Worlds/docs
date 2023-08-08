@@ -8,12 +8,12 @@ const docusuarus_docs = [
   {
     name: 'aw-api-dao',
     repo: 'aw-api-dao',
-    out_dir: '01-Implementations/aw-api-dao',
+    out_dir: '01-Implementations/01-aw-api-dao',
   },
   {
     name: 'aw-history-dao',
     repo: 'aw-history-dao',
-    out_dir: '01-Implementations/aw-history-dao',
+    out_dir: '01-Implementations/02-aw-history-dao',
     baseUrl:
       'https://raw.githubusercontent.com/Alien-Worlds/aw-history-dao/main/',
     docs: ['README.md'],
