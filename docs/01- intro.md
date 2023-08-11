@@ -12,7 +12,7 @@ The Alien Worlds gaming platform is evolving with functionality. A core technica
 
 The initial functionality is focused on a means of distributing TLM and NFTs throughout the community through inflation and game mechanics in mining and as rewards through other novel competitions, led by both the Federation and the community. The long term goal of this distribution is to empower many individuals and smaller groups in the community to grow the metaverse and ultimately decentralise the control away from any single or large controlling entity. To achieve this successfully will be a gradual process to avoid unexpected collections of wealth and control to develop while also ensuring no major technical problems are introduced which could be difficult to fix later in a decentralised system. This diagram gives a high-level overview of the current and future tokenomics of the project.
 
-![](https://t18330827.p.clickup-attachments.com/t18330827/4fdf8a72-d2dc-458d-8299-44988e82de0d/tokenomics-v5-low-1800x1161-1.webp)
+![](./tokenomics-v5-low-1800x1161-1.png)
 
 The metaverse consists of a federation of planets. Each planet will be governed as a DAO (Decentralised Autonomous Organisation), where players of the game could participate in elections to appoint a board of councillors to govern each planet. The full DAO functionality has not yet been built as further research is being conducted to find the most effective DAO governing strategy.
 
