@@ -35,15 +35,7 @@ Redeemable user points can be redeemed by users for NFT offers as they see an of
 
 ## Distributing existing NFTs
 
-### Create and update offers for existing NFTs (available for anyone)
-<BlockExplorerActionLinks contract="uspts.worlds" action="crtpreoffer"/>
-<BlockExplorerActionLinks contract="uspts.worlds" action="updpreoffer"/>
-
-Anyone can add NFT offers for pre-existing NFTs. This can be achieved by first calling this action to create a new offer.
-Each offer can only be managed by the creator of the offer. Each offer must have a unique `offer_id`, and can only be created for one specific template in each collection. The required number of points required to redeem that NFT must be specified. The offer creator can then add a `message` and an optional `callback` to enable the offer creator to attach a user displayed meesage and smart contract logic to the offer redemption. The message is just a simple string e.g. "redeem this NFT offer to be added to the newest community game". Then the `callback` parameter could point to a smart contract which will be called via an inline action during the redeem action which the creator could have set up to add arbitary logic eg. adding the redeeming user to a user table in their community created game.
-
-Once the offer is created, NFT assets matching the offer collection and template_id can be added to the offer by transferring the assets to `uspts.worlds` with a specific memo to match the `offer_id`. eg. To add an asset to `offer_id` 123 the memo should contain only "123"
-This will result in an offer's `available_count` being incremented and the `next_asset_id` being set to the lowest asset id matching the offer. 
+Offers can be created for existing NFTs and will be visible as Community Offers. These types of offerscan be added by the DAOs and the details for creating the new offers can be found [here](./04.1-%20user-points-dao.md)
 
 ### Redeem user points for pre-minted NFTs <BlockExplorerActionLinks contract="uspts.worlds" action="redeemprenft"/>
 
@@ -74,6 +66,7 @@ deactivate U
 deactivate TP
 ```
 ---
+
 ## Tables
 
 ### Pre-mint Offers <BlockExplorerTableLinks contract="uspts.worlds" table="premintoffrs"/>
