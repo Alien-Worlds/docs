@@ -1,8 +1,10 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
-// const lightCodeTheme = require('prism-react-renderer');
-// const darkCodeTheme = require('prism-react-renderer/themes/dracula');
+const { themes } = require('prism-react-renderer');
+const lightTheme = themes.github;
+const darkTheme = themes.dracula;
+
 import type { Config } from '@docusaurus/types';
 import type { Options, ThemeConfig } from '@docusaurus/preset-classic';
 import type { SidebarsConfig } from '@docusaurus/plugin-content-docs';
@@ -175,7 +177,6 @@ const config: Config = {
   presets: [
     [
       'classic',
-      /** @type {import('@docusaurus/preset-classic').Options} */
       {
         docs: {
           routeBasePath: '/',
@@ -196,100 +197,98 @@ const config: Config = {
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
-      },
+      } satisfies Options,
     ],
   ],
-  themeConfig:
-    /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
-    {
-      // Replace with your project's social card
-      image: 'img/alienworlds-logo.webp',
-      navbar: {
-        title: 'Alien Worlds Docs',
-        logo: {
-          alt: 'Alien Worlds Logo',
-          src: 'img/alienworlds-logo.png',
-        },
-        items: [
-          // {
-          //   type: 'doc',
-          //   docId: 'overview',
-          //   position: 'left',
-          //   label: 'Tutorial',
-          // },
-          // { to: '/blog', label: 'Blog', position: 'left' },
-          {
-            href: 'https://github.com/Alien-Worlds/docs',
-            label: 'GitHub',
-            position: 'right',
-          },
-        ],
+  themeConfig: {
+    // Replace with your project's social card
+    image: 'img/alienworlds-logo.webp',
+    navbar: {
+      title: 'Alien Worlds Docs',
+      logo: {
+        alt: 'Alien Worlds Logo',
+        src: 'img/alienworlds-logo.png',
       },
-      footer: {
-        style: 'dark',
-        links: [
-          {
-            title: 'Docs',
-            items: [
-              {
-                label: 'Smart Contracts',
-                to: '/Antelope%20smart-contracts/',
-              },
-            ],
-          },
-          {
-            title: 'Community',
-            items: [
-              {
-                label: 'Telegram',
-                href: 'https://t.me/AlienWorldsOffical',
-              },
-              {
-                label: 'Discord',
-                href: 'https://discord.io/alienworldsofficial',
-              },
-              {
-                label: 'Twitter',
-                href: 'https://twitter.com/alienworlds',
-              },
-              {
-                label: 'Instagram',
-                href: 'https://www.instagram.com/alienworlds.io/',
-              },
-            ],
-          },
-          {
-            title: 'More',
-            items: [
-              // {
-              //   label: 'Blog',
-              //   to: '/blog',
-              // },
-              {
-                label: 'GitHub',
-                href: 'https://github.com/alienworlds/docs',
-              },
-            ],
-          },
-        ],
-        // copyright: `Copyright © ${new Date().getFullYear()
-        // } Alien Worlds`,
-      },
-      // prism: {
-      //   theme: lightCodeTheme,
-      //   darkTheme: darkCodeTheme,
-      // },
-      mermaid: {
-        options: {
-          diagramMarginX: 20,
-          diagramMarginY: 30,
-          boxTextMargin: 5,
-          noteMargin: 10,
-          messageMargin: 35,
-          mirrorActors: false,
+      items: [
+        // {
+        //   type: 'doc',
+        //   docId: 'overview',
+        //   position: 'left',
+        //   label: 'Tutorial',
+        // },
+        // { to: '/blog', label: 'Blog', position: 'left' },
+        {
+          href: 'https://github.com/Alien-Worlds/docs',
+          label: 'GitHub',
+          position: 'right',
         },
+      ],
+    },
+    footer: {
+      style: 'dark',
+      links: [
+        {
+          title: 'Docs',
+          items: [
+            {
+              label: 'Smart Contracts',
+              to: '/Antelope%20smart-contracts/',
+            },
+          ],
+        },
+        {
+          title: 'Community',
+          items: [
+            {
+              label: 'Telegram',
+              href: 'https://t.me/AlienWorldsOffical',
+            },
+            {
+              label: 'Discord',
+              href: 'https://discord.io/alienworldsofficial',
+            },
+            {
+              label: 'Twitter',
+              href: 'https://twitter.com/alienworlds',
+            },
+            {
+              label: 'Instagram',
+              href: 'https://www.instagram.com/alienworlds.io/',
+            },
+          ],
+        },
+        {
+          title: 'More',
+          items: [
+            // {
+            //   label: 'Blog',
+            //   to: '/blog',
+            // },
+            {
+              label: 'GitHub',
+              href: 'https://github.com/alienworlds/docs',
+            },
+          ],
+        },
+      ],
+      // copyright: `Copyright © ${new Date().getFullYear()
+      // } Alien Worlds`,
+    },
+    prism: {
+      theme: lightTheme,
+      darkTheme: darkTheme,
+    },
+    mermaid: {
+      options: {
+        diagramMarginX: 20,
+        diagramMarginY: 30,
+        boxTextMargin: 5,
+        noteMargin: 10,
+        messageMargin: 35,
+        mirrorActors: false,
       },
     },
+  } satisfies ThemeConfig,
 };
 
 export default config;
