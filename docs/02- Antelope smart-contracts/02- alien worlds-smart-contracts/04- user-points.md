@@ -43,7 +43,6 @@ This requires an offer_id  as is similar to current redeem action but the offers
 Upon successful redemption, the NFT will be transferred to the redeemer and the optional callback logic will be executed.
 It's similar to the current process to redeem offers but the UI will need to call this action instead for the preminted offers:
 
-
 ```mermaid
 sequenceDiagram
 autonumber
