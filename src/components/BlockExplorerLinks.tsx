@@ -1,4 +1,4 @@
-import React from 'react';
+// import React from 'react';
 import ThemedImage from '@theme/ThemedImage';
 
 function BlockchainLink({ url, dark_image, light_image }) {

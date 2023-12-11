@@ -1,8 +1,11 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
-const lightCodeTheme = require('prism-react-renderer/themes/github');
-const darkCodeTheme = require('prism-react-renderer/themes/dracula');
+// const lightCodeTheme = require('prism-react-renderer');
+// const darkCodeTheme = require('prism-react-renderer/themes/dracula');
+import type { Config } from '@docusaurus/types';
+import type { Options, ThemeConfig } from '@docusaurus/preset-classic';
+import type { SidebarsConfig } from '@docusaurus/plugin-content-docs';
 
 const docusuarus_docs = [
   {
@@ -115,6 +118,7 @@ const docusuarus_docs = [
     outDir: `docs/03-API tools/${input.out_dir}`, // the base directory to output to.
     documents: input.docs || ['README.md'], // the file names to download
     performCleanup: false, // removes the downloaded files after generation,
+    noRuntimeDownloads: true, // skips downloading files at runtime
     modifyContent: (filename, content) => {
       let lines = content.split('\n');
       lines.splice(
@@ -134,10 +138,10 @@ const docusuarus_docs = [
   },
 ]);
 
-console.log(JSON.stringify(docusuarus_docs, null, 2));
+// console.log(JSON.stringify(docusuarus_docs, null, 2));
 
 /** @type {import('@docusaurus/types').Config} */
-const config = {
+const config: Config = {
   title: 'Alien Worlds Smart Contracts',
   tagline: 'DAOs Everywhere',
   favicon: 'img/favicon.ico',
@@ -172,7 +176,7 @@ const config = {
     [
       'classic',
       /** @type {import('@docusaurus/preset-classic').Options} */
-      ({
+      {
         docs: {
           routeBasePath: '/',
           // sidebarPath: require.resolve('./sidebars.js'),
@@ -192,12 +196,12 @@ const config = {
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
-      }),
+      },
     ],
   ],
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
-    ({
+    {
       // Replace with your project's social card
       image: 'img/alienworlds-logo.webp',
       navbar: {
@@ -271,10 +275,10 @@ const config = {
         // copyright: `Copyright © ${new Date().getFullYear()
         // } Alien Worlds`,
       },
-      prism: {
-        theme: lightCodeTheme,
-        darkTheme: darkCodeTheme,
-      },
+      // prism: {
+      //   theme: lightCodeTheme,
+      //   darkTheme: darkCodeTheme,
+      // },
       mermaid: {
         options: {
           diagramMarginX: 20,
@@ -285,7 +289,7 @@ const config = {
           mirrorActors: false,
         },
       },
-    }),
+    },
 };
 
-module.exports = config;
+export default config;
