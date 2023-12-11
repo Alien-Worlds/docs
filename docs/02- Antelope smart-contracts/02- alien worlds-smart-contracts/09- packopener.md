@@ -25,7 +25,7 @@ A pack has a name, symbol and bonus token asset. Once a pack has been added, it 
   * requires auth `open.worlds@active`
 * `delpack(name pack_name)`
   * requires auth `open.worlds@active`
-* Cards - Each pack has cards associated with them that are assigned with {crate, probability} tuples. All the probabilities for each card added to a pack must add up to 100%. Once these cards are added to a pack their {crate, probability} values can be edited (as long as the total probabilities still totals to 100%. A card can also be deleted from a pack.
+* Cards - Each pack has cards associated with them that are assigned with \{crate, probability\} tuples. All the probabilities for each card added to a pack must add up to 100%. Once these cards are added to a pack their \{crate, probability\} values can be edited (as long as the total probabilities still totals to 100%. A card can also be deleted from a pack.
   * `addcard(name pack_name, uint64_t card_id, vector<cardprob> card_probabilities)`
   * `editcard(uint64_t card_id, vector<cardprob> card_probabilities)`
   * `delcard(uint64_t card_id)`

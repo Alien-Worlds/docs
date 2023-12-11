@@ -109,7 +109,7 @@ stores which versions of the terms and conditions each user has agreed to.
 ### Planet table  <BlockExplorerTableLinks contract ="federation" table="planets"/> 
 stores planet specific global values used for various actions involving specif planets.
   * name: planet name
-  * string: title>>><
+  * string: title
   * string: metadata
   * symbol: dac\_symbol
   * bool: active

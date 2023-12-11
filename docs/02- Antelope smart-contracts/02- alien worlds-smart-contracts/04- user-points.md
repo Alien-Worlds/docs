@@ -35,7 +35,7 @@ Redeemable user points can be redeemed by users for NFT offers as they see an of
 
 ## Distributing existing NFTs
 
-Offers can be created for existing NFTs and will be visible as Community Offers. These types of offerscan be added by the DAOs and the details for creating the new offers can be found [here](./04.1-%20user-points-dao.md)
+Offers can be created for existing NFTs and will be visible as Community Offers. These types of offerscan be added by the DAOs and the details for creating the new offers can be found [here](./Decentralization/01-%20user-points.md)
 
 ### Redeem user points for pre-minted NFTs <BlockExplorerActionLinks contract="uspts.worlds" action="redeemprenft"/>
 

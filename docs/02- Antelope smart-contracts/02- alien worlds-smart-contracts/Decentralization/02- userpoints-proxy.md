@@ -1,4 +1,6 @@
 # User Points Proxy
+import {BlockExplorerContractLinks, BlockExplorerActionLinks, BlockExplorerTableLinks} from '@site/src/components/BlockExplorerLinks';
+
 
 The userpoints distribution is being opened up to be controlled by the new DAOs (within some safe limits). Each DAO will be allocated a budget of user points that can be distributed within a given time period. With this allocation can choose to distribute this one one or multiple games/dapps with a time cadence of their choosing. They can also choose to withdraw the budget and reallocate it to another group if they are not happy with the behaviour of given group, as long as the group has not already exceeded the amount they are attempting to withdraw for the given time period.
 
@@ -13,7 +15,6 @@ If Group C was not performing as expected the allocation could be withdrawn and 
 The budget is stored and calculated as Number_of_Points/Seconds and the DAOs can determine how best to allocate these budgets. In practice the smart contract actions will return a error if the budget is exceeded. And while it may seem complicated, the purpose is to ensure the NFT point allocation system stays in balance while giving the DAOs the freedom and flexibility to manage point allocations how they like.
 
 ## Contract details:
-import {BlockExplorerContractLinks, BlockExplorerActionLinks} from '@site/src/components/BlockExplorerLinks';
 
 ### Set Budgets <BlockExplorerActionLinks contract="ptpxy.worlds" action="setbudget"/>
 A DAO with an allocation of user points can set a budget for a game/dapp using this action. The required params include:
