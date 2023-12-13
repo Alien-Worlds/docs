@@ -13,6 +13,16 @@ With these control in place, when a user mines on a specific land, the commissio
 
 The same logic is also available for the maximum land commissions.
 
+### Authorized Parties
+Actions related to this feature will be authorized by the following:
+* <BlockExplorerContractLinks contract="megalos.dac"/>
+* <BlockExplorerContractLinks contract="eyeke.dac"/> (planet specific)
+* <BlockExplorerContractLinks contract="kavian.dac"/> (planet specific)
+* <BlockExplorerContractLinks contract="magor.dac"/> (planet specific)
+* <BlockExplorerContractLinks contract="naron.dac"/> (planet specific)
+* <BlockExplorerContractLinks contract="neri.dac"/> (planet specific)
+* <BlockExplorerContractLinks contract="veles.dac"/> (planet specific)
+
 ### Set global minimum land commission <BlockExplorerActionLinks contract="awlndratings" action="stgminlndcom"/>
 This action requires a single parameter to be set for the global minimum land commission. The parameter represents a percentage with 2 decimal places as an integer. Eg. to set the global minimum to 20% the parameter should 2000.
 

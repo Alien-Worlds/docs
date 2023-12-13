@@ -17,12 +17,9 @@ function BlockchainLink({ url, dark_image, light_image }) {
         }}
         width="25px"
         height="25px"
-        // style={{
-        //   width: '15%',
-        //   aspectRatio: '1/1',
-        //   objectFit: 'contain',
-        //   mixBlendMode: 'color-burn',
-        // }}
+        style={{
+          marginBottom: '-5px',
+        }}
       />
     </a>
   );
@@ -31,7 +28,7 @@ function BlockchainLink({ url, dark_image, light_image }) {
 export function BlockExplorerContractLinks({ contract }) {
   return (
     <span>
-      Blockchain: <code>{`${contract}`}</code>
+      <code>{`${contract}`}</code>
       <BlockchainLink
         url={`https://wax.bloks.io/account/${contract}`}
         light_image={'/img/bloks_logomark_dark.png'}

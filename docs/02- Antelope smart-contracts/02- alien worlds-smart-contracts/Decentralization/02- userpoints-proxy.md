@@ -14,6 +14,13 @@ This would add to a total of 1000,000 points every 30 days.
 If Group C was not performing as expected the allocation could be withdrawn and given to another group on the same or different time cycle as long as the total rate is still within the DAO's allocated budget.
 The budget is stored and calculated as Number_of_Points/Seconds and the DAOs can determine how best to allocate these budgets. In practice the smart contract actions will return a error if the budget is exceeded. And while it may seem complicated, the purpose is to ensure the NFT point allocation system stays in balance while giving the DAOs the freedom and flexibility to manage point allocations how they like.
 
+### Authorized Parties
+Actions related to this feature will be authorized by the following:
+* <BlockExplorerContractLinks contract="megalos.dac"/>
+* <BlockExplorerContractLinks contract="trilara.dac"/>
+* <BlockExplorerContractLinks contract="synthar.dac"/>
+* <BlockExplorerContractLinks contract="khaurex.dac"/>
+
 ## Contract details:
 
 ### Set Budgets <BlockExplorerActionLinks contract="ptpxy.worlds" action="setbudget"/>

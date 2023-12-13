@@ -34,6 +34,17 @@ struct mining_data {
 It's advisable to check the sender is `m.federation` to ensure your custom logic is not being called by anyone, bypassing the mine action.
 :::
 
+### Authorized Parties
+Actions related to this feature will be authorized by the following:
+* <BlockExplorerContractLinks contract="megalos.dac"/>
+* <BlockExplorerContractLinks contract="trilara.dac"/>
+* <BlockExplorerContractLinks contract="eyeke.dac"/> (planet specific)
+* <BlockExplorerContractLinks contract="kavian.dac"/> (planet specific)
+* <BlockExplorerContractLinks contract="magor.dac"/> (planet specific)
+* <BlockExplorerContractLinks contract="naron.dac"/> (planet specific)
+* <BlockExplorerContractLinks contract="neri.dac"/> (planet specific)
+* <BlockExplorerContractLinks contract="veles.dac"/> (planet specific)
+
 ## Whitelisting mine notifications
 To prevent anyone from being able to abuse the mining game by adding themselves to any mine action, there is now a whitelist functionality to allow selected accounts to be authorized to receive inline notify actions from a mine. Authorized DAO/MSIG groups will be allowed to add and remove accounts from the whitelist. Each planet has a unique whitelist so there may be different functionality dependng on which planet a user is mining on.
 

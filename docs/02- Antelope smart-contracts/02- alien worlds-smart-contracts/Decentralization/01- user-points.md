@@ -20,6 +20,11 @@ The inline notification action will be called on each smart contract account and
  It's important to ensure the sender is only from `uspts.worlds` to ensure that the custom logic could not be faked from an impersonating user points account.
 :::
 
+### Authorized Parties
+Actions related to this feature will be authorized by the following:
+* <BlockExplorerContractLinks contract="megalos.dac"/>
+* <BlockExplorerContractLinks contract="trilara.dac"/>
+* <BlockExplorerContractLinks contract="synthar.dac"/>
 
 ### Add to the whitelist <BlockExplorerActionLinks contract="uspts.worlds" action="addwhitelist"/> 
 
@@ -32,6 +37,13 @@ To remove an account from the whitelist only the `account` to be removed needs t
 
 ## Manage Premint NFT Offers
 Userpoints (shards) can be redeemed for either new NFTs via the Outpost feature in the Alien Worlds UI, which will mint a new NFT for a given offer, or they could redeem points for an already existing NFT (AKA Community Offers). Up until now both of these offers have been managed by Dacoco to ensure the userpoints and NFT economy stays in balance. Now we are are opening up the community NFT offers to the DAOs to enable existing NFTs to be made available for user point redemption. A lot of the details about the preminted NFTs process already exists and is descibed in [here](../04-%20user-points.md). The new part, relevent to the DAOs, is added new capability for them to manage new offers.
+
+### Authorized Parties
+Actions related to this feature will be authorized by the following:
+* <BlockExplorerContractLinks contract="megalos.dac"/>
+* <BlockExplorerContractLinks contract="trilara.dac"/>
+* <BlockExplorerContractLinks contract="synthar.dac"/>
+* <BlockExplorerContractLinks contract="khaurex.dac"/>
 
 ### Create new offer <BlockExplorerActionLinks contract="uspts.worlds" action="crtpreoffer"/>
 
