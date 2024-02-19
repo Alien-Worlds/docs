@@ -28,7 +28,7 @@ Actions related to this feature will be authorized by the following:
 
 ### Add to the whitelist <BlockExplorerActionLinks contract="uspts.worlds" action="addwhitelist"/> 
 
-This action adds an account to the whitelist. It requires the parameter for the `account` to be added and the `authorizer` to be specified. The action requires the authorization of the `authorizer` for the execution to succeed and since this action is linked to the a custom `whitelist` permission on the contract it also requires the permission of `uspts.worlds@whitelist` when the MSIG proposal is created. Here is an example MSIG proposal with the correct auths in place. https://wax.bloks.io/msig/ameet.worlds/testpwhite
+This action adds an account to the whitelist. It requires the parameter for the `account` to be added and the `authorizer` to be specified. The action requires the authorization of the `authorizer` for the execution to succeed and since this action is linked to the a custom `whitelist` permission on the contract it also requires the permission of `uspts.worlds@whitelist` when the MSIG proposal is created. Here is an example MSIG proposal with the correct auths in place. https://wax.bloks.io/msig/demo.worlds/upwhiteldemo
 Notice there two authorizations specifed. The reason the authorizer needs to be specifed and requiring the extra auth is because each group has a very limited quota of accounts they can add and it is important that a different group is not able to consume that quota unauthorized from another group.
 
 ### Remove from the whitelist <BlockExplorerActionLinks contract="uspts.worlds" action="rmvwhitelist"/> 
@@ -63,7 +63,7 @@ See below for details about the callback inline action.
 Once the offer is created, NFT assets matching the offer `collection_name` and `template_id` can be added to the offer by transferring the assets to `uspts.worlds` with a specific memo to match the `offer_id`. eg. To add an asset to `offer_id` with id `123` the memo should contain only "123"
 This will result in an offer's `available_count` being incremented and the `next_asset_id` being set to the lowest asset id matching the offer.
 
-To create a new premint offer an MSIG proposal must be created which includes the fields as descibed above. This action requires the authorization of the creator (ie. one of the groups) and the auth of `uspts@preoffer` that has been linked to the action. Here is an example proposal https://wax.bloks.io/msig/ameet.worlds/testpreoffer
+To create a new premint offer an MSIG proposal must be created which includes the fields as descibed above. This action requires the authorization of the creator (ie. one of the groups) and the auth of `uspts@preoffer` that has been linked to the action. Here is an example proposal https://wax.bloks.io/msig/demo.worlds/preofferdem
 
 :::note
 there are 2 authorizations that are required in the action.

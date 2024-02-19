@@ -39,18 +39,18 @@ Once testing is complete the `exitdebug` action can be called by the `points_man
 
 To execute this action an MSIG transaction needs to be proposed with the authorizer set as the `<group>@active`with allocator also being set to the group account eg. megalos.dac. 
 
-Here is an example: https://wax.bloks.io/msig/ameet.worlds/budgseteg
+Here is an example: https://wax.bloks.io/msig/demo.worlds/setbudgdemo
 
 ### Add to existing budget <BlockExplorerActionLinks contract="ptpxy.worlds" action="addbudget"/>
 An existing `points_manager` can have their budget increased by a group using this action. This will only succeed if a budget has been previously set for the `points_manager` and the group has enough allocation to distribute. It will be based on the existing timeframe for the `points_manager`. 
 
 To execute this action as a group an MSIG transaction needs to be proposed with the authorizer set as the `<group>@active`with allocator also being set to the group account eg. megalos.dac.
 
-Here is an example: https://wax.bloks.io/msig/ameet.worlds/addbudgeteg
+Here is an example: https://wax.bloks.io/msig/demo.worlds/addbudgetdem
 
 ### Withdraw existing budget <BlockExplorerActionLinks contract="ptpxy.worlds" action="withdrawbudg"/>
 An existing `points_manager` can have their budget decreased by a group using this action. This will only succeed if the `points_manager` has not allocated more than the budget that is being withdrawn. If the optional value for the budget to withdraw is not set (`null`), then this action will withdraw all the available budget from the points_manager and add that allocation to the allocating group.
 
 To execute this action as a group an MSIG transaction needs to be proposed with the authorizer set as the `<group>@active`with allocator also being set to the group account eg. megalos.dac.
 
-Here is an example: https://wax.bloks.io/msig/ameet.worlds/withdrbudgeg
+Here is an example: https://wax.bloks.io/msig/demo.worlds/withdrbuddem

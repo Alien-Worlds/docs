@@ -27,19 +27,19 @@ Actions related to this feature will be authorized by the following:
 This action requires a single parameter to be set for the global minimum land commission. The parameter represents a percentage with 2 decimal places as an integer. Eg. to set the global minimum to 20% the parameter should 2000.
 
 For this action to be executed as an MSIG action, the authority of the the MSIG group AND the contract of `awlndratings@landcomm` is required. This is due to how the permission is configured on the account and to to make it easy to change later without requiring a smart contract change.
-Here is a sample MSIG proposal to set the minimum to 23% for the Megalos group: https://waxblock.io/msig/ameet.worlds/lndcomgmin
+Here is a sample MSIG proposal to set the minimum to 23% for the Megalos group: https://wax.bloks.io/msig/demo.worlds/lndcomingdem
 
 ### Set global maximum land commission <BlockExplorerActionLinks contract="awlndratings" action="stgmaxlndcom"/>
 This action requires a single parameter to be set for the global maximum land commission. The parameter represents a percentage with 2 decimal places as an integer. Eg. to set the global maximum to 83% the parameter should 8300.
 
 For this action to be executed as an MSIG action, the authority of the the MSIG group AND the contract of `awlndratings@landcomm` is required. This is due to how the permission is configured on the account and to to make it easy to change later without requiring a smart contract change.
-Here is a sample MSIG proposal to set the maximum to 83% for the Megalos group: https://waxblock.io/msig/ameet.worlds/lndcomgmax
+Here is a sample MSIG proposal to set the maximum to 83% for the Megalos group: https://wax.bloks.io/msig/demo.worlds/lndcomaxgdem
 
 ### Set planet minimum land commission <BlockExplorerActionLinks contract="awlndratings" action="setminlndcom"/>
 This action requires the planet to set the minimum for eg. `eyeke.world` and the value minimum land commission. The parameter represents a percentage with 2 decimal places as an integer. Eg. to set the global minimum to 20% the parameter should 2000.
 
 For this action to be executed as an MSIG action, only the authority of the the MSIG group is required.
-Here is a sample MSIG proposal to set the minimum to 23% for the eyeke planet group: TODO: add MSIG here
+Here is a sample MSIG proposal to set the minimum to 23% for the eyeke planet group: https://wax.bloks.io/msig/demo.worlds/lndcommindem
 
 :::note
 the controlling DAO (`eyeke.dac`) is different than the specified planet (`eyeke.world`). This is because there is a slight technical separation between the the planet blockchain accocunts and the governing DAO for each planet. The `<planet>.world` and `<planet>.dac` patten holds across each planet with the execption of Neri where the dac account is `nerix.dac`
@@ -49,7 +49,7 @@ the controlling DAO (`eyeke.dac`) is different than the specified planet (`eyeke
 This action requires the planet to set the maximum for eg. `eyeke.world` and the value maximum land commission. The parameter represents a percentage with 2 decimal places as an integer. Eg. to set the global maximum to 83% the parameter should 8300.
 
 For this action to be executed as an MSIG action, only the authority of the the MSIG group is required.
-Here is a sample MSIG proposal to set the maximum to 83% for the eyeke planet group: https://waxblock.io/msig/ameet.worlds/lndcommax
+Here is a sample MSIG proposal to set the maximum to 83% for the eyeke planet group: https://wax.bloks.io/msig/demo.worlds/lndcommaxdem
 
 :::note
 the controlling DAO (`eyeke.dac`) is different than the specified planet (`eyeke.world`). This is because there is a slight technical separation between the the planet blockchain accocunts and the governing DAO for each planet. The `<planet>.world` and `<planet>.dac` patten holds across each planet with the execption of Neri where the dac account is `nerix.dac`
