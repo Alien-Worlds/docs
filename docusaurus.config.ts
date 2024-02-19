@@ -147,6 +147,8 @@ const config: Config = {
   title: 'Alien Worlds Smart Contracts',
   tagline: 'DAOs Everywhere',
   favicon: 'img/favicon.ico',
+  organizationName: 'alienworlds', // Usually your GitHub org/user name.
+  projectName: 'docs', // Usually your repo name.
 
   // Set the production url of your site here
   url: 'https://your-docusaurus-test-site.com',
