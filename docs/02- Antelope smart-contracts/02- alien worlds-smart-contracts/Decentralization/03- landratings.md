@@ -42,7 +42,7 @@ For this action to be executed as an MSIG action, only the authority of the the 
 Here is a sample MSIG proposal to set the minimum to 23% for the eyeke planet group: https://wax.bloks.io/msig/demo.worlds/lndcommindem
 
 :::note
-the controlling DAO (`eyeke.dac`) is different than the specified planet (`eyeke.world`). This is because there is a slight technical separation between the the planet blockchain accocunts and the governing DAO for each planet. The `<planet>.world` and `<planet>.dac` patten holds across each planet with the execption of Neri where the dac account is `nerix.dac`
+the controlling DAO (`eyeke.dac`) is different than the specified planet (`eyeke.world`). This is because there is a slight technical separation between the the planet blockchain accocunts and the governing DAO for each planet. The `<planet>.world` and `<planet>.dac` patten holds across each planet with the execption of Neri where the dac account is `neri.dac`
 :::
 
 ### Set planet maximum land commission <BlockExplorerActionLinks contract="awlndratings" action="setmaxlndcom"/>
@@ -52,5 +52,5 @@ For this action to be executed as an MSIG action, only the authority of the the 
 Here is a sample MSIG proposal to set the maximum to 83% for the eyeke planet group: https://wax.bloks.io/msig/demo.worlds/lndcommaxdem
 
 :::note
-the controlling DAO (`eyeke.dac`) is different than the specified planet (`eyeke.world`). This is because there is a slight technical separation between the the planet blockchain accocunts and the governing DAO for each planet. The `<planet>.world` and `<planet>.dac` patten holds across each planet with the execption of Neri where the dac account is `nerix.dac`
+the controlling DAO (`eyeke.dac`) is different than the specified planet (`eyeke.world`). This is because there is a slight technical separation between the the planet blockchain accocunts and the governing DAO for each planet. The `<planet>.world` and `<planet>.dac` patten holds across each planet with the execption of Neri where the dac account is `neri.dac`
 :::
