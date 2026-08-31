@@ -2,6 +2,7 @@
   "name": "docs-dao",
   "version": "0.0.0",
   "private": true,
+  "packageManager": "pnpm@9.15.4",
   "scripts": {
     "docusaurus": "docusaurus",
     "start": "docusaurus start",
@@ -30,8 +31,10 @@
   },
   "devDependencies": {
     "@docusaurus/module-type-aliases": "^3.0.0",
-    "@docusaurus/types": "^3.0.0",
+    "@docusaurus/theme-classic": "^3.0.0",
     "@docusaurus/tsconfig": "3.0.0",
+    "@docusaurus/types": "^3.0.0",
+    "@types/node": "^26.4.0",
     "typescript": "~5.2.2"
   },
   "browserslist": {
@@ -47,6 +50,6 @@
     ]
   },
   "engines": {
-    "node": ">=18.0"
+    "node": ">=20.0"
   }
 }
