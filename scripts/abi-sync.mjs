@@ -21,7 +21,7 @@
  * gates *new* drift from day one while the backlog is worked down. Removing a
  * line from the baseline is how a fix gets locked in.
  */
-import { readFile, writeFile, mkdir, readdir } from 'node:fs/promises';
+import { readFile, writeFile, mkdir, readdir, unlink } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -172,6 +172,17 @@ async function doFetch(contracts) {
       console.error(`FAILED ${account}: ${err.message}`);
     }
   }
+  // Drop caches for contracts the docs no longer make action/table claims
+  // about. --fetch would never refresh them again, so they would sit here
+  // going quietly stale and look authoritative.
+  const keep = new Set(contracts.map((c) => `${c}.json`));
+  for (const file of await readdir(ABI_DIR)) {
+    if (!file.endsWith('.json') || file === 'drift-baseline.json') continue;
+    if (keep.has(file)) continue;
+    await unlink(path.join(ABI_DIR, file));
+    console.log(`pruned ${file} (no action/table claims reference it)`);
+  }
+
   if (failures.length) {
     console.error(`\n${failures.length} ABI fetch(es) failed.`);
     process.exit(1);
