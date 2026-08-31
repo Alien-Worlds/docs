@@ -1,0 +1,1224 @@
+{
+  "account": "dao.worlds",
+  "version": "eosio::abi/1.2",
+  "actions": [
+    {
+      "name": "addwl",
+      "type": "addwl"
+    },
+    {
+      "name": "appointcust",
+      "type": "appointcust"
+    },
+    {
+      "name": "balanceobsv",
+      "type": "balanceobsv"
+    },
+    {
+      "name": "claimbudget",
+      "type": "claimbudget"
+    },
+    {
+      "name": "claimpay",
+      "type": "claimpay"
+    },
+    {
+      "name": "firecand",
+      "type": "firecand"
+    },
+    {
+      "name": "firecust",
+      "type": "firecust"
+    },
+    {
+      "name": "flagcandprof",
+      "type": "flagcandprof"
+    },
+    {
+      "name": "newperiod",
+      "type": "newperiod"
+    },
+    {
+      "name": "nominate",
+      "type": "nominate"
+    },
+    {
+      "name": "nominatecane",
+      "type": "nominatecane"
+    },
+    {
+      "name": "paycpu",
+      "type": "paycpu"
+    },
+    {
+      "name": "regproxy",
+      "type": "regproxy"
+    },
+    {
+      "name": "rejectcuspay",
+      "type": "rejectcuspay"
+    },
+    {
+      "name": "removecand",
+      "type": "removecand"
+    },
+    {
+      "name": "removecstvte",
+      "type": "removecstvte"
+    },
+    {
+      "name": "removecuspay",
+      "type": "removecuspay"
+    },
+    {
+      "name": "resigncust",
+      "type": "resigncust"
+    },
+    {
+      "name": "rmvwl",
+      "type": "rmvwl"
+    },
+    {
+      "name": "runnewperiod",
+      "type": "runnewperiod"
+    },
+    {
+      "name": "setbudget",
+      "type": "setbudget"
+    },
+    {
+      "name": "setdaogov",
+      "type": "setdaogov"
+    },
+    {
+      "name": "setinitvote",
+      "type": "setinitvote"
+    },
+    {
+      "name": "setlockasset",
+      "type": "setlockasset"
+    },
+    {
+      "name": "setlockdelay",
+      "type": "setlockdelay"
+    },
+    {
+      "name": "setpaymax",
+      "type": "setpaymax"
+    },
+    {
+      "name": "setpayvia",
+      "type": "setpayvia"
+    },
+    {
+      "name": "setpenddelay",
+      "type": "setpenddelay"
+    },
+    {
+      "name": "setperiodlen",
+      "type": "setperiodlen"
+    },
+    {
+      "name": "setperm",
+      "type": "setperm"
+    },
+    {
+      "name": "setprpbudga",
+      "type": "setprpbudga"
+    },
+    {
+      "name": "setprpbudget",
+      "type": "setprpbudget"
+    },
+    {
+      "name": "setrequirewl",
+      "type": "setrequirewl"
+    },
+    {
+      "name": "setspendbudg",
+      "type": "setspendbudg"
+    },
+    {
+      "name": "settokensup",
+      "type": "settokensup"
+    },
+    {
+      "name": "setvotequor",
+      "type": "setvotequor"
+    },
+    {
+      "name": "stakeobsv",
+      "type": "stakeobsv"
+    },
+    {
+      "name": "stprofile",
+      "type": "stprofile"
+    },
+    {
+      "name": "unregproxy",
+      "type": "unregproxy"
+    },
+    {
+      "name": "unsetbudget",
+      "type": "unsetbudget"
+    },
+    {
+      "name": "updatebio",
+      "type": "updatebio"
+    },
+    {
+      "name": "updatereqpay",
+      "type": "updatereqpay"
+    },
+    {
+      "name": "updwl",
+      "type": "updwl"
+    },
+    {
+      "name": "votecust",
+      "type": "votecust"
+    },
+    {
+      "name": "voteproxy",
+      "type": "voteproxy"
+    },
+    {
+      "name": "weightobsv",
+      "type": "weightobsv"
+    },
+    {
+      "name": "withdrawcane",
+      "type": "withdrawcane"
+    }
+  ],
+  "tables": [
+    {
+      "name": "candidates",
+      "type": "candidate",
+      "key_names": []
+    },
+    {
+      "name": "candidates2",
+      "type": "candidate2",
+      "key_names": []
+    },
+    {
+      "name": "candperms",
+      "type": "candperm",
+      "key_names": []
+    },
+    {
+      "name": "custodians1",
+      "type": "custodian",
+      "key_names": []
+    },
+    {
+      "name": "dacglobals",
+      "type": "dacglobals_struct",
+      "key_names": []
+    },
+    {
+      "name": "pendingcusts",
+      "type": "custodian",
+      "key_names": []
+    },
+    {
+      "name": "pendingpay",
+      "type": "pay",
+      "key_names": []
+    },
+    {
+      "name": "proxies",
+      "type": "proxy",
+      "key_names": []
+    },
+    {
+      "name": "votes",
+      "type": "vote",
+      "key_names": []
+    },
+    {
+      "name": "whitelist",
+      "type": "whitelist",
+      "key_names": []
+    }
+  ],
+  "structs": [
+    {
+      "name": "account_balance_delta",
+      "base": "",
+      "fields": [
+        {
+          "name": "account",
+          "type": "name"
+        },
+        {
+          "name": "balance_delta",
+          "type": "asset"
+        }
+      ]
+    },
+    {
+      "name": "account_stake_delta",
+      "base": "",
+      "fields": [
+        {
+          "name": "account",
+          "type": "name"
+        },
+        {
+          "name": "stake_delta",
+          "type": "asset"
+        },
+        {
+          "name": "unstake_delay",
+          "type": "uint32"
+        }
+      ]
+    },
+    {
+      "name": "account_weight_delta",
+      "base": "",
+      "fields": [
+        {
+          "name": "account",
+          "type": "name"
+        },
+        {
+          "name": "weight_delta",
+          "type": "int64"
+        },
+        {
+          "name": "weight_delta_quorum",
+          "type": "int64"
+        }
+      ]
+    },
+    {
+      "name": "addwl",
+      "base": "",
+      "fields": [
+        {
+          "name": "cand",
+          "type": "name"
+        },
+        {
+          "name": "rating",
+          "type": "uint64"
+        },
+        {
+          "name": "dac_id",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "appointcust",
+      "base": "",
+      "fields": [
+        {
+          "name": "cust",
+          "type": "name[]"
+        },
+        {
+          "name": "dac_id",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "balanceobsv",
+      "base": "",
+      "fields": [
+        {
+          "name": "account_balance_deltas",
+          "type": "account_balance_delta[]"
+        },
+        {
+          "name": "dac_id",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "candidate",
+      "base": "",
+      "fields": [
+        {
+          "name": "candidate_name",
+          "type": "name"
+        },
+        {
+          "name": "requestedpay",
+          "type": "asset"
+        },
+        {
+          "name": "rank",
+          "type": "uint64"
+        },
+        {
+          "name": "gap_filler",
+          "type": "uint64"
+        },
+        {
+          "name": "total_vote_power",
+          "type": "uint64"
+        },
+        {
+          "name": "is_active",
+          "type": "uint8"
+        },
+        {
+          "name": "number_voters",
+          "type": "uint32"
+        },
+        {
+          "name": "avg_vote_time_stamp",
+          "type": "time_point_sec"
+        },
+        {
+          "name": "running_weight_time",
+          "type": "uint128"
+        }
+      ]
+    },
+    {
+      "name": "candidate2",
+      "base": "",
+      "fields": [
+        {
+          "name": "candidate_name",
+          "type": "name"
+        },
+        {
+          "name": "requestedpay",
+          "type": "asset"
+        },
+        {
+          "name": "rank",
+          "type": "uint64"
+        },
+        {
+          "name": "gap_filler",
+          "type": "uint64"
+        },
+        {
+          "name": "total_vote_power",
+          "type": "uint64"
+        },
+        {
+          "name": "is_active",
+          "type": "uint8"
+        },
+        {
+          "name": "number_voters",
+          "type": "uint32"
+        },
+        {
+          "name": "avg_vote_time_stamp",
+          "type": "time_point_sec"
+        }
+      ]
+    },
+    {
+      "name": "candperm",
+      "base": "",
+      "fields": [
+        {
+          "name": "cand",
+          "type": "name"
+        },
+        {
+          "name": "permission",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "claimbudget",
+      "base": "",
+      "fields": [
+        {
+          "name": "dac_id",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "claimpay",
+      "base": "",
+      "fields": [
+        {
+          "name": "payid",
+          "type": "uint64"
+        },
+        {
+          "name": "dac_id",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "custodian",
+      "base": "",
+      "fields": [
+        {
+          "name": "cust_name",
+          "type": "name"
+        },
+        {
+          "name": "requestedpay",
+          "type": "asset"
+        },
+        {
+          "name": "total_vote_power",
+          "type": "uint64"
+        },
+        {
+          "name": "rank",
+          "type": "uint64"
+        },
+        {
+          "name": "number_voters",
+          "type": "uint32"
+        },
+        {
+          "name": "avg_vote_time_stamp",
+          "type": "time_point_sec"
+        }
+      ]
+    },
+    {
+      "name": "dacglobals_struct",
+      "base": "",
+      "fields": [
+        {
+          "name": "data",
+          "type": "pair_string_state_value_variant[]"
+        }
+      ]
+    },
+    {
+      "name": "firecand",
+      "base": "",
+      "fields": [
+        {
+          "name": "cand",
+          "type": "name"
+        },
+        {
+          "name": "lockupStake",
+          "type": "bool"
+        },
+        {
+          "name": "dac_id",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "firecust",
+      "base": "",
+      "fields": [
+        {
+          "name": "cust",
+          "type": "name"
+        },
+        {
+          "name": "dac_id",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "flagcandprof",
+      "base": "",
+      "fields": [
+        {
+          "name": "cand",
+          "type": "name"
+        },
+        {
+          "name": "reason",
+          "type": "string"
+        },
+        {
+          "name": "reporter",
+          "type": "name"
+        },
+        {
+          "name": "block",
+          "type": "bool"
+        },
+        {
+          "name": "dac_id",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "newperiod",
+      "base": "",
+      "fields": [
+        {
+          "name": "message",
+          "type": "string"
+        },
+        {
+          "name": "dac_id",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "nominate",
+      "base": "",
+      "fields": [
+        {
+          "name": "cand",
+          "type": "name"
+        },
+        {
+          "name": "dac_id",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "nominatecane",
+      "base": "",
+      "fields": [
+        {
+          "name": "cand",
+          "type": "name"
+        },
+        {
+          "name": "requestedpay",
+          "type": "asset"
+        },
+        {
+          "name": "dac_id",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "pair_string_state_value_variant",
+      "base": "",
+      "fields": [
+        {
+          "name": "key",
+          "type": "string"
+        },
+        {
+          "name": "value",
+          "type": "state_value_variant"
+        }
+      ]
+    },
+    {
+      "name": "pay",
+      "base": "",
+      "fields": [
+        {
+          "name": "key",
+          "type": "uint64"
+        },
+        {
+          "name": "receiver",
+          "type": "name"
+        },
+        {
+          "name": "quantity",
+          "type": "extended_asset"
+        }
+      ]
+    },
+    {
+      "name": "paycpu",
+      "base": "",
+      "fields": [
+        {
+          "name": "dac_id",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "proxy",
+      "base": "",
+      "fields": [
+        {
+          "name": "proxy",
+          "type": "name"
+        },
+        {
+          "name": "total_weight",
+          "type": "int64"
+        }
+      ]
+    },
+    {
+      "name": "regproxy",
+      "base": "",
+      "fields": [
+        {
+          "name": "proxy",
+          "type": "name"
+        },
+        {
+          "name": "dac_id",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "rejectcuspay",
+      "base": "",
+      "fields": [
+        {
+          "name": "payid",
+          "type": "uint64"
+        },
+        {
+          "name": "dac_id",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "removecand",
+      "base": "",
+      "fields": [
+        {
+          "name": "cand",
+          "type": "name"
+        },
+        {
+          "name": "dac_id",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "removecstvte",
+      "base": "",
+      "fields": [
+        {
+          "name": "voter",
+          "type": "name"
+        },
+        {
+          "name": "dac_id",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "removecuspay",
+      "base": "",
+      "fields": [
+        {
+          "name": "payid",
+          "type": "uint64"
+        },
+        {
+          "name": "dac_id",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "resigncust",
+      "base": "",
+      "fields": [
+        {
+          "name": "cust",
+          "type": "name"
+        },
+        {
+          "name": "dac_id",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "rmvwl",
+      "base": "",
+      "fields": [
+        {
+          "name": "cand",
+          "type": "name"
+        },
+        {
+          "name": "dac_id",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "runnewperiod",
+      "base": "",
+      "fields": [
+        {
+          "name": "message",
+          "type": "string"
+        },
+        {
+          "name": "dac_id",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "setbudget",
+      "base": "",
+      "fields": [
+        {
+          "name": "dac_id",
+          "type": "name"
+        },
+        {
+          "name": "percentage",
+          "type": "uint16"
+        }
+      ]
+    },
+    {
+      "name": "setdaogov",
+      "base": "",
+      "fields": [
+        {
+          "name": "maxvotes",
+          "type": "uint8"
+        },
+        {
+          "name": "numelected",
+          "type": "uint8"
+        },
+        {
+          "name": "auththreshold",
+          "type": "uint8"
+        },
+        {
+          "name": "dac_id",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "setinitvote",
+      "base": "",
+      "fields": [
+        {
+          "name": "initial_vote_quorum_percent",
+          "type": "uint32"
+        },
+        {
+          "name": "dac_id",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "setlockasset",
+      "base": "",
+      "fields": [
+        {
+          "name": "lockupasset",
+          "type": "extended_asset"
+        },
+        {
+          "name": "dac_id",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "setlockdelay",
+      "base": "",
+      "fields": [
+        {
+          "name": "lockup_release_time_delay",
+          "type": "uint32"
+        },
+        {
+          "name": "dac_id",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "setpaymax",
+      "base": "",
+      "fields": [
+        {
+          "name": "requested_pay_max",
+          "type": "extended_asset"
+        },
+        {
+          "name": "dac_id",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "setpayvia",
+      "base": "",
+      "fields": [
+        {
+          "name": "should_pay_via_service_provider",
+          "type": "bool"
+        },
+        {
+          "name": "dac_id",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "setpenddelay",
+      "base": "",
+      "fields": [
+        {
+          "name": "pending_period_delay",
+          "type": "uint32"
+        },
+        {
+          "name": "dac_id",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "setperiodlen",
+      "base": "",
+      "fields": [
+        {
+          "name": "periodlength",
+          "type": "uint32"
+        },
+        {
+          "name": "dac_id",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "setperm",
+      "base": "",
+      "fields": [
+        {
+          "name": "cand",
+          "type": "name"
+        },
+        {
+          "name": "permission",
+          "type": "name"
+        },
+        {
+          "name": "dac_id",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "setprpbudga",
+      "base": "",
+      "fields": [
+        {
+          "name": "dac_id",
+          "type": "name"
+        },
+        {
+          "name": "amount",
+          "type": "asset"
+        }
+      ]
+    },
+    {
+      "name": "setprpbudget",
+      "base": "",
+      "fields": [
+        {
+          "name": "dac_id",
+          "type": "name"
+        },
+        {
+          "name": "percentage",
+          "type": "uint16"
+        }
+      ]
+    },
+    {
+      "name": "setrequirewl",
+      "base": "",
+      "fields": [
+        {
+          "name": "dac_id",
+          "type": "name"
+        },
+        {
+          "name": "required",
+          "type": "bool"
+        }
+      ]
+    },
+    {
+      "name": "setspendbudg",
+      "base": "",
+      "fields": [
+        {
+          "name": "dac_id",
+          "type": "name"
+        },
+        {
+          "name": "amount",
+          "type": "asset"
+        }
+      ]
+    },
+    {
+      "name": "settokensup",
+      "base": "",
+      "fields": [
+        {
+          "name": "token_supply_theshold",
+          "type": "uint64"
+        },
+        {
+          "name": "dac_id",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "setvotequor",
+      "base": "",
+      "fields": [
+        {
+          "name": "vote_quorum_percent",
+          "type": "uint32"
+        },
+        {
+          "name": "dac_id",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "stakeobsv",
+      "base": "",
+      "fields": [
+        {
+          "name": "account_stake_deltas",
+          "type": "account_stake_delta[]"
+        },
+        {
+          "name": "dac_id",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "stprofile",
+      "base": "",
+      "fields": [
+        {
+          "name": "cand",
+          "type": "name"
+        },
+        {
+          "name": "profile",
+          "type": "string"
+        },
+        {
+          "name": "dac_id",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "unregproxy",
+      "base": "",
+      "fields": [
+        {
+          "name": "proxy",
+          "type": "name"
+        },
+        {
+          "name": "dac_id",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "unsetbudget",
+      "base": "",
+      "fields": [
+        {
+          "name": "dac_id",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "updatebio",
+      "base": "",
+      "fields": [
+        {
+          "name": "cand",
+          "type": "name"
+        },
+        {
+          "name": "bio",
+          "type": "string"
+        },
+        {
+          "name": "dac_id",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "updatereqpay",
+      "base": "",
+      "fields": [
+        {
+          "name": "cand",
+          "type": "name"
+        },
+        {
+          "name": "requestedpay",
+          "type": "asset"
+        },
+        {
+          "name": "dac_id",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "updwl",
+      "base": "",
+      "fields": [
+        {
+          "name": "cand",
+          "type": "name"
+        },
+        {
+          "name": "rating",
+          "type": "uint64"
+        },
+        {
+          "name": "dac_id",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "vote",
+      "base": "",
+      "fields": [
+        {
+          "name": "voter",
+          "type": "name"
+        },
+        {
+          "name": "proxy",
+          "type": "name"
+        },
+        {
+          "name": "candidates",
+          "type": "name[]"
+        },
+        {
+          "name": "vote_time_stamp",
+          "type": "time_point_sec"
+        },
+        {
+          "name": "vote_count",
+          "type": "uint8"
+        }
+      ]
+    },
+    {
+      "name": "votecust",
+      "base": "",
+      "fields": [
+        {
+          "name": "voter",
+          "type": "name"
+        },
+        {
+          "name": "newvotes",
+          "type": "name[]"
+        },
+        {
+          "name": "dac_id",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "voteproxy",
+      "base": "",
+      "fields": [
+        {
+          "name": "voter",
+          "type": "name"
+        },
+        {
+          "name": "proxy",
+          "type": "name"
+        },
+        {
+          "name": "dac_id",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "weightobsv",
+      "base": "",
+      "fields": [
+        {
+          "name": "account_weight_deltas",
+          "type": "account_weight_delta[]"
+        },
+        {
+          "name": "dac_id",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "whitelist",
+      "base": "",
+      "fields": [
+        {
+          "name": "cand",
+          "type": "name"
+        },
+        {
+          "name": "rating",
+          "type": "uint64"
+        }
+      ]
+    },
+    {
+      "name": "withdrawcane",
+      "base": "",
+      "fields": [
+        {
+          "name": "cand",
+          "type": "name"
+        },
+        {
+          "name": "dac_id",
+          "type": "name"
+        }
+      ]
+    }
+  ]
+}

@@ -16,7 +16,10 @@
     "typecheck": "tsc",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "docs:refresh": "./scripts/refresh-remote-content.sh"
+    "docs:refresh": "./scripts/refresh-remote-content.sh",
+    "abi:fetch": "node scripts/abi-sync.mjs --fetch",
+    "abi:check": "node scripts/abi-sync.mjs --check",
+    "abi:baseline": "node scripts/abi-sync.mjs --baseline"
   },
   "dependencies": {
     "@docusaurus/core": "^3.0.0",

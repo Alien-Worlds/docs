@@ -1,0 +1,409 @@
+{
+  "account": "ptpxy.worlds",
+  "version": "eosio::abi/1.2",
+  "actions": [
+    {
+      "name": "activate",
+      "type": "activate"
+    },
+    {
+      "name": "addbudget",
+      "type": "addbudget"
+    },
+    {
+      "name": "addpoints",
+      "type": "addpoints"
+    },
+    {
+      "name": "exitdebug",
+      "type": "exitdebug"
+    },
+    {
+      "name": "processbatch",
+      "type": "processbatch"
+    },
+    {
+      "name": "setallocator",
+      "type": "setallocator"
+    },
+    {
+      "name": "setbudget",
+      "type": "setbudget"
+    },
+    {
+      "name": "setglobals",
+      "type": "setglobals"
+    },
+    {
+      "name": "updglobals",
+      "type": "updglobals"
+    },
+    {
+      "name": "withdrawbudg",
+      "type": "withdrawbudg"
+    }
+  ],
+  "tables": [
+    {
+      "name": "allocations",
+      "type": "allocations",
+      "key_names": []
+    },
+    {
+      "name": "allocators",
+      "type": "allocator",
+      "key_names": []
+    },
+    {
+      "name": "globals",
+      "type": "globals",
+      "key_names": []
+    },
+    {
+      "name": "points",
+      "type": "points_row",
+      "key_names": []
+    },
+    {
+      "name": "pointsconfig",
+      "type": "pointsconfig",
+      "key_names": []
+    }
+  ],
+  "structs": [
+    {
+      "name": "activate",
+      "base": "",
+      "fields": [
+        {
+          "name": "active",
+          "type": "bool"
+        },
+        {
+          "name": "points_manager",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "addbudget",
+      "base": "",
+      "fields": [
+        {
+          "name": "allocator",
+          "type": "name"
+        },
+        {
+          "name": "points_manager",
+          "type": "name"
+        },
+        {
+          "name": "budget",
+          "type": "uint64"
+        }
+      ]
+    },
+    {
+      "name": "addpoints",
+      "base": "",
+      "fields": [
+        {
+          "name": "points_manager",
+          "type": "name"
+        },
+        {
+          "name": "user",
+          "type": "name"
+        },
+        {
+          "name": "points",
+          "type": "uint32"
+        }
+      ]
+    },
+    {
+      "name": "allocations",
+      "base": "",
+      "fields": [
+        {
+          "name": "account",
+          "type": "name"
+        },
+        {
+          "name": "allocated",
+          "type": "float64"
+        }
+      ]
+    },
+    {
+      "name": "allocator",
+      "base": "",
+      "fields": [
+        {
+          "name": "allocator",
+          "type": "name"
+        },
+        {
+          "name": "budget",
+          "type": "float64"
+        },
+        {
+          "name": "allocated",
+          "type": "float64"
+        }
+      ]
+    },
+    {
+      "name": "exitdebug",
+      "base": "",
+      "fields": [
+        {
+          "name": "points_manager",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "globals",
+      "base": "",
+      "fields": [
+        {
+          "name": "active",
+          "type": "bool"
+        },
+        {
+          "name": "debug_mode",
+          "type": "bool"
+        },
+        {
+          "name": "multiplier",
+          "type": "float32"
+        },
+        {
+          "name": "batchProcess",
+          "type": "bool"
+        },
+        {
+          "name": "running_total",
+          "type": "uint64"
+        },
+        {
+          "name": "period_total",
+          "type": "uint64"
+        },
+        {
+          "name": "period_budget",
+          "type": "uint64"
+        },
+        {
+          "name": "period_end",
+          "type": "time_point_sec"
+        },
+        {
+          "name": "period_duration",
+          "type": "uint32"
+        }
+      ]
+    },
+    {
+      "name": "points_row",
+      "base": "",
+      "fields": [
+        {
+          "name": "user",
+          "type": "name"
+        },
+        {
+          "name": "total_points",
+          "type": "uint32"
+        }
+      ]
+    },
+    {
+      "name": "pointsconfig",
+      "base": "",
+      "fields": [
+        {
+          "name": "active",
+          "type": "bool"
+        },
+        {
+          "name": "debug_mode",
+          "type": "bool"
+        },
+        {
+          "name": "multiplier",
+          "type": "float64"
+        },
+        {
+          "name": "batchProcess",
+          "type": "bool"
+        },
+        {
+          "name": "running_total",
+          "type": "float64"
+        },
+        {
+          "name": "period_total",
+          "type": "float64"
+        },
+        {
+          "name": "period_budget",
+          "type": "float64"
+        },
+        {
+          "name": "period_end",
+          "type": "time_point_sec"
+        },
+        {
+          "name": "period_duration",
+          "type": "uint32"
+        }
+      ]
+    },
+    {
+      "name": "processbatch",
+      "base": "",
+      "fields": [
+        {
+          "name": "points_manager",
+          "type": "name"
+        },
+        {
+          "name": "batch_size",
+          "type": "uint16"
+        }
+      ]
+    },
+    {
+      "name": "setallocator",
+      "base": "",
+      "fields": [
+        {
+          "name": "allocator",
+          "type": "name"
+        },
+        {
+          "name": "budget",
+          "type": "float64"
+        }
+      ]
+    },
+    {
+      "name": "setbudget",
+      "base": "",
+      "fields": [
+        {
+          "name": "allocator",
+          "type": "name"
+        },
+        {
+          "name": "points_manager",
+          "type": "name"
+        },
+        {
+          "name": "budget",
+          "type": "uint64"
+        },
+        {
+          "name": "n_days",
+          "type": "uint32"
+        },
+        {
+          "name": "batch_process",
+          "type": "bool"
+        }
+      ]
+    },
+    {
+      "name": "setglobals",
+      "base": "",
+      "fields": [
+        {
+          "name": "points_manager",
+          "type": "name"
+        },
+        {
+          "name": "budget",
+          "type": "uint64"
+        },
+        {
+          "name": "duration",
+          "type": "uint32"
+        },
+        {
+          "name": "start",
+          "type": "time_point_sec"
+        },
+        {
+          "name": "multiplier",
+          "type": "float64"
+        },
+        {
+          "name": "batch_process",
+          "type": "bool"
+        },
+        {
+          "name": "active",
+          "type": "bool"
+        },
+        {
+          "name": "debug_mode",
+          "type": "bool"
+        }
+      ]
+    },
+    {
+      "name": "updglobals",
+      "base": "",
+      "fields": [
+        {
+          "name": "points_manager",
+          "type": "name"
+        },
+        {
+          "name": "budget",
+          "type": "uint64?"
+        },
+        {
+          "name": "duration",
+          "type": "uint32?"
+        },
+        {
+          "name": "multiplier",
+          "type": "float64?"
+        },
+        {
+          "name": "batch_process",
+          "type": "bool?"
+        },
+        {
+          "name": "active",
+          "type": "bool"
+        },
+        {
+          "name": "debug_mode",
+          "type": "bool"
+        }
+      ]
+    },
+    {
+      "name": "withdrawbudg",
+      "base": "",
+      "fields": [
+        {
+          "name": "allocator",
+          "type": "name"
+        },
+        {
+          "name": "points_manager",
+          "type": "name"
+        },
+        {
+          "name": "budget",
+          "type": "uint64?"
+        }
+      ]
+    }
+  ]
+}

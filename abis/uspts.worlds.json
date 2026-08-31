@@ -1,0 +1,599 @@
+{
+  "account": "uspts.worlds",
+  "version": "eosio::abi/1.2",
+  "actions": [
+    {
+      "name": "addpoints",
+      "type": "addpoints"
+    },
+    {
+      "name": "addwhitelist",
+      "type": "addwhitelist"
+    },
+    {
+      "name": "crtpreoffer",
+      "type": "crtpreoffer"
+    },
+    {
+      "name": "dellvlreward",
+      "type": "dellvlreward"
+    },
+    {
+      "name": "delptsreward",
+      "type": "delptsreward"
+    },
+    {
+      "name": "reclaim",
+      "type": "reclaim"
+    },
+    {
+      "name": "redeemlvlnft",
+      "type": "redeemlvlnft"
+    },
+    {
+      "name": "redeempntnft",
+      "type": "redeempntnft"
+    },
+    {
+      "name": "redeemprenft",
+      "type": "redeemprenft"
+    },
+    {
+      "name": "reguser",
+      "type": "reguser"
+    },
+    {
+      "name": "rmvpreoffer",
+      "type": "rmvpreoffer"
+    },
+    {
+      "name": "rmvwhitelist",
+      "type": "rmvwhitelist"
+    },
+    {
+      "name": "setlvlreward",
+      "type": "setlvlreward"
+    },
+    {
+      "name": "setmilestone",
+      "type": "setmilestone"
+    },
+    {
+      "name": "setptsreward",
+      "type": "setptsreward"
+    },
+    {
+      "name": "testaddpnts",
+      "type": "testaddpnts"
+    },
+    {
+      "name": "unreguser",
+      "type": "unreguser"
+    },
+    {
+      "name": "updpreoffer",
+      "type": "updpreoffer"
+    }
+  ],
+  "tables": [
+    {
+      "name": "daoconfigs",
+      "type": "daoconfigs_struct",
+      "key_names": []
+    },
+    {
+      "name": "leveloffers",
+      "type": "level_offer",
+      "key_names": []
+    },
+    {
+      "name": "pointoffers",
+      "type": "points_offer",
+      "key_names": []
+    },
+    {
+      "name": "preassets",
+      "type": "premint_asset",
+      "key_names": []
+    },
+    {
+      "name": "premintoffrs",
+      "type": "premint_offer",
+      "key_names": []
+    },
+    {
+      "name": "userpoints",
+      "type": "user_points",
+      "key_names": []
+    },
+    {
+      "name": "whitelist",
+      "type": "whitelist",
+      "key_names": []
+    }
+  ],
+  "structs": [
+    {
+      "name": "addpoints",
+      "base": "",
+      "fields": [
+        {
+          "name": "user",
+          "type": "name"
+        },
+        {
+          "name": "points",
+          "type": "uint32"
+        }
+      ]
+    },
+    {
+      "name": "addwhitelist",
+      "base": "",
+      "fields": [
+        {
+          "name": "account",
+          "type": "name"
+        },
+        {
+          "name": "authorizer",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "crtpreoffer",
+      "base": "",
+      "fields": [
+        {
+          "name": "creator",
+          "type": "name"
+        },
+        {
+          "name": "offer_id",
+          "type": "uint64"
+        },
+        {
+          "name": "collection_name",
+          "type": "name"
+        },
+        {
+          "name": "template_id",
+          "type": "int32"
+        },
+        {
+          "name": "required",
+          "type": "uint32"
+        },
+        {
+          "name": "message",
+          "type": "string"
+        },
+        {
+          "name": "callback",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "daoconfigs_struct",
+      "base": "",
+      "fields": [
+        {
+          "name": "data",
+          "type": "pair_string_state_value_variant[]"
+        }
+      ]
+    },
+    {
+      "name": "dellvlreward",
+      "base": "",
+      "fields": [
+        {
+          "name": "id",
+          "type": "uint64"
+        }
+      ]
+    },
+    {
+      "name": "delptsreward",
+      "base": "",
+      "fields": [
+        {
+          "name": "id",
+          "type": "uint64"
+        }
+      ]
+    },
+    {
+      "name": "level_offer",
+      "base": "",
+      "fields": [
+        {
+          "name": "id",
+          "type": "uint64"
+        },
+        {
+          "name": "level",
+          "type": "uint8"
+        },
+        {
+          "name": "template_id",
+          "type": "uint64"
+        },
+        {
+          "name": "required",
+          "type": "uint32"
+        }
+      ]
+    },
+    {
+      "name": "pair_string_state_value_variant",
+      "base": "",
+      "fields": [
+        {
+          "name": "key",
+          "type": "string"
+        },
+        {
+          "name": "value",
+          "type": "state_value_variant"
+        }
+      ]
+    },
+    {
+      "name": "pair_uint8_uint16",
+      "base": "",
+      "fields": [
+        {
+          "name": "key",
+          "type": "uint8"
+        },
+        {
+          "name": "value",
+          "type": "uint16"
+        }
+      ]
+    },
+    {
+      "name": "points_offer",
+      "base": "",
+      "fields": [
+        {
+          "name": "id",
+          "type": "uint64"
+        },
+        {
+          "name": "start",
+          "type": "time_point_sec"
+        },
+        {
+          "name": "end",
+          "type": "time_point_sec"
+        },
+        {
+          "name": "template_id",
+          "type": "uint64"
+        },
+        {
+          "name": "required",
+          "type": "uint32"
+        }
+      ]
+    },
+    {
+      "name": "premint_asset",
+      "base": "",
+      "fields": [
+        {
+          "name": "asset_id",
+          "type": "uint64"
+        },
+        {
+          "name": "offer_id",
+          "type": "uint64"
+        }
+      ]
+    },
+    {
+      "name": "premint_offer",
+      "base": "",
+      "fields": [
+        {
+          "name": "offer_id",
+          "type": "uint64"
+        },
+        {
+          "name": "creator",
+          "type": "name"
+        },
+        {
+          "name": "required",
+          "type": "uint32"
+        },
+        {
+          "name": "template_id",
+          "type": "int32"
+        },
+        {
+          "name": "collection_name",
+          "type": "name"
+        },
+        {
+          "name": "callback",
+          "type": "name"
+        },
+        {
+          "name": "message",
+          "type": "string"
+        },
+        {
+          "name": "available_count",
+          "type": "uint32"
+        },
+        {
+          "name": "next_asset_id",
+          "type": "uint64"
+        }
+      ]
+    },
+    {
+      "name": "reclaim",
+      "base": "",
+      "fields": [
+        {
+          "name": "users",
+          "type": "name[]"
+        }
+      ]
+    },
+    {
+      "name": "redeemlvlnft",
+      "base": "",
+      "fields": [
+        {
+          "name": "user",
+          "type": "name"
+        },
+        {
+          "name": "id",
+          "type": "uint64"
+        }
+      ]
+    },
+    {
+      "name": "redeempntnft",
+      "base": "",
+      "fields": [
+        {
+          "name": "user",
+          "type": "name"
+        },
+        {
+          "name": "offer_id",
+          "type": "uint64"
+        }
+      ]
+    },
+    {
+      "name": "redeemprenft",
+      "base": "",
+      "fields": [
+        {
+          "name": "user",
+          "type": "name"
+        },
+        {
+          "name": "offer_id",
+          "type": "uint64"
+        }
+      ]
+    },
+    {
+      "name": "reguser",
+      "base": "",
+      "fields": [
+        {
+          "name": "user",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "rmvpreoffer",
+      "base": "",
+      "fields": [
+        {
+          "name": "offer_id",
+          "type": "uint64"
+        },
+        {
+          "name": "batch_size",
+          "type": "uint16"
+        },
+        {
+          "name": "nft_receiver",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "rmvwhitelist",
+      "base": "",
+      "fields": [
+        {
+          "name": "account",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "setlvlreward",
+      "base": "",
+      "fields": [
+        {
+          "name": "id",
+          "type": "uint64"
+        },
+        {
+          "name": "level",
+          "type": "uint8"
+        },
+        {
+          "name": "template_id",
+          "type": "uint64"
+        },
+        {
+          "name": "required",
+          "type": "uint32"
+        }
+      ]
+    },
+    {
+      "name": "setmilestone",
+      "base": "",
+      "fields": [
+        {
+          "name": "user",
+          "type": "name"
+        },
+        {
+          "name": "key",
+          "type": "uint8"
+        },
+        {
+          "name": "value",
+          "type": "uint16"
+        }
+      ]
+    },
+    {
+      "name": "setptsreward",
+      "base": "",
+      "fields": [
+        {
+          "name": "id",
+          "type": "uint64"
+        },
+        {
+          "name": "start",
+          "type": "time_point_sec"
+        },
+        {
+          "name": "end",
+          "type": "time_point_sec"
+        },
+        {
+          "name": "template_id",
+          "type": "uint64"
+        },
+        {
+          "name": "required",
+          "type": "uint32"
+        }
+      ]
+    },
+    {
+      "name": "testaddpnts",
+      "base": "",
+      "fields": [
+        {
+          "name": "user",
+          "type": "name"
+        },
+        {
+          "name": "points",
+          "type": "uint32"
+        }
+      ]
+    },
+    {
+      "name": "unreguser",
+      "base": "",
+      "fields": [
+        {
+          "name": "user",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "updpreoffer",
+      "base": "",
+      "fields": [
+        {
+          "name": "creator",
+          "type": "name"
+        },
+        {
+          "name": "offer_id",
+          "type": "uint64"
+        },
+        {
+          "name": "required",
+          "type": "uint32"
+        },
+        {
+          "name": "message",
+          "type": "string"
+        },
+        {
+          "name": "callback",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "user_points",
+      "base": "",
+      "fields": [
+        {
+          "name": "user",
+          "type": "name"
+        },
+        {
+          "name": "total_points",
+          "type": "uint32"
+        },
+        {
+          "name": "redeemable_points",
+          "type": "uint32"
+        },
+        {
+          "name": "daily_points",
+          "type": "uint16"
+        },
+        {
+          "name": "weekly_points",
+          "type": "uint32"
+        },
+        {
+          "name": "top_level_claimed",
+          "type": "uint8"
+        },
+        {
+          "name": "last_action_timestamp",
+          "type": "time_point_sec"
+        },
+        {
+          "name": "milestones",
+          "type": "pair_uint8_uint16[]"
+        }
+      ]
+    },
+    {
+      "name": "whitelist",
+      "base": "",
+      "fields": [
+        {
+          "name": "account",
+          "type": "name"
+        },
+        {
+          "name": "authorizer",
+          "type": "name"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+name: Contract ABI drift
+
+# Re-reads the deployed ABIs and opens a PR when they have changed. That PR is
+# the signal that a contract moved and the docs need a human look — it arrives
+# on its own instead of waiting for someone to notice a wrong action name.
+on:
+  schedule:
+    - cron: '0 4 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  drift:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+
+      - name: Refresh cached ABIs from chain
+        run: pnpm abi:fetch
+
+      - name: Write drift report
+        run: node scripts/abi-sync.mjs --out abi-drift-report.md
+
+      - uses: peter-evans/create-pull-request@v7
+        with:
+          branch: automated/abi-drift
+          title: 'docs: deployed contract ABIs have changed'
+          commit-message: 'chore: refresh cached contract ABIs'
+          labels: documentation, automated
+          # Deliberately excludes the drift baseline: regenerating it here would
+          # let new drift be auto-accepted, which is the one thing the gate exists
+          # to prevent.
+          add-paths: |
+            abis/*.json
+            !abis/drift-baseline.json
+          body-path: abi-drift-report.md

@@ -1,0 +1,233 @@
+{
+  "account": "escrw.worlds",
+  "version": "eosio::abi/1.2",
+  "actions": [
+    {
+      "name": "approve",
+      "type": "approve"
+    },
+    {
+      "name": "cancel",
+      "type": "cancel"
+    },
+    {
+      "name": "clean",
+      "type": "clean"
+    },
+    {
+      "name": "disapprove",
+      "type": "disapprove"
+    },
+    {
+      "name": "dispute",
+      "type": "dispute"
+    },
+    {
+      "name": "init",
+      "type": "init"
+    },
+    {
+      "name": "refund",
+      "type": "refund"
+    },
+    {
+      "name": "transfer",
+      "type": "transfer"
+    }
+  ],
+  "tables": [
+    {
+      "name": "escrows",
+      "type": "escrow_info",
+      "key_names": []
+    }
+  ],
+  "structs": [
+    {
+      "name": "approve",
+      "base": "",
+      "fields": [
+        {
+          "name": "key",
+          "type": "name"
+        },
+        {
+          "name": "approver",
+          "type": "name"
+        },
+        {
+          "name": "dac_id",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "cancel",
+      "base": "",
+      "fields": [
+        {
+          "name": "key",
+          "type": "name"
+        },
+        {
+          "name": "dac_id",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "clean",
+      "base": "",
+      "fields": [
+        {
+          "name": "dac_id",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "disapprove",
+      "base": "",
+      "fields": [
+        {
+          "name": "key",
+          "type": "name"
+        },
+        {
+          "name": "disapprover",
+          "type": "name"
+        },
+        {
+          "name": "dac_id",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "dispute",
+      "base": "",
+      "fields": [
+        {
+          "name": "key",
+          "type": "name"
+        },
+        {
+          "name": "dac_id",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "escrow_info",
+      "base": "",
+      "fields": [
+        {
+          "name": "key",
+          "type": "name"
+        },
+        {
+          "name": "sender",
+          "type": "name"
+        },
+        {
+          "name": "receiver",
+          "type": "name"
+        },
+        {
+          "name": "arb",
+          "type": "name"
+        },
+        {
+          "name": "receiver_pay",
+          "type": "extended_asset"
+        },
+        {
+          "name": "arbiter_pay",
+          "type": "extended_asset"
+        },
+        {
+          "name": "memo",
+          "type": "string"
+        },
+        {
+          "name": "expires",
+          "type": "time_point_sec"
+        },
+        {
+          "name": "disputed",
+          "type": "bool"
+        }
+      ]
+    },
+    {
+      "name": "init",
+      "base": "",
+      "fields": [
+        {
+          "name": "sender",
+          "type": "name"
+        },
+        {
+          "name": "receiver",
+          "type": "name"
+        },
+        {
+          "name": "arb",
+          "type": "name"
+        },
+        {
+          "name": "expires",
+          "type": "time_point_sec"
+        },
+        {
+          "name": "memo",
+          "type": "string"
+        },
+        {
+          "name": "ext_reference",
+          "type": "name"
+        },
+        {
+          "name": "dac_id",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "refund",
+      "base": "",
+      "fields": [
+        {
+          "name": "key",
+          "type": "name"
+        },
+        {
+          "name": "dac_id",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "transfer",
+      "base": "",
+      "fields": [
+        {
+          "name": "from",
+          "type": "name"
+        },
+        {
+          "name": "to",
+          "type": "name"
+        },
+        {
+          "name": "quantity",
+          "type": "asset"
+        },
+        {
+          "name": "memo",
+          "type": "string"
+        }
+      ]
+    }
+  ]
+}

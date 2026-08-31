@@ -1,0 +1,567 @@
+{
+  "account": "awlndratings",
+  "version": "eosio::abi/1.2",
+  "actions": [
+    {
+      "name": "boost",
+      "type": "boost"
+    },
+    {
+      "name": "claimpay",
+      "type": "claimpay"
+    },
+    {
+      "name": "megaboost",
+      "type": "megaboost"
+    },
+    {
+      "name": "openslot",
+      "type": "openslot"
+    },
+    {
+      "name": "removepay",
+      "type": "removepay"
+    },
+    {
+      "name": "resetrating",
+      "type": "resetrating"
+    },
+    {
+      "name": "run",
+      "type": "run"
+    },
+    {
+      "name": "setconfig",
+      "type": "setconfig"
+    },
+    {
+      "name": "setconfig2",
+      "type": "setconfig2"
+    },
+    {
+      "name": "setiscapped",
+      "type": "setiscapped"
+    },
+    {
+      "name": "setlandnick",
+      "type": "setlandnick"
+    },
+    {
+      "name": "setmaxlndcom",
+      "type": "setmaxlndcom"
+    },
+    {
+      "name": "setminboost",
+      "type": "setminboost"
+    },
+    {
+      "name": "setminlndcom",
+      "type": "setminlndcom"
+    },
+    {
+      "name": "setprofitshr",
+      "type": "setprofitshr"
+    },
+    {
+      "name": "stgmaxlndcom",
+      "type": "stgmaxlndcom"
+    },
+    {
+      "name": "stgminlndcom",
+      "type": "stgminlndcom"
+    },
+    {
+      "name": "superboost",
+      "type": "superboost"
+    },
+    {
+      "name": "withdrboost",
+      "type": "withdrboost"
+    }
+  ],
+  "tables": [
+    {
+      "name": "boosts",
+      "type": "land_boost",
+      "key_names": []
+    },
+    {
+      "name": "deposits",
+      "type": "deposit_item",
+      "key_names": []
+    },
+    {
+      "name": "global",
+      "type": "global",
+      "key_names": []
+    },
+    {
+      "name": "global2",
+      "type": "global2_struct",
+      "key_names": []
+    },
+    {
+      "name": "landratings",
+      "type": "landrating_item",
+      "key_names": []
+    },
+    {
+      "name": "landregs",
+      "type": "landreg_item",
+      "key_names": []
+    },
+    {
+      "name": "nftdeposits",
+      "type": "nft_deposit",
+      "key_names": []
+    },
+    {
+      "name": "payouts",
+      "type": "payouts",
+      "key_names": []
+    },
+    {
+      "name": "plntconfigs",
+      "type": "plntconfigs_struct",
+      "key_names": []
+    }
+  ],
+  "structs": [
+    {
+      "name": "boost",
+      "base": "",
+      "fields": [
+        {
+          "name": "land_id",
+          "type": "uint64"
+        },
+        {
+          "name": "amount",
+          "type": "asset"
+        },
+        {
+          "name": "payer",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "boost_item",
+      "base": "",
+      "fields": [
+        {
+          "name": "booster",
+          "type": "name"
+        },
+        {
+          "name": "level",
+          "type": "int64"
+        }
+      ]
+    },
+    {
+      "name": "claimpay",
+      "base": "",
+      "fields": [
+        {
+          "name": "receiver",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "deposit_item",
+      "base": "",
+      "fields": [
+        {
+          "name": "account",
+          "type": "name"
+        },
+        {
+          "name": "quantity",
+          "type": "asset"
+        }
+      ]
+    },
+    {
+      "name": "global",
+      "base": "",
+      "fields": [
+        {
+          "name": "payment_id",
+          "type": "uint32"
+        },
+        {
+          "name": "totalPayment",
+          "type": "asset"
+        },
+        {
+          "name": "payAmountPerLand",
+          "type": "asset"
+        },
+        {
+          "name": "pendingPayout",
+          "type": "asset"
+        },
+        {
+          "name": "startPayThreshold",
+          "type": "asset"
+        },
+        {
+          "name": "numberOfLands",
+          "type": "uint32"
+        },
+        {
+          "name": "batchCursorOfLandNFT",
+          "type": "uint64"
+        },
+        {
+          "name": "cycleState",
+          "type": "uint8"
+        },
+        {
+          "name": "skippedAccounts",
+          "type": "name[]"
+        },
+        {
+          "name": "totalLandRating",
+          "type": "uint64"
+        },
+        {
+          "name": "payAmountPerMLandRatingPoints",
+          "type": "asset"
+        }
+      ]
+    },
+    {
+      "name": "global2_struct",
+      "base": "",
+      "fields": [
+        {
+          "name": "data",
+          "type": "pair_string_state_value_variant[]"
+        }
+      ]
+    },
+    {
+      "name": "land_boost",
+      "base": "",
+      "fields": [
+        {
+          "name": "land_id",
+          "type": "uint64"
+        },
+        {
+          "name": "day",
+          "type": "uint32"
+        },
+        {
+          "name": "boosts_used",
+          "type": "boost_item[]"
+        }
+      ]
+    },
+    {
+      "name": "landrating_item",
+      "base": "",
+      "fields": [
+        {
+          "name": "landId",
+          "type": "uint64"
+        },
+        {
+          "name": "landRating",
+          "type": "uint64"
+        }
+      ]
+    },
+    {
+      "name": "landreg_item",
+      "base": "",
+      "fields": [
+        {
+          "name": "id",
+          "type": "uint64"
+        },
+        {
+          "name": "owner",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "megaboost",
+      "base": "",
+      "fields": [
+        {
+          "name": "land_id",
+          "type": "uint64"
+        }
+      ]
+    },
+    {
+      "name": "nft_deposit",
+      "base": "",
+      "fields": [
+        {
+          "name": "account",
+          "type": "name"
+        },
+        {
+          "name": "asset_id",
+          "type": "uint64"
+        },
+        {
+          "name": "template_id",
+          "type": "int32"
+        }
+      ]
+    },
+    {
+      "name": "openslot",
+      "base": "",
+      "fields": [
+        {
+          "name": "owner",
+          "type": "name"
+        },
+        {
+          "name": "land_id",
+          "type": "uint64"
+        }
+      ]
+    },
+    {
+      "name": "pair_string_state_value_variant",
+      "base": "",
+      "fields": [
+        {
+          "name": "key",
+          "type": "string"
+        },
+        {
+          "name": "value",
+          "type": "state_value_variant"
+        }
+      ]
+    },
+    {
+      "name": "payouts",
+      "base": "",
+      "fields": [
+        {
+          "name": "receiver",
+          "type": "name"
+        },
+        {
+          "name": "payoutAmount",
+          "type": "asset"
+        }
+      ]
+    },
+    {
+      "name": "plntconfigs_struct",
+      "base": "",
+      "fields": [
+        {
+          "name": "data",
+          "type": "pair_string_state_value_variant[]"
+        }
+      ]
+    },
+    {
+      "name": "removepay",
+      "base": "",
+      "fields": [
+        {
+          "name": "receiver",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "resetrating",
+      "base": "",
+      "fields": [
+        {
+          "name": "land_id",
+          "type": "uint64"
+        }
+      ]
+    },
+    {
+      "name": "run",
+      "base": "",
+      "fields": [
+        {
+          "name": "batchSize",
+          "type": "uint8"
+        }
+      ]
+    },
+    {
+      "name": "setconfig",
+      "base": "",
+      "fields": [
+        {
+          "name": "numberOfLands",
+          "type": "uint16"
+        },
+        {
+          "name": "skippedAccounts",
+          "type": "name[]"
+        },
+        {
+          "name": "startPayThreshold",
+          "type": "asset"
+        }
+      ]
+    },
+    {
+      "name": "setconfig2",
+      "base": "",
+      "fields": [
+        {
+          "name": "megaboost_template_id",
+          "type": "int32"
+        },
+        {
+          "name": "superboost_template_id",
+          "type": "int32"
+        }
+      ]
+    },
+    {
+      "name": "setiscapped",
+      "base": "",
+      "fields": [
+        {
+          "name": "landrating_is_capped",
+          "type": "bool"
+        }
+      ]
+    },
+    {
+      "name": "setlandnick",
+      "base": "",
+      "fields": [
+        {
+          "name": "owner",
+          "type": "name"
+        },
+        {
+          "name": "land_id",
+          "type": "uint64"
+        },
+        {
+          "name": "nickname",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "setmaxlndcom",
+      "base": "",
+      "fields": [
+        {
+          "name": "planet",
+          "type": "name"
+        },
+        {
+          "name": "maxlndcom",
+          "type": "uint16"
+        }
+      ]
+    },
+    {
+      "name": "setminboost",
+      "base": "",
+      "fields": [
+        {
+          "name": "owner",
+          "type": "name"
+        },
+        {
+          "name": "land_id",
+          "type": "uint64"
+        },
+        {
+          "name": "minboost",
+          "type": "asset"
+        }
+      ]
+    },
+    {
+      "name": "setminlndcom",
+      "base": "",
+      "fields": [
+        {
+          "name": "planet",
+          "type": "name"
+        },
+        {
+          "name": "minlndcom",
+          "type": "uint16"
+        }
+      ]
+    },
+    {
+      "name": "setprofitshr",
+      "base": "",
+      "fields": [
+        {
+          "name": "owner",
+          "type": "name"
+        },
+        {
+          "name": "land_id",
+          "type": "uint64"
+        },
+        {
+          "name": "profit_share",
+          "type": "uint16"
+        }
+      ]
+    },
+    {
+      "name": "stgmaxlndcom",
+      "base": "",
+      "fields": [
+        {
+          "name": "maxlndcom",
+          "type": "uint16"
+        }
+      ]
+    },
+    {
+      "name": "stgminlndcom",
+      "base": "",
+      "fields": [
+        {
+          "name": "minlndcom",
+          "type": "uint16"
+        }
+      ]
+    },
+    {
+      "name": "superboost",
+      "base": "",
+      "fields": [
+        {
+          "name": "land_id",
+          "type": "uint64"
+        }
+      ]
+    },
+    {
+      "name": "withdrboost",
+      "base": "",
+      "fields": [
+        {
+          "name": "nft_id",
+          "type": "uint64"
+        }
+      ]
+    }
+  ]
+}

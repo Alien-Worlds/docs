@@ -48,9 +48,25 @@ import {
 ### <BlockExplorerActionLinks contract="m.federation" action="setparam" />
 ```
 
-The components render the identifier as `<code>` plus themed icon links to wax.bloks.io and waxblock.io. Follow this pattern for new contract docs rather than hardcoding explorer URLs. Icons live in `static/img/`; light/dark variants go through `@theme/ThemedImage`.
+The components render the identifier as `<code>` plus themed icon links to wax.bloks.io and waxblock.io. Follow this pattern for new contract docs rather than hardcoding explorer URLs. Beyond rendering links, these props are the machine-readable index of what the docs claim — `scripts/abi-sync.mjs` parses them, so a hardcoded URL is invisible to the drift check. Icons live in `static/img/`; light/dark variants go through `@theme/ThemedImage`.
 
 **Mermaid** is enabled (`markdown.mermaid`, `@docusaurus/theme-mermaid`) — use ```mermaid fences directly. KaTeX deps (`remark-math`/`rehype-katex`) are installed but not currently wired into the preset.
+
+## Contract docs are checked against the chain
+
+`scripts/abi-sync.mjs` (`pnpm abi:check`) parses every `<BlockExplorer*Links>` usage in `docs/` into a set of claims, and compares them to ABI snapshots cached under `abis/`. CI runs it on every PR.
+
+- `pnpm abi:fetch` — refresh `abis/*.json` from a WAX endpoint (`WAX_API_URL`, comma-separated, tried in order).
+- `pnpm abi:check` — offline check; **fails on new stale claims**, warns on undocumented contract surface.
+- `pnpm abi:baseline` — regenerate `abis/drift-baseline.json`.
+
+Only contracts with documented _actions or tables_ are verified. An account referenced solely by `<BlockExplorerContractLinks>` may have no contract deployed at all — every `*.dac` planet account is one — so a missing ABI there is expected, not drift.
+
+`abis/drift-baseline.json` records 25 pre-existing stale claims so the gate blocks _new_ drift without failing on day one. The bulk are in `02- federation.md`: the deployed `federation` contract has only 4 actions, while the doc describes ~15 — that functionality moved to `awlndratings` and `m.federation`. **Fixing a doc means deleting its baseline entry**; the check reports baseline entries that no longer apply. Never add entries by hand to silence a failure.
+
+The scheduled `abi-drift` workflow re-fetches ABIs weekly and opens a PR when the chain has changed — that PR is the "a contract moved" signal. It deliberately does not touch the baseline.
+
+ABI gives names, types and structure — never intent. Prose like the mine-action rule list in `03- mining.md` is hand-written knowledge and stays that way; the tooling removes the transcription, not the explanation.
 
 ## Conventions
 
