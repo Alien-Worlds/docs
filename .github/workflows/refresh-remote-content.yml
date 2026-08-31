@@ -1,0 +1,45 @@
+name: Refresh remote content
+
+# docs/03-API tools/ is generated from the Alien-Worlds/* repos and committed
+# here. Without this job it only updates when someone remembers to run the
+# refresh by hand. Output lands as a reviewable PR, never a silent push.
+on:
+  schedule:
+    - cron: '0 5 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+
+      - name: Re-fetch upstream docs
+        run: pnpm docs:refresh
+
+      # Prove the refreshed tree still builds before asking anyone to review it.
+      - name: Build
+        run: pnpm build
+
+      - uses: peter-evans/create-pull-request@v7
+        with:
+          branch: automated/refresh-remote-content
+          title: 'docs: refresh generated content from upstream repos'
+          commit-message: 'docs: refresh generated content from upstream repos'
+          labels: documentation, automated
+          body: |
+            Regenerated `docs/03-API tools/` from the upstream `Alien-Worlds/*`
+            repositories via `pnpm docs:refresh`.
+
+            These files are plugin output — review the change, but make any
+            corrections in the upstream repo, not here.
