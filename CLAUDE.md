@@ -68,6 +68,21 @@ The scheduled `abi-drift` workflow re-fetches ABIs weekly and opens a PR when th
 
 ABI gives names, types and structure — never intent. Prose like the mine-action rule list in `03- mining.md` is hand-written knowledge and stays that way; the tooling removes the transcription, not the explanation.
 
+## Deployment
+
+Cloudflare Pages, wired up through the **Cloudflare Workers and Pages GitHub App**. Cloudflare clones and builds this repo on its own infrastructure: pushes to `main` publish production, and each PR gets an automatic preview URL. Consequences worth knowing:
+
+- **There is no deploy workflow in this repo and there should not be one** — a GitHub Actions deploy would publish the same site twice.
+- **Build settings live in the Cloudflare dashboard, not in version control.** They can drift from the repo silently. After changing anything about how the project builds, check them: build command `pnpm build`, output directory `build`.
+- `pnpm-lock.yaml` is lockfile version 9.0 and needs a **pnpm 9** build environment. pnpm 8 cannot read it, and the Pages build image's default pnpm may be older — pin it (e.g. a `PNPM_VERSION` build environment variable) if a deploy fails at install.
+- The Node version comes from `.nvmrc` on the current Pages build image; older images need a `NODE_VERSION` variable instead.
+
+Leftovers from an abandoned GitHub Pages setup: `static/.nojekyll` (inert on Cloudflare) and a former `deploy` script, since removed — running it would have published a competing stale copy to a `gh-pages` branch. Note also that `pnpm deploy` is a pnpm builtin (workspace deploy), so a `deploy` script would not have run via `pnpm deploy` anyway.
+
+`url` and `baseUrl` in `docusaurus.config.ts` are still Docusaurus template placeholders, so canonical URLs, the sitemap and social-card metadata are all wrong. Set them to the real Pages domain.
+
+`trailingSlash` is deliberately unset — it currently works in production, and changing it rewrites every emitted URL.
+
 ## Conventions
 
 - `.md` files containing JSX must still import their components explicitly; some files use `.mdx` where MDX features are heavier.

@@ -27,16 +27,12 @@ This command generates static content into the `build` directory and can be serv
 
 ### Deployment
 
-Using SSH:
+Deployed automatically by the **Cloudflare Pages GitHub App**. Cloudflare builds
+this repo itself on push — pushes to `main` publish production, and every pull
+request gets its own preview URL. There is no deploy workflow in this repo, and
+nothing needs to be run by hand.
 
-```
-$ USE_SSH=true pnpm deploy
-```
-
-Not using SSH:
-
-```
-$ GIT_USER=<Your GitHub username> pnpm deploy
-```
-
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+Build settings live in the Cloudflare Pages dashboard, not here. They must stay
+in sync with this repo: build command `pnpm build`, output directory `build`,
+and a pnpm 9 build environment (`pnpm-lock.yaml` is lockfile version 9.0, which
+pnpm 8 cannot read).
