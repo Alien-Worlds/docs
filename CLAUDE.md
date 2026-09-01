@@ -79,7 +79,7 @@ Cloudflare Pages, wired up through the **Cloudflare Workers and Pages GitHub App
 
 Leftovers from an abandoned GitHub Pages setup: `static/.nojekyll` (inert on Cloudflare) and a former `deploy` script, since removed — running it would have published a competing stale copy to a `gh-pages` branch. Note also that `pnpm deploy` is a pnpm builtin (workspace deploy), so a `deploy` script would not have run via `pnpm deploy` anyway.
 
-`url` and `baseUrl` in `docusaurus.config.ts` are still Docusaurus template placeholders, so canonical URLs, the sitemap and social-card metadata are all wrong. Set them to the real Pages domain.
+The site is served on Cloudflare's default domain, <https://docs-9s1.pages.dev> — there is no custom domain attached. That value is `url` in `docusaurus.config.ts`; if a custom domain is ever added, change it there too or canonical URLs, the sitemap and social-card metadata will keep pointing at the `pages.dev` host.
 
 `trailingSlash` is deliberately unset — it currently works in production, and changing it rewrites every emitted URL.
 

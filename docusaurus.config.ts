@@ -150,16 +150,11 @@ const config: Config = {
   organizationName: 'alienworlds', // Usually your GitHub org/user name.
   projectName: 'docs', // Usually your repo name.
 
-  // Set the production url of your site here
-  url: 'https://your-docusaurus-test-site.com',
-  // Set the /<baseUrl>/ pathname under which your site is served
-  // For GitHub pages deployment, it is often '/<projectName>/'
+  // Production URL. Cloudflare Pages serves this project on its default
+  // *.pages.dev domain; change this if a custom domain is ever attached, or
+  // canonical URLs and social-card metadata will point at the wrong host.
+  url: 'https://docs-9s1.pages.dev',
   baseUrl: '/',
-
-  // GitHub pages deployment config.
-  // If you aren't using GitHub pages, you don't need these.
-  // organizationName: 'alienworlds', // Usually your GitHub org/user name.
-  // projectName: 'docusaurus', // Usually your repo name.
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
