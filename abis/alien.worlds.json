@@ -1,0 +1,262 @@
+{
+  "account": "alien.worlds",
+  "version": "eosio::abi/1.2",
+  "actions": [
+    {
+      "name": "addvesting",
+      "type": "addvesting"
+    },
+    {
+      "name": "burn",
+      "type": "burn"
+    },
+    {
+      "name": "close",
+      "type": "close"
+    },
+    {
+      "name": "create",
+      "type": "create"
+    },
+    {
+      "name": "issue",
+      "type": "issue"
+    },
+    {
+      "name": "open",
+      "type": "open"
+    },
+    {
+      "name": "pause",
+      "type": "pause"
+    },
+    {
+      "name": "transfer",
+      "type": "transfer"
+    },
+    {
+      "name": "unpause",
+      "type": "unpause"
+    }
+  ],
+  "tables": [
+    {
+      "name": "accounts",
+      "type": "account",
+      "key_names": []
+    },
+    {
+      "name": "pausable",
+      "type": "pausable",
+      "key_names": []
+    },
+    {
+      "name": "stat",
+      "type": "currency_stats",
+      "key_names": []
+    },
+    {
+      "name": "vestings",
+      "type": "vesting_item",
+      "key_names": []
+    }
+  ],
+  "structs": [
+    {
+      "name": "account",
+      "base": "",
+      "fields": [
+        {
+          "name": "balance",
+          "type": "asset"
+        }
+      ]
+    },
+    {
+      "name": "addvesting",
+      "base": "",
+      "fields": [
+        {
+          "name": "account",
+          "type": "name"
+        },
+        {
+          "name": "vesting_start",
+          "type": "time_point_sec"
+        },
+        {
+          "name": "vesting_length",
+          "type": "uint32"
+        },
+        {
+          "name": "vesting_quantity",
+          "type": "asset"
+        }
+      ]
+    },
+    {
+      "name": "burn",
+      "base": "",
+      "fields": [
+        {
+          "name": "from",
+          "type": "name"
+        },
+        {
+          "name": "quantity",
+          "type": "asset"
+        },
+        {
+          "name": "memo",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "close",
+      "base": "",
+      "fields": [
+        {
+          "name": "owner",
+          "type": "name"
+        },
+        {
+          "name": "symbol",
+          "type": "symbol"
+        }
+      ]
+    },
+    {
+      "name": "create",
+      "base": "",
+      "fields": [
+        {
+          "name": "issuer",
+          "type": "name"
+        },
+        {
+          "name": "maximum_supply",
+          "type": "asset"
+        }
+      ]
+    },
+    {
+      "name": "currency_stats",
+      "base": "",
+      "fields": [
+        {
+          "name": "supply",
+          "type": "asset"
+        },
+        {
+          "name": "max_supply",
+          "type": "asset"
+        },
+        {
+          "name": "issuer",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "issue",
+      "base": "",
+      "fields": [
+        {
+          "name": "to",
+          "type": "name"
+        },
+        {
+          "name": "quantity",
+          "type": "asset"
+        },
+        {
+          "name": "memo",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "open",
+      "base": "",
+      "fields": [
+        {
+          "name": "owner",
+          "type": "name"
+        },
+        {
+          "name": "symbol",
+          "type": "symbol"
+        },
+        {
+          "name": "ram_payer",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "pausable",
+      "base": "",
+      "fields": [
+        {
+          "name": "paused",
+          "type": "bool"
+        }
+      ]
+    },
+    {
+      "name": "pause",
+      "base": "",
+      "fields": []
+    },
+    {
+      "name": "transfer",
+      "base": "",
+      "fields": [
+        {
+          "name": "from",
+          "type": "name"
+        },
+        {
+          "name": "to",
+          "type": "name"
+        },
+        {
+          "name": "quantity",
+          "type": "asset"
+        },
+        {
+          "name": "memo",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "unpause",
+      "base": "",
+      "fields": []
+    },
+    {
+      "name": "vesting_item",
+      "base": "",
+      "fields": [
+        {
+          "name": "account",
+          "type": "name"
+        },
+        {
+          "name": "vesting_start",
+          "type": "time_point_sec"
+        },
+        {
+          "name": "vesting_length",
+          "type": "uint32"
+        },
+        {
+          "name": "vesting_quantity",
+          "type": "asset"
+        }
+      ]
+    }
+  ]
+}

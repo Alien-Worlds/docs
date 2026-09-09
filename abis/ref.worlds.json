@@ -1,0 +1,554 @@
+{
+  "account": "ref.worlds",
+  "version": "eosio::abi/1.2",
+  "actions": [
+    {
+      "name": "cancel",
+      "type": "cancel"
+    },
+    {
+      "name": "clean",
+      "type": "clean"
+    },
+    {
+      "name": "clearconfig",
+      "type": "clearconfig"
+    },
+    {
+      "name": "exec",
+      "type": "exec"
+    },
+    {
+      "name": "propose",
+      "type": "propose"
+    },
+    {
+      "name": "publresult",
+      "type": "publresult"
+    },
+    {
+      "name": "refund",
+      "type": "refund"
+    },
+    {
+      "name": "rmvexecuted",
+      "type": "rmvexecuted"
+    },
+    {
+      "name": "rmvexpired",
+      "type": "rmvexpired"
+    },
+    {
+      "name": "stakeobsv",
+      "type": "stakeobsv"
+    },
+    {
+      "name": "updateconfig",
+      "type": "updateconfig"
+    },
+    {
+      "name": "updatestatus",
+      "type": "updatestatus"
+    },
+    {
+      "name": "vote",
+      "type": "vote"
+    }
+  ],
+  "tables": [
+    {
+      "name": "config",
+      "type": "config_item",
+      "key_names": []
+    },
+    {
+      "name": "deposits",
+      "type": "deposit_info",
+      "key_names": []
+    },
+    {
+      "name": "referendums",
+      "type": "referendum_data",
+      "key_names": []
+    },
+    {
+      "name": "votes",
+      "type": "vote_info",
+      "key_names": []
+    }
+  ],
+  "structs": [
+    {
+      "name": "account_stake_delta",
+      "base": "",
+      "fields": [
+        {
+          "name": "account",
+          "type": "name"
+        },
+        {
+          "name": "stake_delta",
+          "type": "asset"
+        },
+        {
+          "name": "unstake_delay",
+          "type": "uint32"
+        }
+      ]
+    },
+    {
+      "name": "action",
+      "base": "",
+      "fields": [
+        {
+          "name": "account",
+          "type": "name"
+        },
+        {
+          "name": "name",
+          "type": "name"
+        },
+        {
+          "name": "authorization",
+          "type": "permission_level[]"
+        },
+        {
+          "name": "data",
+          "type": "bytes"
+        }
+      ]
+    },
+    {
+      "name": "cancel",
+      "base": "",
+      "fields": [
+        {
+          "name": "referendum_id",
+          "type": "uint64"
+        },
+        {
+          "name": "dac_id",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "clean",
+      "base": "",
+      "fields": [
+        {
+          "name": "account",
+          "type": "name"
+        },
+        {
+          "name": "dac_id",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "clearconfig",
+      "base": "",
+      "fields": [
+        {
+          "name": "dac_id",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "config_item",
+      "base": "",
+      "fields": [
+        {
+          "name": "duration",
+          "type": "uint32"
+        },
+        {
+          "name": "fee",
+          "type": "pair_name_extended_asset[]"
+        },
+        {
+          "name": "pass",
+          "type": "pair_name_uint16[]"
+        },
+        {
+          "name": "quorum_token",
+          "type": "pair_name_uint64[]"
+        },
+        {
+          "name": "quorum_account",
+          "type": "pair_name_uint64[]"
+        },
+        {
+          "name": "allow_per_account_voting",
+          "type": "pair_name_bool[]"
+        },
+        {
+          "name": "allow_vote_type",
+          "type": "pair_name_bool[]"
+        },
+        {
+          "name": "next_referendum_id",
+          "type": "uint64"
+        }
+      ]
+    },
+    {
+      "name": "deposit_info",
+      "base": "",
+      "fields": [
+        {
+          "name": "account",
+          "type": "name"
+        },
+        {
+          "name": "deposit",
+          "type": "extended_asset"
+        }
+      ]
+    },
+    {
+      "name": "exec",
+      "base": "",
+      "fields": [
+        {
+          "name": "referendum_id",
+          "type": "uint64"
+        },
+        {
+          "name": "dac_id",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "pair_name_bool",
+      "base": "",
+      "fields": [
+        {
+          "name": "key",
+          "type": "name"
+        },
+        {
+          "name": "value",
+          "type": "bool"
+        }
+      ]
+    },
+    {
+      "name": "pair_name_extended_asset",
+      "base": "",
+      "fields": [
+        {
+          "name": "key",
+          "type": "name"
+        },
+        {
+          "name": "value",
+          "type": "extended_asset"
+        }
+      ]
+    },
+    {
+      "name": "pair_name_uint16",
+      "base": "",
+      "fields": [
+        {
+          "name": "key",
+          "type": "name"
+        },
+        {
+          "name": "value",
+          "type": "uint16"
+        }
+      ]
+    },
+    {
+      "name": "pair_name_uint64",
+      "base": "",
+      "fields": [
+        {
+          "name": "key",
+          "type": "name"
+        },
+        {
+          "name": "value",
+          "type": "uint64"
+        }
+      ]
+    },
+    {
+      "name": "pair_uint64_name",
+      "base": "",
+      "fields": [
+        {
+          "name": "key",
+          "type": "uint64"
+        },
+        {
+          "name": "value",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "permission_level",
+      "base": "",
+      "fields": [
+        {
+          "name": "actor",
+          "type": "name"
+        },
+        {
+          "name": "permission",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "propose",
+      "base": "",
+      "fields": [
+        {
+          "name": "proposer",
+          "type": "name"
+        },
+        {
+          "name": "type",
+          "type": "name"
+        },
+        {
+          "name": "voting_type_name",
+          "type": "name"
+        },
+        {
+          "name": "title",
+          "type": "string"
+        },
+        {
+          "name": "content",
+          "type": "string"
+        },
+        {
+          "name": "dac_id",
+          "type": "name"
+        },
+        {
+          "name": "acts",
+          "type": "action[]"
+        }
+      ]
+    },
+    {
+      "name": "publresult",
+      "base": "",
+      "fields": [
+        {
+          "name": "ref",
+          "type": "referendum_data"
+        }
+      ]
+    },
+    {
+      "name": "referendum_data",
+      "base": "",
+      "fields": [
+        {
+          "name": "referendum_id",
+          "type": "uint64"
+        },
+        {
+          "name": "proposer",
+          "type": "name"
+        },
+        {
+          "name": "type",
+          "type": "name"
+        },
+        {
+          "name": "voting_type",
+          "type": "name"
+        },
+        {
+          "name": "status",
+          "type": "name"
+        },
+        {
+          "name": "title",
+          "type": "string"
+        },
+        {
+          "name": "content_ref",
+          "type": "checksum256"
+        },
+        {
+          "name": "token_votes",
+          "type": "pair_name_uint64[]"
+        },
+        {
+          "name": "account_votes",
+          "type": "pair_name_uint64[]"
+        },
+        {
+          "name": "expires",
+          "type": "time_point_sec"
+        },
+        {
+          "name": "acts",
+          "type": "action[]"
+        }
+      ]
+    },
+    {
+      "name": "refund",
+      "base": "",
+      "fields": [
+        {
+          "name": "account",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "rmvexecuted",
+      "base": "",
+      "fields": [
+        {
+          "name": "referendum_id",
+          "type": "uint64"
+        },
+        {
+          "name": "dac_id",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "rmvexpired",
+      "base": "",
+      "fields": [
+        {
+          "name": "referendum_id",
+          "type": "uint64"
+        },
+        {
+          "name": "dac_id",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "set_config_item",
+      "base": "",
+      "fields": [
+        {
+          "name": "duration",
+          "type": "uint32"
+        },
+        {
+          "name": "fee",
+          "type": "pair_name_extended_asset[]"
+        },
+        {
+          "name": "pass",
+          "type": "pair_name_uint16[]"
+        },
+        {
+          "name": "quorum_token",
+          "type": "pair_name_uint64[]"
+        },
+        {
+          "name": "quorum_account",
+          "type": "pair_name_uint64[]"
+        },
+        {
+          "name": "allow_per_account_voting",
+          "type": "pair_name_bool[]"
+        },
+        {
+          "name": "allow_vote_type",
+          "type": "pair_name_bool[]"
+        }
+      ]
+    },
+    {
+      "name": "stakeobsv",
+      "base": "",
+      "fields": [
+        {
+          "name": "stake_deltas",
+          "type": "account_stake_delta[]"
+        },
+        {
+          "name": "dac_id",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "updateconfig",
+      "base": "",
+      "fields": [
+        {
+          "name": "config",
+          "type": "set_config_item"
+        },
+        {
+          "name": "dac_id",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "updatestatus",
+      "base": "",
+      "fields": [
+        {
+          "name": "referendum_id",
+          "type": "uint64"
+        },
+        {
+          "name": "dac_id",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "vote",
+      "base": "",
+      "fields": [
+        {
+          "name": "voter",
+          "type": "name"
+        },
+        {
+          "name": "referendum_id",
+          "type": "uint64"
+        },
+        {
+          "name": "vote",
+          "type": "name"
+        },
+        {
+          "name": "dac_id",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "vote_info",
+      "base": "",
+      "fields": [
+        {
+          "name": "voter",
+          "type": "name"
+        },
+        {
+          "name": "votes",
+          "type": "pair_uint64_name[]"
+        }
+      ]
+    }
+  ]
+}

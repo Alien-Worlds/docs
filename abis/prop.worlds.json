@@ -1,0 +1,912 @@
+{
+  "account": "prop.worlds",
+  "version": "eosio::abi/1.2",
+  "actions": [
+    {
+      "name": "addarbwl",
+      "type": "addarbwl"
+    },
+    {
+      "name": "addrecwl",
+      "type": "addrecwl"
+    },
+    {
+      "name": "arbagree",
+      "type": "arbagree"
+    },
+    {
+      "name": "arbapprove",
+      "type": "arbapprove"
+    },
+    {
+      "name": "arbdeny",
+      "type": "arbdeny"
+    },
+    {
+      "name": "blockprop",
+      "type": "blockprop"
+    },
+    {
+      "name": "cancelprop",
+      "type": "cancelprop"
+    },
+    {
+      "name": "cancelwip",
+      "type": "cancelwip"
+    },
+    {
+      "name": "clearexpprop",
+      "type": "clearexpprop"
+    },
+    {
+      "name": "comment",
+      "type": "comment"
+    },
+    {
+      "name": "completework",
+      "type": "completework"
+    },
+    {
+      "name": "createprop",
+      "type": "createprop"
+    },
+    {
+      "name": "delegatecat",
+      "type": "delegatecat"
+    },
+    {
+      "name": "delegatevote",
+      "type": "delegatevote"
+    },
+    {
+      "name": "dispute",
+      "type": "dispute"
+    },
+    {
+      "name": "finalize",
+      "type": "finalize"
+    },
+    {
+      "name": "minduration",
+      "type": "minduration"
+    },
+    {
+      "name": "notfyrmv",
+      "type": "notfyrmv"
+    },
+    {
+      "name": "refund",
+      "type": "refund"
+    },
+    {
+      "name": "rmvarbwl",
+      "type": "rmvarbwl"
+    },
+    {
+      "name": "rmvcompleted",
+      "type": "rmvcompleted"
+    },
+    {
+      "name": "rmvrecwl",
+      "type": "rmvrecwl"
+    },
+    {
+      "name": "safermvarbwl",
+      "type": "safermvarbwl"
+    },
+    {
+      "name": "setpropfee",
+      "type": "setpropfee"
+    },
+    {
+      "name": "startwork",
+      "type": "startwork"
+    },
+    {
+      "name": "undelegateca",
+      "type": "undelegateca"
+    },
+    {
+      "name": "updarbwl",
+      "type": "updarbwl"
+    },
+    {
+      "name": "updateconfig",
+      "type": "updateconfig"
+    },
+    {
+      "name": "updpropvotes",
+      "type": "updpropvotes"
+    },
+    {
+      "name": "updrecwl",
+      "type": "updrecwl"
+    },
+    {
+      "name": "voteprop",
+      "type": "voteprop"
+    },
+    {
+      "name": "votepropfin",
+      "type": "votepropfin"
+    }
+  ],
+  "tables": [
+    {
+      "name": "arbwhitelist",
+      "type": "arbiter_white_list",
+      "key_names": []
+    },
+    {
+      "name": "configs",
+      "type": "configs_struct",
+      "key_names": []
+    },
+    {
+      "name": "deposits",
+      "type": "deposit_info",
+      "key_names": []
+    },
+    {
+      "name": "proposals",
+      "type": "proposal",
+      "key_names": []
+    },
+    {
+      "name": "propvotes",
+      "type": "proposalvote",
+      "key_names": []
+    },
+    {
+      "name": "recwl",
+      "type": "receiver_whitelist",
+      "key_names": []
+    }
+  ],
+  "structs": [
+    {
+      "name": "addarbwl",
+      "base": "",
+      "fields": [
+        {
+          "name": "arbiter",
+          "type": "name"
+        },
+        {
+          "name": "rating",
+          "type": "uint64"
+        },
+        {
+          "name": "dac_id",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "addrecwl",
+      "base": "",
+      "fields": [
+        {
+          "name": "cand",
+          "type": "name"
+        },
+        {
+          "name": "rating",
+          "type": "uint64"
+        },
+        {
+          "name": "dac_id",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "arbagree",
+      "base": "",
+      "fields": [
+        {
+          "name": "arbiter",
+          "type": "name"
+        },
+        {
+          "name": "proposal_id",
+          "type": "name"
+        },
+        {
+          "name": "dac_id",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "arbapprove",
+      "base": "",
+      "fields": [
+        {
+          "name": "arbiter",
+          "type": "name"
+        },
+        {
+          "name": "proposal_id",
+          "type": "name"
+        },
+        {
+          "name": "dac_id",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "arbdeny",
+      "base": "",
+      "fields": [
+        {
+          "name": "arbiter",
+          "type": "name"
+        },
+        {
+          "name": "proposal_id",
+          "type": "name"
+        },
+        {
+          "name": "dac_id",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "arbiter_white_list",
+      "base": "",
+      "fields": [
+        {
+          "name": "arbiter",
+          "type": "name"
+        },
+        {
+          "name": "rating",
+          "type": "uint64"
+        }
+      ]
+    },
+    {
+      "name": "blockprop",
+      "base": "",
+      "fields": [
+        {
+          "name": "proposal_id",
+          "type": "name"
+        },
+        {
+          "name": "dac_id",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "cancelprop",
+      "base": "",
+      "fields": [
+        {
+          "name": "proposal_id",
+          "type": "name"
+        },
+        {
+          "name": "dac_id",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "cancelwip",
+      "base": "",
+      "fields": [
+        {
+          "name": "proposal_id",
+          "type": "name"
+        },
+        {
+          "name": "dac_id",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "clearexpprop",
+      "base": "",
+      "fields": [
+        {
+          "name": "proposal_id",
+          "type": "name"
+        },
+        {
+          "name": "dac_id",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "comment",
+      "base": "",
+      "fields": [
+        {
+          "name": "commenter",
+          "type": "name"
+        },
+        {
+          "name": "proposal_id",
+          "type": "name"
+        },
+        {
+          "name": "comment",
+          "type": "string"
+        },
+        {
+          "name": "comment_category",
+          "type": "string"
+        },
+        {
+          "name": "dac_id",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "completework",
+      "base": "",
+      "fields": [
+        {
+          "name": "proposal_id",
+          "type": "name"
+        },
+        {
+          "name": "dac_id",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "config",
+      "base": "",
+      "fields": [
+        {
+          "name": "proposal_fee",
+          "type": "extended_asset"
+        },
+        {
+          "name": "proposal_threshold",
+          "type": "uint8"
+        },
+        {
+          "name": "finalize_threshold",
+          "type": "uint8"
+        },
+        {
+          "name": "approval_duration",
+          "type": "uint32"
+        },
+        {
+          "name": "min_proposal_duration",
+          "type": "uint32"
+        }
+      ]
+    },
+    {
+      "name": "configs_struct",
+      "base": "",
+      "fields": [
+        {
+          "name": "data",
+          "type": "pair_string_state_value_variant[]"
+        }
+      ]
+    },
+    {
+      "name": "createprop",
+      "base": "",
+      "fields": [
+        {
+          "name": "proposer",
+          "type": "name"
+        },
+        {
+          "name": "title",
+          "type": "string"
+        },
+        {
+          "name": "summary",
+          "type": "string"
+        },
+        {
+          "name": "arbiter",
+          "type": "name"
+        },
+        {
+          "name": "proposal_pay",
+          "type": "extended_asset"
+        },
+        {
+          "name": "arbiter_pay",
+          "type": "extended_asset"
+        },
+        {
+          "name": "content_hash",
+          "type": "string"
+        },
+        {
+          "name": "id",
+          "type": "name"
+        },
+        {
+          "name": "category",
+          "type": "uint16"
+        },
+        {
+          "name": "job_duration",
+          "type": "uint32"
+        },
+        {
+          "name": "dac_id",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "delegatecat",
+      "base": "",
+      "fields": [
+        {
+          "name": "custodian",
+          "type": "name"
+        },
+        {
+          "name": "category",
+          "type": "uint64"
+        },
+        {
+          "name": "delegatee_custodian",
+          "type": "name"
+        },
+        {
+          "name": "dac_id",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "delegatevote",
+      "base": "",
+      "fields": [
+        {
+          "name": "custodian",
+          "type": "name"
+        },
+        {
+          "name": "proposal_id",
+          "type": "name"
+        },
+        {
+          "name": "delegatee_custodian",
+          "type": "name"
+        },
+        {
+          "name": "dac_id",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "deposit_info",
+      "base": "",
+      "fields": [
+        {
+          "name": "account",
+          "type": "name"
+        },
+        {
+          "name": "deposit",
+          "type": "extended_asset"
+        }
+      ]
+    },
+    {
+      "name": "dispute",
+      "base": "",
+      "fields": [
+        {
+          "name": "proposal_id",
+          "type": "name"
+        },
+        {
+          "name": "dac_id",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "finalize",
+      "base": "",
+      "fields": [
+        {
+          "name": "proposal_id",
+          "type": "name"
+        },
+        {
+          "name": "dac_id",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "minduration",
+      "base": "",
+      "fields": [
+        {
+          "name": "new_min_proposal_duration",
+          "type": "uint32"
+        },
+        {
+          "name": "dac_id",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "notfyrmv",
+      "base": "",
+      "fields": [
+        {
+          "name": "prop",
+          "type": "proposal"
+        },
+        {
+          "name": "dac_id",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "pair_string_state_value_variant",
+      "base": "",
+      "fields": [
+        {
+          "name": "key",
+          "type": "string"
+        },
+        {
+          "name": "value",
+          "type": "state_value_variant"
+        }
+      ]
+    },
+    {
+      "name": "proposal",
+      "base": "",
+      "fields": [
+        {
+          "name": "proposal_id",
+          "type": "name"
+        },
+        {
+          "name": "proposer",
+          "type": "name"
+        },
+        {
+          "name": "arbiter",
+          "type": "name"
+        },
+        {
+          "name": "title",
+          "type": "string"
+        },
+        {
+          "name": "summary",
+          "type": "string"
+        },
+        {
+          "name": "content_hash",
+          "type": "string"
+        },
+        {
+          "name": "proposal_pay",
+          "type": "extended_asset"
+        },
+        {
+          "name": "arbiter_pay",
+          "type": "extended_asset"
+        },
+        {
+          "name": "arbiter_agreed",
+          "type": "bool"
+        },
+        {
+          "name": "state",
+          "type": "name"
+        },
+        {
+          "name": "expiry",
+          "type": "time_point_sec"
+        },
+        {
+          "name": "created_at",
+          "type": "time_point_sec"
+        },
+        {
+          "name": "job_duration",
+          "type": "uint32"
+        },
+        {
+          "name": "category",
+          "type": "uint16"
+        }
+      ]
+    },
+    {
+      "name": "proposalvote",
+      "base": "",
+      "fields": [
+        {
+          "name": "vote_id",
+          "type": "uint64"
+        },
+        {
+          "name": "voter",
+          "type": "name"
+        },
+        {
+          "name": "proposal_id",
+          "type": "name?"
+        },
+        {
+          "name": "category_id",
+          "type": "uint64?"
+        },
+        {
+          "name": "vote",
+          "type": "name?"
+        },
+        {
+          "name": "delegatee",
+          "type": "name?"
+        },
+        {
+          "name": "comment_hash",
+          "type": "string?"
+        }
+      ]
+    },
+    {
+      "name": "receiver_whitelist",
+      "base": "",
+      "fields": [
+        {
+          "name": "receiver",
+          "type": "name"
+        },
+        {
+          "name": "rating",
+          "type": "uint64"
+        }
+      ]
+    },
+    {
+      "name": "refund",
+      "base": "",
+      "fields": [
+        {
+          "name": "account",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "rmvarbwl",
+      "base": "",
+      "fields": [
+        {
+          "name": "arbiter",
+          "type": "name"
+        },
+        {
+          "name": "dac_id",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "rmvcompleted",
+      "base": "",
+      "fields": [
+        {
+          "name": "proposal_id",
+          "type": "name"
+        },
+        {
+          "name": "dac_id",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "rmvrecwl",
+      "base": "",
+      "fields": [
+        {
+          "name": "cand",
+          "type": "name"
+        },
+        {
+          "name": "dac_id",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "safermvarbwl",
+      "base": "",
+      "fields": [
+        {
+          "name": "arbiter",
+          "type": "name"
+        },
+        {
+          "name": "dac_id",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "setpropfee",
+      "base": "",
+      "fields": [
+        {
+          "name": "new_proposal_fee",
+          "type": "extended_asset"
+        },
+        {
+          "name": "dac_id",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "startwork",
+      "base": "",
+      "fields": [
+        {
+          "name": "proposal_id",
+          "type": "name"
+        },
+        {
+          "name": "dac_id",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "undelegateca",
+      "base": "",
+      "fields": [
+        {
+          "name": "custodian",
+          "type": "name"
+        },
+        {
+          "name": "category",
+          "type": "uint64"
+        },
+        {
+          "name": "dac_id",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "updarbwl",
+      "base": "",
+      "fields": [
+        {
+          "name": "arbiter",
+          "type": "name"
+        },
+        {
+          "name": "rating",
+          "type": "uint64"
+        },
+        {
+          "name": "dac_id",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "updateconfig",
+      "base": "",
+      "fields": [
+        {
+          "name": "new_config",
+          "type": "config"
+        },
+        {
+          "name": "dac_id",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "updpropvotes",
+      "base": "",
+      "fields": [
+        {
+          "name": "proposal_id",
+          "type": "name"
+        },
+        {
+          "name": "dac_id",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "updrecwl",
+      "base": "",
+      "fields": [
+        {
+          "name": "cand",
+          "type": "name"
+        },
+        {
+          "name": "rating",
+          "type": "uint64"
+        },
+        {
+          "name": "dac_id",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "voteprop",
+      "base": "",
+      "fields": [
+        {
+          "name": "custodian",
+          "type": "name"
+        },
+        {
+          "name": "proposal_id",
+          "type": "name"
+        },
+        {
+          "name": "vote",
+          "type": "name"
+        },
+        {
+          "name": "dac_id",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "votepropfin",
+      "base": "",
+      "fields": [
+        {
+          "name": "custodian",
+          "type": "name"
+        },
+        {
+          "name": "proposal_id",
+          "type": "name"
+        },
+        {
+          "name": "vote",
+          "type": "name"
+        },
+        {
+          "name": "dac_id",
+          "type": "name"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,710 @@
+{
+  "account": "m.federation",
+  "version": "eosio::abi/1.2",
+  "actions": [
+    {
+      "name": "addnotify",
+      "type": "addnotify"
+    },
+    {
+      "name": "claimcomms",
+      "type": "claimcomms"
+    },
+    {
+      "name": "claimmines",
+      "type": "claimmines"
+    },
+    {
+      "name": "clearbags",
+      "type": "clearbags"
+    },
+    {
+      "name": "clearminers",
+      "type": "clearminers"
+    },
+    {
+      "name": "clearparams",
+      "type": "clearparams"
+    },
+    {
+      "name": "fill",
+      "type": "fill"
+    },
+    {
+      "name": "mine",
+      "type": "mine"
+    },
+    {
+      "name": "pltdtapclaim",
+      "type": "pltdtapclaim"
+    },
+    {
+      "name": "pltdtapntfy",
+      "type": "pltdtapntfy"
+    },
+    {
+      "name": "pltdtapset",
+      "type": "pltdtapset"
+    },
+    {
+      "name": "reclaim",
+      "type": "reclaim"
+    },
+    {
+      "name": "resetstate",
+      "type": "resetstate"
+    },
+    {
+      "name": "rmvnotify",
+      "type": "rmvnotify"
+    },
+    {
+      "name": "setbag",
+      "type": "setbag"
+    },
+    {
+      "name": "setconfig",
+      "type": "setconfig"
+    },
+    {
+      "name": "setland",
+      "type": "setland"
+    },
+    {
+      "name": "setparam",
+      "type": "setparam"
+    },
+    {
+      "name": "setparams",
+      "type": "setparams"
+    },
+    {
+      "name": "setpoolrates",
+      "type": "setpoolrates"
+    },
+    {
+      "name": "testparam",
+      "type": "testparam"
+    },
+    {
+      "name": "unlockbag",
+      "type": "unlockbag"
+    }
+  ],
+  "tables": [
+    {
+      "name": "bags",
+      "type": "bag",
+      "key_names": []
+    },
+    {
+      "name": "config",
+      "type": "config_struct",
+      "key_names": []
+    },
+    {
+      "name": "deposits",
+      "type": "deposit",
+      "key_names": []
+    },
+    {
+      "name": "global",
+      "type": "contr_global",
+      "key_names": []
+    },
+    {
+      "name": "landcomms",
+      "type": "landcomm",
+      "key_names": []
+    },
+    {
+      "name": "minerclaim",
+      "type": "miner_claim",
+      "key_names": []
+    },
+    {
+      "name": "miners",
+      "type": "miner",
+      "key_names": []
+    },
+    {
+      "name": "pltdtapconf",
+      "type": "pltdtapconf_struct",
+      "key_names": []
+    },
+    {
+      "name": "pools",
+      "type": "pools",
+      "key_names": []
+    },
+    {
+      "name": "props",
+      "type": "contr_props",
+      "key_names": []
+    },
+    {
+      "name": "state3",
+      "type": "contr_state",
+      "key_names": []
+    },
+    {
+      "name": "tooluse",
+      "type": "tooluse_item",
+      "key_names": []
+    },
+    {
+      "name": "whitelist",
+      "type": "whitelist",
+      "key_names": []
+    }
+  ],
+  "structs": [
+    {
+      "name": "addnotify",
+      "base": "",
+      "fields": [
+        {
+          "name": "authorizer",
+          "type": "name"
+        },
+        {
+          "name": "planet",
+          "type": "name"
+        },
+        {
+          "name": "account",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "bag",
+      "base": "",
+      "fields": [
+        {
+          "name": "account",
+          "type": "name"
+        },
+        {
+          "name": "items",
+          "type": "uint64[]"
+        },
+        {
+          "name": "locked",
+          "type": "bool"
+        }
+      ]
+    },
+    {
+      "name": "claimcomms",
+      "base": "",
+      "fields": [
+        {
+          "name": "receiver",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "claimmines",
+      "base": "",
+      "fields": [
+        {
+          "name": "receiver",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "clearbags",
+      "base": "",
+      "fields": []
+    },
+    {
+      "name": "clearminers",
+      "base": "",
+      "fields": []
+    },
+    {
+      "name": "clearparams",
+      "base": "",
+      "fields": []
+    },
+    {
+      "name": "config_struct",
+      "base": "",
+      "fields": [
+        {
+          "name": "data",
+          "type": "pair_string_state_value_variant[]"
+        }
+      ]
+    },
+    {
+      "name": "contr_global",
+      "base": "",
+      "fields": [
+        {
+          "name": "delay_multiplier",
+          "type": "uint16"
+        },
+        {
+          "name": "luck_multiplier",
+          "type": "uint16"
+        },
+        {
+          "name": "ease_multiplier",
+          "type": "uint16"
+        }
+      ]
+    },
+    {
+      "name": "contr_props",
+      "base": "",
+      "fields": [
+        {
+          "name": "last_rng",
+          "type": "uint32"
+        },
+        {
+          "name": "reserved1",
+          "type": "uint32"
+        },
+        {
+          "name": "reserved2",
+          "type": "uint64"
+        },
+        {
+          "name": "reserved3",
+          "type": "uint64"
+        },
+        {
+          "name": "reserved4",
+          "type": "uint64"
+        }
+      ]
+    },
+    {
+      "name": "contr_state",
+      "base": "",
+      "fields": [
+        {
+          "name": "last_fill_time",
+          "type": "time_point"
+        },
+        {
+          "name": "fill_rate",
+          "type": "float64"
+        },
+        {
+          "name": "bucket_total",
+          "type": "asset"
+        },
+        {
+          "name": "mine_bucket",
+          "type": "asset"
+        }
+      ]
+    },
+    {
+      "name": "deposit",
+      "base": "",
+      "fields": [
+        {
+          "name": "account",
+          "type": "name"
+        },
+        {
+          "name": "quantity",
+          "type": "asset"
+        }
+      ]
+    },
+    {
+      "name": "fill",
+      "base": "",
+      "fields": [
+        {
+          "name": "account",
+          "type": "name"
+        },
+        {
+          "name": "planet_name",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "landcomm",
+      "base": "",
+      "fields": [
+        {
+          "name": "landowner",
+          "type": "name"
+        },
+        {
+          "name": "comms",
+          "type": "asset"
+        },
+        {
+          "name": "timestamp",
+          "type": "time_point_sec"
+        }
+      ]
+    },
+    {
+      "name": "mine",
+      "base": "",
+      "fields": [
+        {
+          "name": "miner",
+          "type": "name"
+        },
+        {
+          "name": "nonce",
+          "type": "bytes"
+        },
+        {
+          "name": "notify",
+          "type": "name$"
+        }
+      ]
+    },
+    {
+      "name": "miner",
+      "base": "",
+      "fields": [
+        {
+          "name": "miner",
+          "type": "name"
+        },
+        {
+          "name": "last_mine_tx",
+          "type": "checksum256"
+        },
+        {
+          "name": "last_mine",
+          "type": "time_point_sec"
+        },
+        {
+          "name": "current_land",
+          "type": "uint64"
+        }
+      ]
+    },
+    {
+      "name": "miner_claim",
+      "base": "",
+      "fields": [
+        {
+          "name": "miner",
+          "type": "name"
+        },
+        {
+          "name": "amount",
+          "type": "asset"
+        },
+        {
+          "name": "timestamp",
+          "type": "time_point_sec"
+        }
+      ]
+    },
+    {
+      "name": "pair_string_asset",
+      "base": "",
+      "fields": [
+        {
+          "name": "key",
+          "type": "string"
+        },
+        {
+          "name": "value",
+          "type": "asset"
+        }
+      ]
+    },
+    {
+      "name": "pair_string_float64",
+      "base": "",
+      "fields": [
+        {
+          "name": "key",
+          "type": "string"
+        },
+        {
+          "name": "value",
+          "type": "float64"
+        }
+      ]
+    },
+    {
+      "name": "pair_string_state_value_variant",
+      "base": "",
+      "fields": [
+        {
+          "name": "key",
+          "type": "string"
+        },
+        {
+          "name": "value",
+          "type": "state_value_variant"
+        }
+      ]
+    },
+    {
+      "name": "pair_uint64_uint64",
+      "base": "",
+      "fields": [
+        {
+          "name": "first",
+          "type": "uint64"
+        },
+        {
+          "name": "second",
+          "type": "uint64"
+        }
+      ]
+    },
+    {
+      "name": "pltdtapclaim",
+      "base": "",
+      "fields": [
+        {
+          "name": "planet_name",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "pltdtapconf_struct",
+      "base": "",
+      "fields": [
+        {
+          "name": "data",
+          "type": "pair_string_state_value_variant[]"
+        }
+      ]
+    },
+    {
+      "name": "pltdtapntfy",
+      "base": "",
+      "fields": [
+        {
+          "name": "planet",
+          "type": "name"
+        },
+        {
+          "name": "destination",
+          "type": "name"
+        },
+        {
+          "name": "amount",
+          "type": "asset"
+        }
+      ]
+    },
+    {
+      "name": "pltdtapset",
+      "base": "",
+      "fields": [
+        {
+          "name": "planet_name",
+          "type": "name"
+        },
+        {
+          "name": "claim_rate_perc_x100",
+          "type": "uint32"
+        },
+        {
+          "name": "destination",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "pools",
+      "base": "",
+      "fields": [
+        {
+          "name": "rates",
+          "type": "pair_string_float64[]"
+        },
+        {
+          "name": "pool_buckets",
+          "type": "pair_string_asset[]"
+        }
+      ]
+    },
+    {
+      "name": "reclaim",
+      "base": "",
+      "fields": [
+        {
+          "name": "users",
+          "type": "name[]"
+        },
+        {
+          "name": "extra_check",
+          "type": "bool"
+        }
+      ]
+    },
+    {
+      "name": "resetstate",
+      "base": "",
+      "fields": [
+        {
+          "name": "planet_name",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "rmvnotify",
+      "base": "",
+      "fields": [
+        {
+          "name": "authorizer",
+          "type": "name"
+        },
+        {
+          "name": "planet",
+          "type": "name"
+        },
+        {
+          "name": "account",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "setbag",
+      "base": "",
+      "fields": [
+        {
+          "name": "account",
+          "type": "name"
+        },
+        {
+          "name": "items",
+          "type": "uint64[]"
+        }
+      ]
+    },
+    {
+      "name": "setconfig",
+      "base": "",
+      "fields": [
+        {
+          "name": "key",
+          "type": "string"
+        },
+        {
+          "name": "value",
+          "type": "state_value_variant"
+        }
+      ]
+    },
+    {
+      "name": "setland",
+      "base": "",
+      "fields": [
+        {
+          "name": "account",
+          "type": "name"
+        },
+        {
+          "name": "land_id",
+          "type": "uint64"
+        }
+      ]
+    },
+    {
+      "name": "setparam",
+      "base": "",
+      "fields": [
+        {
+          "name": "key",
+          "type": "uint64"
+        },
+        {
+          "name": "value",
+          "type": "uint64"
+        }
+      ]
+    },
+    {
+      "name": "setparams",
+      "base": "",
+      "fields": [
+        {
+          "name": "params",
+          "type": "pair_uint64_uint64[]"
+        }
+      ]
+    },
+    {
+      "name": "setpoolrates",
+      "base": "",
+      "fields": [
+        {
+          "name": "rates",
+          "type": "pair_string_float64[]"
+        },
+        {
+          "name": "planet_name",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "testparam",
+      "base": "",
+      "fields": [
+        {
+          "name": "key",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "tooluse_item",
+      "base": "",
+      "fields": [
+        {
+          "name": "asset_id",
+          "type": "uint64"
+        },
+        {
+          "name": "last_use",
+          "type": "uint32"
+        }
+      ]
+    },
+    {
+      "name": "unlockbag",
+      "base": "",
+      "fields": [
+        {
+          "name": "miner",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "whitelist",
+      "base": "",
+      "fields": [
+        {
+          "name": "account",
+          "type": "name"
+        },
+        {
+          "name": "authorizer",
+          "type": "name"
+        }
+      ]
+    }
+  ]
+}

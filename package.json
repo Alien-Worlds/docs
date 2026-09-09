@@ -2,17 +2,25 @@
   "name": "docs-dao",
   "version": "0.0.0",
   "private": true,
+  "packageManager": "pnpm@9.15.4",
   "scripts": {
     "docusaurus": "docusaurus",
     "start": "docusaurus start",
     "build": "docusaurus build",
     "swizzle": "docusaurus swizzle",
-    "deploy": "docusaurus deploy",
     "clear": "docusaurus clear",
     "serve": "docusaurus serve",
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids",
-    "typecheck": "tsc"
+    "typecheck": "tsc",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "docs:refresh": "./scripts/refresh-remote-content.sh",
+    "abi:fetch": "node scripts/abi-sync.mjs --fetch",
+    "abi:check": "node scripts/abi-sync.mjs --check",
+    "abi:baseline": "node scripts/abi-sync.mjs --baseline",
+    "abi:partials": "node scripts/abi-sync.mjs --partials",
+    "test": "node --test scripts/"
   },
   "dependencies": {
     "@docusaurus/core": "^3.0.0",
@@ -30,8 +38,11 @@
   },
   "devDependencies": {
     "@docusaurus/module-type-aliases": "^3.0.0",
-    "@docusaurus/types": "^3.0.0",
+    "@docusaurus/theme-classic": "^3.0.0",
     "@docusaurus/tsconfig": "3.0.0",
+    "@docusaurus/types": "^3.0.0",
+    "@types/node": "^26.4.0",
+    "prettier": "^3.9.6",
     "typescript": "~5.2.2"
   },
   "browserslist": {
@@ -47,6 +58,6 @@
     ]
   },
   "engines": {
-    "node": ">=18.0"
+    "node": ">=20.0"
   }
 }

@@ -1,0 +1,46 @@
+name: External link check
+
+# Deliberately not run on pull requests: external links fail for reasons
+# unrelated to the change under review, and must never block a merge.
+on:
+  schedule:
+    - cron: '0 6 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm build
+
+      - name: Check links in built site
+        id: lychee
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: >-
+            --no-progress
+            --accept 200,206,429
+            --max-concurrency 8
+            --exclude-path build/404.html
+            'build/**/*.html'
+          fail: false
+          output: lychee-report.md
+
+      - name: File an issue for broken links
+        if: steps.lychee.outputs.exit_code != 0
+        uses: peter-evans/create-issue-from-file@v5
+        with:
+          title: Broken external links found
+          content-filepath: lychee-report.md
+          labels: documentation, automated

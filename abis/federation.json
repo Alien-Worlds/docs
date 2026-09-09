@@ -1,0 +1,171 @@
+{
+  "account": "federation",
+  "version": "eosio::abi/1.2",
+  "actions": [
+    {
+      "name": "agreeterms",
+      "type": "agreeterms"
+    },
+    {
+      "name": "maintenance",
+      "type": "maintenance"
+    },
+    {
+      "name": "setavatar",
+      "type": "setavatar"
+    },
+    {
+      "name": "settag",
+      "type": "settag"
+    }
+  ],
+  "tables": [
+    {
+      "name": "planets",
+      "type": "planet_item",
+      "key_names": []
+    },
+    {
+      "name": "players",
+      "type": "player_item",
+      "key_names": []
+    },
+    {
+      "name": "userterms",
+      "type": "userterms_item",
+      "key_names": []
+    }
+  ],
+  "structs": [
+    {
+      "name": "agreeterms",
+      "base": "",
+      "fields": [
+        {
+          "name": "account",
+          "type": "name"
+        },
+        {
+          "name": "terms_id",
+          "type": "uint16"
+        },
+        {
+          "name": "terms_hash",
+          "type": "checksum256"
+        }
+      ]
+    },
+    {
+      "name": "maintenance",
+      "base": "",
+      "fields": [
+        {
+          "name": "maintenance",
+          "type": "bool"
+        }
+      ]
+    },
+    {
+      "name": "planet_item",
+      "base": "",
+      "fields": [
+        {
+          "name": "planet_name",
+          "type": "name"
+        },
+        {
+          "name": "title",
+          "type": "string"
+        },
+        {
+          "name": "metadata",
+          "type": "string"
+        },
+        {
+          "name": "dac_symbol",
+          "type": "symbol"
+        },
+        {
+          "name": "active",
+          "type": "bool"
+        },
+        {
+          "name": "total_stake",
+          "type": "int64"
+        },
+        {
+          "name": "nft_multiplier",
+          "type": "int64"
+        },
+        {
+          "name": "last_claim",
+          "type": "time_point_sec"
+        }
+      ]
+    },
+    {
+      "name": "player_item",
+      "base": "",
+      "fields": [
+        {
+          "name": "account",
+          "type": "name"
+        },
+        {
+          "name": "avatar",
+          "type": "uint64"
+        },
+        {
+          "name": "tag",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "setavatar",
+      "base": "",
+      "fields": [
+        {
+          "name": "account",
+          "type": "name"
+        },
+        {
+          "name": "avatar_id",
+          "type": "uint64"
+        }
+      ]
+    },
+    {
+      "name": "settag",
+      "base": "",
+      "fields": [
+        {
+          "name": "account",
+          "type": "name"
+        },
+        {
+          "name": "tag",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "userterms_item",
+      "base": "",
+      "fields": [
+        {
+          "name": "account",
+          "type": "name"
+        },
+        {
+          "name": "terms_id",
+          "type": "int16"
+        },
+        {
+          "name": "terms_hash",
+          "type": "checksum256"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,105 @@
+{
+  "$comment": "Pre-existing contract-doc drift, accepted so CI can gate new drift. Fix a doc, then delete its entry. Do not add entries by hand to silence a failing check — regenerate only when intentionally accepting a backlog.",
+  "accepted": [
+    {
+      "key": "dao.worlds::action::updateconfig",
+      "note": "no action \"updateconfig\" in the deployed ABI"
+    },
+    {
+      "key": "escrw.worlds::action::claim",
+      "note": "no action \"claim\" in the deployed ABI"
+    },
+    {
+      "key": "federation::action::addplanet",
+      "note": "no action \"addplanet\" in the deployed ABI"
+    },
+    {
+      "key": "federation::action::awardnft",
+      "note": "no action \"awardnft\" in the deployed ABI"
+    },
+    {
+      "key": "federation::action::claim",
+      "note": "no action \"claim\" in the deployed ABI"
+    },
+    {
+      "key": "federation::action::filllandpot` ",
+      "note": "no action \"filllandpot` \" in the deployed ABI"
+    },
+    {
+      "key": "federation::action::logclaim",
+      "note": "no action \"logclaim\" in the deployed ABI"
+    },
+    {
+      "key": "federation::action::logtransfer",
+      "note": "no action \"logtransfer\" in the deployed ABI"
+    },
+    {
+      "key": "federation::action::miningnft",
+      "note": "no action \"miningnft\" in the deployed ABI"
+    },
+    {
+      "key": "federation::action::miningstart",
+      "note": "no action \"miningstart\" in the deployed ABI"
+    },
+    {
+      "key": "federation::action::refund",
+      "note": "no action \"refund\" in the deployed ABI"
+    },
+    {
+      "key": "federation::action::removeplanet",
+      "note": "no action \"removeplanet\" in the deployed ABI"
+    },
+    {
+      "key": "federation::action::setlandnick",
+      "note": "no action \"setlandnick\" in the deployed ABI"
+    },
+    {
+      "key": "federation::action::setmap",
+      "note": "no action \"setmap\" in the deployed ABI"
+    },
+    {
+      "key": "federation::action::setprofitshr",
+      "note": "no action \"setprofitshr\" in the deployed ABI"
+    },
+    {
+      "key": "federation::action::stake",
+      "note": "no action \"stake\" in the deployed ABI"
+    },
+    {
+      "key": "federation::action::updateplanet",
+      "note": "no action \"updateplanet\" in the deployed ABI"
+    },
+    {
+      "key": "federation::action::withdraw",
+      "note": "no action \"withdraw\" in the deployed ABI"
+    },
+    {
+      "key": "federation::table::deposits",
+      "note": "no table \"deposits\" in the deployed ABI"
+    },
+    {
+      "key": "federation::table::landregs",
+      "note": "no table \"landregs\" in the deployed ABI"
+    },
+    {
+      "key": "federation::table::maps",
+      "note": "no table \"maps\" in the deployed ABI"
+    },
+    {
+      "key": "federation::table::refunds",
+      "note": "no table \"refunds\" in the deployed ABI"
+    },
+    {
+      "key": "federation::table::state",
+      "note": "no table \"state\" in the deployed ABI"
+    },
+    {
+      "key": "index.worlds::action::setsociallink",
+      "note": "no action \"setsociallink\" in the deployed ABI"
+    },
+    {
+      "key": "m.federation::table::claims",
+      "note": "no table \"claims\" in the deployed ABI"
+    }
+  ]
+}
