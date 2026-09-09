@@ -31,10 +31,10 @@ const DOCS_DIR = path.join(ROOT, 'docs');
 const ABI_DIR = path.join(ROOT, 'abis');
 const BASELINE_FILE = path.join(ABI_DIR, 'drift-baseline.json');
 
-const ENDPOINTS = (
-  process.env.WAX_API_URL ||
-  'https://wax.greymass.com,https://api.waxsweden.org,https://wax.eosusa.io'
-)
+// The Alien Worlds node is the only endpoint used by default. WAX_API_URL can
+// override it (comma-separated, tried in order) for local work against a
+// different node.
+const ENDPOINTS = (process.env.WAX_API_URL || 'https://waxnode.alienworlds.io')
   .split(',')
   .map((s) => s.trim())
   .filter(Boolean);

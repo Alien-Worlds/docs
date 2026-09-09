@@ -56,7 +56,7 @@ The components render the identifier as `<code>` plus themed icon links to wax.b
 
 `scripts/abi-sync.mjs` (`pnpm abi:check`) parses every `<BlockExplorer*Links>` usage in `docs/` into a set of claims, and compares them to ABI snapshots cached under `abis/`. CI runs it on every PR.
 
-- `pnpm abi:fetch` — refresh `abis/*.json` from a WAX endpoint (`WAX_API_URL`, comma-separated, tried in order).
+- `pnpm abi:fetch` — refresh `abis/*.json` from `https://waxnode.alienworlds.io`. Override with `WAX_API_URL` (comma-separated, tried in order) only for local work against another node.
 - `pnpm abi:check` — offline check; **fails on new stale claims**, warns on undocumented contract surface.
 - `pnpm abi:baseline` — regenerate `abis/drift-baseline.json`.
 
