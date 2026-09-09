@@ -41,9 +41,9 @@
     "@docusaurus/theme-classic": "^3.0.0",
     "@docusaurus/tsconfig": "3.0.0",
     "@docusaurus/types": "^3.0.0",
-    "@types/node": "^26.4.0",
+    "@types/node": "^26.4.1",
     "prettier": "^3.9.6",
-    "typescript": "~5.2.2"
+    "typescript": "~7.0.2"
   },
   "browserslist": {
     "production": [
