@@ -4,6 +4,8 @@ Central administrator of common management behaviour across all planets and NFTs
 
 import {BlockExplorerContractLinks, BlockExplorerActionLinks, BlockExplorerTableLinks} from '@site/src/components/BlockExplorerLinks';
 
+import PlayersFields from '@site/docs/_abi/federation/players.mdx';
+
 ## <BlockExplorerContractLinks contract="federation"/>
 
 Each of the planets in the Alien Worlds federation contributes and competes in a wider ecosystem where each planet and member involved in each planet can win or earn Trilium tokens or NFTs as well as performing various exchange interactions with their planet specific token. In order to govern the rules and common behaviour between all the planets the Federation performs some key roles to hold everything together, including:
@@ -144,6 +146,5 @@ Holds refunds during the unstaking process
 
 ### Players <BlockExplorerTableLinks contract ="federation" table="players"/> 
 stores common details about all players.
-  * name: account
-  * uint64: avatar
-  * string: tag
+
+<PlayersFields />

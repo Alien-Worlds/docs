@@ -3,6 +3,12 @@ Used by all planets for controlling the mining actions and mining rewards so tha
 
 import {BlockExplorerContractLinks, BlockExplorerActionLinks, BlockExplorerTableLinks} from '@site/src/components/BlockExplorerLinks';
 
+import MinersFields from '@site/docs/_abi/m.federation/miners.mdx';
+import BagsFields from '@site/docs/_abi/m.federation/bags.mdx';
+import DepositsFields from '@site/docs/_abi/m.federation/deposits.mdx';
+import State3Fields from '@site/docs/_abi/m.federation/state3.mdx';
+import ConfigFields from '@site/docs/_abi/m.federation/config.mdx';
+
 ## <BlockExplorerContractLinks contract="m.federation"/>
 
 A key activity within their Alien Worlds universe is mining. Users must perform computational work to guess a large number that solves a mathematical puzzle within a particular number range as determined difficulty factors within this contract. This is similar to the Proof of Work mining algorithm as utilised in Bitcoin.
@@ -59,28 +65,23 @@ Called by miners to claim their accumulated mine rewards. This can be called as 
 
 ### <BlockExplorerTableLinks contract="m.federation" table="miners"/>
 stores details about each miner's recent mining activity and current mining location.
-  * name: miner
-  * checksum256: last mine tx
-  * time point sec: last mine
-  * uint64: current land
+
+<MinersFields />
   
 ### <BlockExplorerTableLinks contract="m.federation" table="bags"/>
 stores all the NFTs owned and locked by an account while they are used mining. This relates to the cooldown of mining tools.
-  * name: account
-  * vector: items
-  * bool: locked
+
+<BagsFields />
 
 ### <BlockExplorerTableLinks contract="m.federation" table="deposits"/>
 stores temporary transfers as a deposit for filling the mining bucket per planet.
-  * name: account
-  * asset: quantity
+
+<DepositsFields />
 
 ### <BlockExplorerTableLinks contract="m.federation" table="state3"/>
 singleton to store planet specific shared values related to mining. scoped by planet name eg. `neri.world`
-  * time point: last fill time
-  * double: fill rate
-  * asset: bucket total
-  * asset: mine bucket
+
+<State3Fields />
 
 ### <BlockExplorerTableLinks contract="m.federation" table="claims"/>
 stores template ids that have been chosen, they must be claimed and minted in a separate tx so that the user cannot block the minting and get different nfts to game the system. - This is a legacy feature that is no longer active.
@@ -89,8 +90,8 @@ stores template ids that have been chosen, they must be claimed and minted in a 
 
 ### <BlockExplorerTableLinks contract="m.federation" table="config"/>
 stores general purpose configs used within the contract logic. Can hold an array of arbitary key/value pairs.
-  * number: key
-  * any: value
+
+<ConfigFields />
 
 ### <BlockExplorerTableLinks contract="m.federation" table="landcomms"/>
 accumulates the Land commisions for each Landholder. This now accumulates here to prevent spamming the chain with tiny transfers after very single mine action.

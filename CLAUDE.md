@@ -59,12 +59,32 @@ The components render the identifier as `<code>` plus themed icon links to wax.b
 - `pnpm abi:fetch` — refresh `abis/*.json` from `https://waxnode.alienworlds.io`. Override with `WAX_API_URL` (comma-separated, tried in order) only for local work against another node.
 - `pnpm abi:check` — offline check; **fails on new stale claims**, warns on undocumented contract surface.
 - `pnpm abi:baseline` — regenerate `abis/drift-baseline.json`.
+- `pnpm abi:partials` — regenerate the generated field tables (see below). `abi:fetch` does this automatically.
+- `pnpm test` — unit tests for the script (`node --test`).
 
 Only contracts with documented _actions or tables_ are verified. An account referenced solely by `<BlockExplorerContractLinks>` may have no contract deployed at all — every `*.dac` planet account is one — so a missing ABI there is expected, not drift.
 
 `abis/drift-baseline.json` records 25 pre-existing stale claims so the gate blocks _new_ drift without failing on day one. The bulk are in `02- federation.md`: the deployed `federation` contract has only 4 actions, while the doc describes ~15 — that functionality moved to `awlndratings` and `m.federation`. **Fixing a doc means deleting its baseline entry**; the check reports baseline entries that no longer apply. Never add entries by hand to silence a failure.
 
 The scheduled `abi-drift` workflow re-fetches ABIs weekly and opens a PR when the chain has changed — that PR is the "a contract moved" signal. It deliberately does not touch the baseline.
+
+### Generated field tables
+
+`docs/_abi/<contract>/<table>.mdx` holds a generated Field/Type table per contract table, imported as an MDX partial:
+
+```mdx
+import MinersFields from '@site/docs/_abi/m.federation/miners.mdx';
+
+### <BlockExplorerTableLinks contract="m.federation" table="miners"/>
+
+stores details about each miner's recent mining activity.
+
+<MinersFields />
+```
+
+The directory is underscore-prefixed so Docusaurus does not route it and `abi-sync` does not read the partials back as doc claims. `abi:check` fails if a partial no longer matches its cached ABI, so a hand-edit or a refreshed ABI cannot leave them out of sync. Partials for tables that vanish are pruned, so an import fails the build loudly rather than rendering a stale field list.
+
+**Only converted where the field list was pure transcription.** The corpus has two shapes: `* name: miner` (just the ABI type and field, no added meaning — safe to replace) and `* proposal_id: (name) - Proposal unique identifier` (real per-field documentation). Seven table sections were the first kind and now import a partial; the ~25 of the second kind keep their hand-written lists, because generating over them would delete knowledge. Their field _names_ are still drift-checked either way.
 
 ABI gives names, types and structure — never intent. Prose like the mine-action rule list in `03- mining.md` is hand-written knowledge and stays that way; the tooling removes the transcription, not the explanation.
 

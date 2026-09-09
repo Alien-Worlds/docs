@@ -2,6 +2,8 @@
 
 import {BlockExplorerContractLinks, BlockExplorerActionLinks, BlockExplorerTableLinks} from '@site/src/components/BlockExplorerLinks';
 
+import WhitelistFields from '@site/docs/_abi/m.federation/whitelist.mdx';
+
 ## <BlockExplorerContractLinks contract="m.federation"/>
 
 If you're reading this you are probably familiar with the mechanism of mining in Alien Worlds. The details are covered in the technical blueprint and the technical docs related to the [mining contract](../03-%20mining.md). It is possibly the most called action of any blockchain game in the world and therefore a rich source of data and opportunity to extend with futher composable logic from other smart contracts on the same Wax blockchain. For security reasons this capability is reduced to the general public, since we have seen some evidence of abuse in this area in the early days of the mining. However, in blocking this capability from abuse, we also blocked this capability from useful additions from the community. Therefore we are providing a mechanism to selectively allow some 3rd party smart contracts to participate in composable smart contract logic via an inline action attached to the mine action. This is facilitate by adding an optional parameter to the mine action <BlockExplorerActionLinks contract="m.federation" action="mine" /> where a user can specify a `notify` parameter which would trigger an inline `logmine` action at the end of the mine action to the account named in the `notify` parameter. The same shape of action can be seen in any current mine action being sent to `notify.worlds` for a sample. In a custom smart contract a user could implement an action in the form of:
@@ -60,6 +62,6 @@ To propose this action as an MSIG requires the auth of the DAO/MSIG performing t
 
 ### <BlockExplorerTableLinks contract="m.federation" table="whitelist"/>
 Holds all the whitelisted accounts for each planet along with the authorizer of the group that added the account to the whitelist. This table is scoped to each planet name eg. `eyeke.world`.
-  * name: account
-  * name: authorizer
+
+<WhitelistFields />
 

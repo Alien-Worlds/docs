@@ -34,6 +34,9 @@ jobs:
       - name: Typecheck
         run: pnpm typecheck
 
+      - name: Unit tests
+        run: pnpm test
+
       # Compares every <BlockExplorer*Links> claim in the docs against the
       # cached ABIs. Offline by design: CI must not fail because a WAX node
       # is down. Refreshing the cache is the abi-drift workflow's job.
