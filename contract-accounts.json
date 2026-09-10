@@ -82,20 +82,20 @@
       "evidence": "eosdac config.hpp MSIG_CONTRACT"
     },
     "autoteleport": {
-      "account": null,
-      "evidence": "unknown; other.worlds is the teleport contract itself (teleport/regoracle/sign), not this helper"
+      "account": "bina.world",
+      "evidence": "confirmed by maintainer; verified: all 4 source actions match the bina.world ABI exactly"
     },
     "competitions": {
       "account": "comp.worlds",
       "evidence": "verified: all 15 comp.worlds ABI actions match this source"
     },
     "nftmintctl": {
-      "account": null,
-      "evidence": "unknown"
+      "account": "nftmt.worlds",
+      "evidence": "confirmed by maintainer; verified: all 6 source actions match the nftmt.worlds ABI exactly"
     },
     "schedulepay": {
-      "account": null,
-      "evidence": "unknown"
+      "account": "arena.worlds",
+      "evidence": "confirmed by maintainer; verified: 5 of 6 source actions match. The deployed contract lacks setpayremain, so source is ahead of chain here"
     },
     "staking": {
       "account": "stake.worlds",
@@ -107,7 +107,8 @@
     },
     "distribution": {
       "account": null,
-      "evidence": "unknown"
+      "status": "not-deployed",
+      "evidence": "confirmed by maintainer: part of the upstream eosdac codebase, never deployed for Alien Worlds"
     }
   }
 }

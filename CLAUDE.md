@@ -111,14 +111,16 @@ Missing repos are skipped with a warning, so the script is safe to run anywhere;
 - **`#ifdef IS_DEV` / `DEBUG` blocks hold test-only actions** (14 of them in `daccustodian`). They are not in the deployed ABI and are reported separately as `devOnlyActions`.
 - **Repo A writes `static constexpr name`, repo B writes `static constexpr eosio::name`.** Handling only the first silently empties the DAO account registry.
 - **A `config.hpp` constant usually names a contract this one _talks to_, not its own account.** `PACK_CONTRACT{"pack.worlds"}` is the pack token `packopener` calls — `pack.worlds` on chain is a token contract (`create`/`issue`/`retire`). The `suspectMapping` flag catches this automatically when source and ABI barely overlap.
+- **The contract -> account dictionary is `contract-accounts.json`**, not code. Each entry carries an `evidence` string so a mapping can be traced, and `"status": "not-deployed"` marks an answered question (excluded from the docs) as distinct from an unknown one. `abi:fetch` reads this file directly, not the generated graph, so its results never depend on extraction order.
+- **To resolve an unknown account, score candidates instead of guessing**: collect `"*.worlds"`-style literals from the source, fetch each candidate's ABI, and compare against the contract's source actions. Exact matches resolved `competitions` -> `comp.worlds` (15/15), `staking` -> `stake.worlds` (6/6), `tokelore` -> `lore.worlds` (22/22).
 - **DAO contract accounts are not in source at all.** Each planet DAC registers its own contract accounts in the `index.worlds` directory at runtime, so the account map for those is curated.
 - **`tool.worlds`, `land.worlds`, `faces.worlds`, `arms.worlds`, `budget` are atomicassets schemas, not contracts.** They are separated into `nonContractConstants`.
 
 ### Known gaps this surfaced
 
 - Four deployed contracts have no documentation at all: `inflt.worlds`, `notify.world`, `pack.worlds`, `plnts.worlds`. `abi:check` reports them.
-- Ten contracts with source have no known deployed account: `autoteleport`, `competitions`, `landboost`, `nftmintctl`, `packopener`, `schedulepay`, `shining`, `staking`, `tokelore`, `distribution`.
-- Several contracts declare actions absent from the deployed ABI (`mining::setnfttarget`, `dacproposals::reclaimwip`, `stakevote::clearweights`), i.e. **source is ahead of chain**. `sourceOnlyActions` lists them.
+- Every contract now has a resolved account or an answered reason. `distribution` is upstream eosDAC functionality never deployed for Alien Worlds and is excluded.
+- Several contracts declare actions absent from the deployed ABI (`dacproposals::reclaimwip`, `stakevote::clearweights`, `schedulepay::setpayremain`), i.e. **source is ahead of chain**. `sourceOnlyActions` lists them.
 - 44 inline-action targets resolve to a local variable and are recorded as `unresolvedCalls` rather than guessed — a wrong edge in an architecture diagram is worse than a missing one.
 
 ## Deployment

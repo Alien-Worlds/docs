@@ -1,0 +1,151 @@
+{
+  "account": "arena.worlds",
+  "version": "eosio::abi/1.2",
+  "actions": [
+    {
+      "name": "addschedule",
+      "type": "addschedule"
+    },
+    {
+      "name": "claim",
+      "type": "claim"
+    },
+    {
+      "name": "remove",
+      "type": "remove"
+    },
+    {
+      "name": "setactive",
+      "type": "setactive"
+    },
+    {
+      "name": "updschedule",
+      "type": "updschedule"
+    }
+  ],
+  "tables": [
+    {
+      "name": "schedules",
+      "type": "schedule",
+      "key_names": []
+    }
+  ],
+  "structs": [
+    {
+      "name": "addschedule",
+      "base": "",
+      "fields": [
+        {
+          "name": "to",
+          "type": "name"
+        },
+        {
+          "name": "asset",
+          "type": "extended_asset"
+        },
+        {
+          "name": "frequency",
+          "type": "uint32"
+        },
+        {
+          "name": "memo",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "claim",
+      "base": "",
+      "fields": [
+        {
+          "name": "id",
+          "type": "uint64"
+        }
+      ]
+    },
+    {
+      "name": "remove",
+      "base": "",
+      "fields": [
+        {
+          "name": "id",
+          "type": "uint64"
+        }
+      ]
+    },
+    {
+      "name": "schedule",
+      "base": "",
+      "fields": [
+        {
+          "name": "id",
+          "type": "uint64"
+        },
+        {
+          "name": "to",
+          "type": "name"
+        },
+        {
+          "name": "quantity",
+          "type": "extended_asset"
+        },
+        {
+          "name": "frequency",
+          "type": "uint32"
+        },
+        {
+          "name": "memo",
+          "type": "string"
+        },
+        {
+          "name": "active",
+          "type": "bool"
+        },
+        {
+          "name": "last_pay_time",
+          "type": "time_point_sec"
+        }
+      ]
+    },
+    {
+      "name": "setactive",
+      "base": "",
+      "fields": [
+        {
+          "name": "id",
+          "type": "uint64"
+        },
+        {
+          "name": "active",
+          "type": "bool"
+        }
+      ]
+    },
+    {
+      "name": "updschedule",
+      "base": "",
+      "fields": [
+        {
+          "name": "id",
+          "type": "uint64"
+        },
+        {
+          "name": "to",
+          "type": "name?"
+        },
+        {
+          "name": "asset",
+          "type": "extended_asset?"
+        },
+        {
+          "name": "frequency",
+          "type": "uint32?"
+        },
+        {
+          "name": "memo",
+          "type": "string?"
+        }
+      ]
+    }
+  ]
+}

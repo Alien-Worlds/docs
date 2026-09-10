@@ -87,7 +87,7 @@
         },
         {
           "name": "autoteleport",
-          "account": null,
+          "account": "bina.world",
           "documented": true,
           "buildable": true,
           "sourceFiles": 1,
@@ -116,7 +116,23 @@
             }
           ],
           "unresolvedCalls": [],
-          "abiReconciliation": null
+          "abiReconciliation": {
+            "status": "compared",
+            "ownedActions": [
+              "setconfig",
+              "start",
+              "stop",
+              "trigger"
+            ],
+            "sourceOnlyActions": [],
+            "abiOnlyActions": [],
+            "ownedTables": [
+              "accounts",
+              "config"
+            ],
+            "sourceOnlyTables": [],
+            "abiOnlyTables": []
+          }
         },
         {
           "name": "common",
@@ -982,7 +998,7 @@
         },
         {
           "name": "nftmintctl",
-          "account": null,
+          "account": "nftmt.worlds",
           "documented": true,
           "buildable": true,
           "sourceFiles": 1,
@@ -1017,7 +1033,24 @@
               "action": "mintasset"
             }
           ],
-          "abiReconciliation": null
+          "abiReconciliation": {
+            "status": "compared",
+            "ownedActions": [
+              "activate",
+              "eraseconfig",
+              "newconfig",
+              "setattrs",
+              "trigger",
+              "updateconfig"
+            ],
+            "sourceOnlyActions": [],
+            "abiOnlyActions": [],
+            "ownedTables": [
+              "mintconfigs"
+            ],
+            "sourceOnlyTables": [],
+            "abiOnlyTables": []
+          }
         },
         {
           "name": "notify",
@@ -1292,7 +1325,7 @@
         },
         {
           "name": "schedulepay",
-          "account": null,
+          "account": "arena.worlds",
           "documented": true,
           "buildable": true,
           "sourceFiles": 1,
@@ -1317,7 +1350,27 @@
               "action": "transfer"
             }
           ],
-          "abiReconciliation": null
+          "abiReconciliation": {
+            "status": "compared",
+            "ownedActions": [
+              "addschedule",
+              "claim",
+              "remove",
+              "setactive",
+              "updschedule"
+            ],
+            "sourceOnlyActions": [
+              "setpayremain"
+            ],
+            "abiOnlyActions": [],
+            "ownedTables": [
+              "schedules"
+            ],
+            "sourceOnlyTables": [
+              "accounts"
+            ],
+            "abiOnlyTables": []
+          }
         },
         {
           "name": "shining",
@@ -2201,7 +2254,8 @@
         {
           "name": "distribution",
           "account": null,
-          "documented": true,
+          "documented": false,
+          "skipReason": "confirmed by maintainer: part of the upstream eosdac codebase, never deployed for Alien Worlds",
           "buildable": true,
           "sourceFiles": 2,
           "actions": [

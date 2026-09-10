@@ -1,0 +1,223 @@
+{
+  "account": "nftmt.worlds",
+  "version": "eosio::abi/1.2",
+  "actions": [
+    {
+      "name": "activate",
+      "type": "activate"
+    },
+    {
+      "name": "eraseconfig",
+      "type": "eraseconfig"
+    },
+    {
+      "name": "newconfig",
+      "type": "newconfig"
+    },
+    {
+      "name": "setattrs",
+      "type": "setattrs"
+    },
+    {
+      "name": "trigger",
+      "type": "trigger"
+    },
+    {
+      "name": "updateconfig",
+      "type": "updateconfig"
+    }
+  ],
+  "tables": [
+    {
+      "name": "mintconfigs",
+      "type": "mintconfigs",
+      "key_names": []
+    }
+  ],
+  "structs": [
+    {
+      "name": "activate",
+      "base": "",
+      "fields": [
+        {
+          "name": "template_id",
+          "type": "uint64"
+        },
+        {
+          "name": "active",
+          "type": "bool"
+        },
+        {
+          "name": "message",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "eraseconfig",
+      "base": "",
+      "fields": [
+        {
+          "name": "template_id",
+          "type": "uint64"
+        }
+      ]
+    },
+    {
+      "name": "mintconfigs",
+      "base": "",
+      "fields": [
+        {
+          "name": "template_id",
+          "type": "uint32"
+        },
+        {
+          "name": "mint_manager",
+          "type": "name"
+        },
+        {
+          "name": "collection",
+          "type": "name"
+        },
+        {
+          "name": "number_minted",
+          "type": "uint16"
+        },
+        {
+          "name": "next_mint_time",
+          "type": "time_point_sec"
+        },
+        {
+          "name": "mint_frequency",
+          "type": "uint32"
+        },
+        {
+          "name": "market_place",
+          "type": "name"
+        },
+        {
+          "name": "starting_bid",
+          "type": "asset"
+        },
+        {
+          "name": "duration",
+          "type": "uint32"
+        },
+        {
+          "name": "immutable_data",
+          "type": "ATTRIBUTE_MAP"
+        },
+        {
+          "name": "mutable_data",
+          "type": "ATTRIBUTE_MAP"
+        },
+        {
+          "name": "active",
+          "type": "bool"
+        }
+      ]
+    },
+    {
+      "name": "newconfig",
+      "base": "",
+      "fields": [
+        {
+          "name": "template_id",
+          "type": "uint32"
+        },
+        {
+          "name": "mint_manager",
+          "type": "name"
+        },
+        {
+          "name": "collection",
+          "type": "name"
+        },
+        {
+          "name": "mint_frequency",
+          "type": "uint32"
+        },
+        {
+          "name": "market_place",
+          "type": "name"
+        },
+        {
+          "name": "starting_bid",
+          "type": "asset"
+        },
+        {
+          "name": "duration",
+          "type": "uint32"
+        }
+      ]
+    },
+    {
+      "name": "pair_string_variant_int8_int16_int32_int64_uint8_uint16_uint32_uint64_float32_float64_string_INT8_VEC_INT16_VEC_INT32_VEC_INT64_VEC_UINT8_VEC_UINT16_VEC_UINT32_VEC_UINT64_VEC_FLOAT_VEC_DOUBLE_VEC_STRING_VEC",
+      "base": "",
+      "fields": [
+        {
+          "name": "key",
+          "type": "string"
+        },
+        {
+          "name": "value",
+          "type": "variant_int8_int16_int32_int64_uint8_uint16_uint32_uint64_float32_float64_string_INT8_VEC_INT16_VEC_INT32_VEC_INT64_VEC_UINT8_VEC_UINT16_VEC_UINT32_VEC_UINT64_VEC_FLOAT_VEC_DOUBLE_VEC_STRING_VEC"
+        }
+      ]
+    },
+    {
+      "name": "setattrs",
+      "base": "",
+      "fields": [
+        {
+          "name": "template_id",
+          "type": "uint64"
+        },
+        {
+          "name": "immutable_data",
+          "type": "ATTRIBUTE_MAP"
+        },
+        {
+          "name": "mutable_data",
+          "type": "ATTRIBUTE_MAP"
+        }
+      ]
+    },
+    {
+      "name": "trigger",
+      "base": "",
+      "fields": [
+        {
+          "name": "template_id",
+          "type": "uint64"
+        }
+      ]
+    },
+    {
+      "name": "updateconfig",
+      "base": "",
+      "fields": [
+        {
+          "name": "template_id",
+          "type": "uint64"
+        },
+        {
+          "name": "mint_frequency",
+          "type": "uint32"
+        },
+        {
+          "name": "market_place",
+          "type": "name"
+        },
+        {
+          "name": "starting_bid",
+          "type": "asset"
+        },
+        {
+          "name": "duration",
+          "type": "uint32"
+        }
+      ]
+    }
+  ]
+}
