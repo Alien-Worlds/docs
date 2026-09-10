@@ -14,7 +14,7 @@
     "NFT_CONTRACT_STR": "atomicassets",
     "TOKEN_CONTRACT_STR": "alien.worlds",
     "PACK_CONTRACT_STR": "pack.worlds",
-    "DAC_TOKEN_CONTRACT_STR": "token.world",
+    "DAC_TOKEN_CONTRACT_STR": "token.worlds",
     "LANDBOOST_CONTRACT_STR": "boost.worlds"
   },
   "nonContractConstants": {
@@ -137,7 +137,7 @@
         },
         {
           "name": "competitions",
-          "account": null,
+          "account": "comp.worlds",
           "documented": true,
           "buildable": true,
           "sourceFiles": 1,
@@ -183,7 +183,37 @@
               "action": "transfer"
             }
           ],
-          "abiReconciliation": null
+          "abiReconciliation": {
+            "status": "compared",
+            "ownedActions": [
+              "addshards",
+              "approve",
+              "claimreward",
+              "completeproc",
+              "declwinner",
+              "deletecomp",
+              "dispute",
+              "initcomp",
+              "postnotice",
+              "regplayer",
+              "reject",
+              "scoreincr",
+              "scoreset",
+              "setmindur",
+              "updatestate"
+            ],
+            "sourceOnlyActions": [],
+            "abiOnlyActions": [],
+            "ownedTables": [
+              "comps",
+              "players",
+              "sponsors"
+            ],
+            "sourceOnlyTables": [],
+            "abiOnlyTables": [
+              "globals"
+            ]
+          }
         },
         {
           "name": "eosdac-contracts",
@@ -642,7 +672,7 @@
         },
         {
           "name": "landboost",
-          "account": null,
+          "account": "boost.worlds",
           "documented": true,
           "buildable": true,
           "sourceFiles": 2,
@@ -664,7 +694,19 @@
               "action": "transfer"
             }
           ],
-          "abiReconciliation": null
+          "abiReconciliation": {
+            "status": "compared",
+            "ownedActions": [
+              "withdraw"
+            ],
+            "sourceOnlyActions": [],
+            "abiOnlyActions": [
+              "ftransfer"
+            ],
+            "ownedTables": [],
+            "sourceOnlyTables": [],
+            "abiOnlyTables": []
+          }
         },
         {
           "name": "landholders",
@@ -805,7 +847,6 @@
             "setbag",
             "setconfig",
             "setland",
-            "setnfttarget",
             "setparam",
             "setparams",
             "setpoolrates",
@@ -890,7 +931,6 @@
               "unlockbag"
             ],
             "sourceOnlyActions": [
-              "setnfttarget",
               "testpoints"
             ],
             "abiOnlyActions": [],
@@ -1030,7 +1070,7 @@
         },
         {
           "name": "packopener",
-          "account": null,
+          "account": "open.worlds",
           "documented": true,
           "buildable": true,
           "sourceFiles": 3,
@@ -1098,7 +1138,44 @@
               "action": "transfer"
             }
           ],
-          "abiReconciliation": null
+          "abiReconciliation": {
+            "status": "compared",
+            "ownedActions": [
+              "activatepack",
+              "addasset",
+              "addcard",
+              "addcrate",
+              "addpack",
+              "claim",
+              "clearcards",
+              "clearcrates",
+              "clearpacks",
+              "delcard",
+              "delclaim",
+              "delcrate",
+              "delpack",
+              "editcard",
+              "editcrate",
+              "editpack",
+              "emptycrate",
+              "logopen",
+              "open",
+              "receiverand"
+            ],
+            "sourceOnlyActions": [],
+            "abiOnlyActions": [],
+            "ownedTables": [
+              "cards",
+              "claims",
+              "crateassets",
+              "crates",
+              "deposits",
+              "minepot",
+              "packs"
+            ],
+            "sourceOnlyTables": [],
+            "abiOnlyTables": []
+          }
         },
         {
           "name": "planets",
@@ -1244,7 +1321,7 @@
         },
         {
           "name": "shining",
-          "account": null,
+          "account": "s.federation",
           "documented": true,
           "buildable": true,
           "sourceFiles": 2,
@@ -1274,11 +1351,33 @@
               "action": "mintasset"
             }
           ],
-          "abiReconciliation": null
+          "abiReconciliation": {
+            "status": "compared",
+            "ownedActions": [
+              "addlookup",
+              "clearlookups",
+              "setgenesisid"
+            ],
+            "sourceOnlyActions": [
+              "nfttransfer",
+              "tlmtransfer"
+            ],
+            "abiOnlyActions": [
+              "setcost"
+            ],
+            "ownedTables": [
+              "config",
+              "deposits",
+              "lookups",
+              "shines"
+            ],
+            "sourceOnlyTables": [],
+            "abiOnlyTables": []
+          }
         },
         {
           "name": "staking",
-          "account": null,
+          "account": "stake.worlds",
           "documented": true,
           "buildable": true,
           "sourceFiles": 2,
@@ -1327,7 +1426,29 @@
               "action": "transfer"
             }
           ],
-          "abiReconciliation": null
+          "abiReconciliation": {
+            "status": "compared",
+            "ownedActions": [
+              "addstakedao",
+              "deldeposit",
+              "maintenance",
+              "rmvstakedao",
+              "stake",
+              "withdraw"
+            ],
+            "sourceOnlyActions": [],
+            "abiOnlyActions": [],
+            "ownedTables": [
+              "deposits",
+              "stakedaos"
+            ],
+            "sourceOnlyTables": [
+              "planets"
+            ],
+            "abiOnlyTables": [
+              "globals"
+            ]
+          }
         },
         {
           "name": "testmarket",
@@ -1402,7 +1523,7 @@
         },
         {
           "name": "tokelore",
-          "account": null,
+          "account": "lore.worlds",
           "documented": true,
           "buildable": true,
           "sourceFiles": 2,
@@ -1465,7 +1586,45 @@
               "action": "mintasset"
             }
           ],
-          "abiReconciliation": null
+          "abiReconciliation": {
+            "status": "compared",
+            "ownedActions": [
+              "batchupdstat",
+              "cancel",
+              "checkstatus",
+              "claimreward",
+              "exec",
+              "fillpot",
+              "forcedel",
+              "mint",
+              "propose",
+              "publresult",
+              "pubretry",
+              "refund",
+              "rmvcompleted",
+              "rmvexpired",
+              "setmerged",
+              "setmintprep",
+              "settemplid",
+              "stake",
+              "unstake",
+              "updateconfig",
+              "updatetotvp",
+              "vote"
+            ],
+            "sourceOnlyActions": [],
+            "abiOnlyActions": [],
+            "ownedTables": [
+              "deposits",
+              "globals2",
+              "rewardglob",
+              "tokelores",
+              "voterreward",
+              "voters2"
+            ],
+            "sourceOnlyTables": [],
+            "abiOnlyTables": []
+          }
         },
         {
           "name": "userpoints",

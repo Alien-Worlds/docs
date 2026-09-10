@@ -1,0 +1,113 @@
+{
+  "$comment": "Contract directory -> deployed WAX account. Hand-maintained: source does not encode this fully. `evidence` records WHY each mapping is believed, so a wrong entry can be traced rather than trusted. A null account means unknown - the extractor leaves such contracts unreconciled rather than guessing. Verify additions with `pnpm contracts:extract`, which flags a mapping whose source and ABI barely overlap.",
+  "contracts": {
+    "mining": {
+      "account": "m.federation",
+      "evidence": "config.hpp MINING_CONTRACT"
+    },
+    "federation": {
+      "account": "federation",
+      "evidence": "config.hpp FEDERATION_ACCOUNT"
+    },
+    "userpoints": {
+      "account": "uspts.worlds",
+      "evidence": "config.hpp USERPOINTS_ACCOUNT"
+    },
+    "landholders": {
+      "account": "awlndratings",
+      "evidence": "config.hpp LANDOWNERS_ACCOUNT"
+    },
+    "tlm.token": {
+      "account": "alien.worlds",
+      "evidence": "config.hpp TOKEN_CONTRACT"
+    },
+    "infl": {
+      "account": "inflt.worlds",
+      "evidence": "config.hpp INFLATION_ACCOUNT"
+    },
+    "planets": {
+      "account": "plnts.worlds",
+      "evidence": "config.hpp PLANETS_CONTRACT"
+    },
+    "landboost": {
+      "account": "boost.worlds",
+      "evidence": "config.hpp LANDBOOST_CONTRACT"
+    },
+    "notify": {
+      "account": "notify.world",
+      "evidence": "config.hpp NOTIFY_ACCOUNT"
+    },
+    "packopener": {
+      "account": "open.worlds",
+      "evidence": "docs 09- packopener.md"
+    },
+    "shining": {
+      "account": "s.federation",
+      "evidence": "docs 08- shining.md"
+    },
+    "pointsproxy": {
+      "account": "ptpxy.worlds",
+      "evidence": "docs 05- userpoints-proxy.md"
+    },
+    "daccustodian": {
+      "account": "dao.worlds",
+      "evidence": "docs; primary Alien Worlds DAC deployment"
+    },
+    "dacdirectory": {
+      "account": "index.worlds",
+      "evidence": "eosdac config.hpp DACDIRECTORY_CONTRACT"
+    },
+    "dacproposals": {
+      "account": "prop.worlds",
+      "evidence": "docs 06- proposals.md"
+    },
+    "dacescrow": {
+      "account": "escrw.worlds",
+      "evidence": "docs 07- escrow.md"
+    },
+    "eosdactokens": {
+      "account": "token.worlds",
+      "evidence": "config.hpp DAC_TOKEN_CONTRACT"
+    },
+    "referendum": {
+      "account": "ref.worlds",
+      "evidence": "docs 08- referendum.md"
+    },
+    "stakevote": {
+      "account": "stkvt.worlds",
+      "evidence": "docs 02- stake-weighted-voting.md"
+    },
+    "msigworlds": {
+      "account": "msig.worlds",
+      "evidence": "eosdac config.hpp MSIG_CONTRACT"
+    },
+    "autoteleport": {
+      "account": null,
+      "evidence": "unknown; other.worlds is the teleport contract itself (teleport/regoracle/sign), not this helper"
+    },
+    "competitions": {
+      "account": "comp.worlds",
+      "evidence": "verified: all 15 comp.worlds ABI actions match this source"
+    },
+    "nftmintctl": {
+      "account": null,
+      "evidence": "unknown"
+    },
+    "schedulepay": {
+      "account": null,
+      "evidence": "unknown"
+    },
+    "staking": {
+      "account": "stake.worlds",
+      "evidence": "verified: all 6 stake.worlds ABI actions match this source"
+    },
+    "tokelore": {
+      "account": "lore.worlds",
+      "evidence": "verified: all 22 lore.worlds ABI actions match this source"
+    },
+    "distribution": {
+      "account": null,
+      "evidence": "unknown"
+    }
+  }
+}

@@ -34,7 +34,7 @@ const BASELINE_FILE = path.join(ABI_DIR, 'drift-baseline.json');
 // Underscore-prefixed, so Docusaurus does not route these as pages and the
 // claim collector does not read them back in as doc claims.
 const PARTIALS_DIR = path.join(DOCS_DIR, '_abi');
-const GRAPH_FILE = path.join(ROOT, 'contract-graph.json');
+const ACCOUNTS_FILE = path.join(ROOT, 'contract-accounts.json');
 
 // The Alien Worlds node is the only endpoint used by default. WAX_API_URL can
 // override it (comma-separated, tried in order) for local work against a
@@ -205,20 +205,23 @@ async function doFetch(contracts) {
  * account is one — so a missing ABI there is expected, not drift.
  */
 /**
- * Accounts the contract source says exist, from contract-graph.json. Fetching
- * these as well as the doc-claimed ones is what makes the check three-way:
- * source, chain, and docs. It also surfaces contracts that have source and a
- * deployed account but no documentation at all.
+ * Accounts named by contract-accounts.json. Fetching these as well as the
+ * doc-claimed ones is what makes the check three-way: source, chain, docs. It
+ * also surfaces contracts that have source and a deployed account but no
+ * documentation at all.
+ *
+ * Read from the dictionary rather than contract-graph.json on purpose: the
+ * graph is generated, so depending on it would make `abi:fetch` results depend
+ * on whether `contracts:extract` had been re-run first.
  */
 async function graphAccounts() {
-  if (!existsSync(GRAPH_FILE)) return [];
-  const graph = JSON.parse(await readFile(GRAPH_FILE, 'utf8'));
+  if (!existsSync(ACCOUNTS_FILE)) return [];
+  const { contracts } = JSON.parse(await readFile(ACCOUNTS_FILE, 'utf8'));
   return [
     ...new Set(
-      graph.repos
-        .flatMap((r) => r.contracts)
-        .filter((c) => c.documented && c.account)
+      Object.values(contracts)
         .map((c) => c.account)
+        .filter(Boolean)
     ),
   ].sort();
 }

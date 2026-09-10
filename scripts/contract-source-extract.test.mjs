@@ -87,3 +87,36 @@ test('parseAccountConstants ignores commented-out constants', () => {
   const src = '// static constexpr name GHOST{"ghost.acct"};';
   assert.deepEqual(parseAccountConstants(src), {});
 });
+
+// C++ digit separators use apostrophes. Treating them as char-literal
+// delimiters desynchronises the scanner and lets later comments survive —
+// which is how a commented-out DAC_TOKEN_CONTRACT_STR overwrote the real one.
+test('stripComments is not desynchronised by C++ digit separators', () => {
+  const src = [
+    '#define REAL "token.worlds"',
+    "static const int64_t CAP = 8'290'295'660;",
+    '// #define REAL "token.world"',
+  ].join('\n');
+  const out = stripComments(src);
+  assert.ok(out.includes('"token.worlds"'));
+  assert.ok(!out.includes('"token.world"'));
+  assert.match(out, /8'290'295'660/);
+});
+
+test('stripComments still handles genuine char literals', () => {
+  const out = stripComments("char c = 'x'; // gone\nchar n = '\\n';");
+  assert.ok(out.includes("'x'"));
+  assert.ok(!out.includes('gone'));
+});
+
+test('parseAccountConstants prefers the live define over a commented one', () => {
+  const src = [
+    '#define DAC_TOKEN_CONTRACT_STR "token.worlds"',
+    "static const int64_t CAP = 8'290'295'660;",
+    '// #define DAC_TOKEN_CONTRACT_STR "token.world"',
+  ].join('\n');
+  assert.equal(
+    parseAccountConstants(src).DAC_TOKEN_CONTRACT_STR,
+    'token.worlds'
+  );
+});

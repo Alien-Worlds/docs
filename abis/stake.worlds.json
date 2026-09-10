@@ -1,0 +1,173 @@
+{
+  "account": "stake.worlds",
+  "version": "eosio::abi/1.2",
+  "actions": [
+    {
+      "name": "addstakedao",
+      "type": "addstakedao"
+    },
+    {
+      "name": "deldeposit",
+      "type": "deldeposit"
+    },
+    {
+      "name": "maintenance",
+      "type": "maintenance"
+    },
+    {
+      "name": "rmvstakedao",
+      "type": "rmvstakedao"
+    },
+    {
+      "name": "stake",
+      "type": "stake"
+    },
+    {
+      "name": "withdraw",
+      "type": "withdraw"
+    }
+  ],
+  "tables": [
+    {
+      "name": "deposits",
+      "type": "deposit_item",
+      "key_names": []
+    },
+    {
+      "name": "globals",
+      "type": "globals_struct",
+      "key_names": []
+    },
+    {
+      "name": "stakedaos",
+      "type": "stake_dao_item",
+      "key_names": []
+    }
+  ],
+  "structs": [
+    {
+      "name": "addstakedao",
+      "base": "",
+      "fields": [
+        {
+          "name": "dac_id",
+          "type": "name"
+        },
+        {
+          "name": "dac_symbol",
+          "type": "symbol"
+        }
+      ]
+    },
+    {
+      "name": "deldeposit",
+      "base": "",
+      "fields": [
+        {
+          "name": "account",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "deposit_item",
+      "base": "",
+      "fields": [
+        {
+          "name": "account",
+          "type": "name"
+        },
+        {
+          "name": "quantity",
+          "type": "asset"
+        }
+      ]
+    },
+    {
+      "name": "globals_struct",
+      "base": "",
+      "fields": [
+        {
+          "name": "data",
+          "type": "pair_string_state_value_variant[]"
+        }
+      ]
+    },
+    {
+      "name": "maintenance",
+      "base": "",
+      "fields": [
+        {
+          "name": "maintenance",
+          "type": "bool"
+        }
+      ]
+    },
+    {
+      "name": "pair_string_state_value_variant",
+      "base": "",
+      "fields": [
+        {
+          "name": "key",
+          "type": "string"
+        },
+        {
+          "name": "value",
+          "type": "state_value_variant"
+        }
+      ]
+    },
+    {
+      "name": "rmvstakedao",
+      "base": "",
+      "fields": [
+        {
+          "name": "dac_id",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "stake",
+      "base": "",
+      "fields": [
+        {
+          "name": "account",
+          "type": "name"
+        },
+        {
+          "name": "planet_name",
+          "type": "name"
+        },
+        {
+          "name": "quantity",
+          "type": "asset"
+        }
+      ]
+    },
+    {
+      "name": "stake_dao_item",
+      "base": "",
+      "fields": [
+        {
+          "name": "dac_id",
+          "type": "name"
+        },
+        {
+          "name": "dac_symbol",
+          "type": "symbol"
+        }
+      ]
+    },
+    {
+      "name": "withdraw",
+      "base": "",
+      "fields": [
+        {
+          "name": "account",
+          "type": "name"
+        }
+      ]
+    }
+  ]
+}
