@@ -34,6 +34,7 @@ const BASELINE_FILE = path.join(ABI_DIR, 'drift-baseline.json');
 // Underscore-prefixed, so Docusaurus does not route these as pages and the
 // claim collector does not read them back in as doc claims.
 const PARTIALS_DIR = path.join(DOCS_DIR, '_abi');
+const GRAPH_FILE = path.join(ROOT, 'contract-graph.json');
 
 // The Alien Worlds node is the only endpoint used by default. WAX_API_URL can
 // override it (comma-separated, tried in order) for local work against a
@@ -203,6 +204,25 @@ async function doFetch(contracts) {
  * often plain accounts with no contract deployed — every `*.dac` planet
  * account is one — so a missing ABI there is expected, not drift.
  */
+/**
+ * Accounts the contract source says exist, from contract-graph.json. Fetching
+ * these as well as the doc-claimed ones is what makes the check three-way:
+ * source, chain, and docs. It also surfaces contracts that have source and a
+ * deployed account but no documentation at all.
+ */
+async function graphAccounts() {
+  if (!existsSync(GRAPH_FILE)) return [];
+  const graph = JSON.parse(await readFile(GRAPH_FILE, 'utf8'));
+  return [
+    ...new Set(
+      graph.repos
+        .flatMap((r) => r.contracts)
+        .filter((c) => c.documented && c.account)
+        .map((c) => c.account)
+    ),
+  ].sort();
+}
+
 function verifiableContracts(claims) {
   return [
     ...new Set(
@@ -377,8 +397,13 @@ async function analyse(claims) {
   const seen = new Set(stale.map(claimKey));
   const obsoleteBaseline = [...baseline].filter((k) => !seen.has(k));
 
+  const undocumentedContracts = (await graphAccounts()).filter(
+    (account) => !claims.some((c) => c.contract === account)
+  );
+
   return {
     contracts,
+    undocumentedContracts,
     stale,
     newStale,
     knownStale,
@@ -450,6 +475,16 @@ function renderReport(r) {
     }
   }
 
+  if (r.undocumentedContracts.length) {
+    lines.push('## Deployed contracts with no documentation', '');
+    lines.push(
+      'Named by the contract source, but no doc page references them:',
+      ''
+    );
+    for (const a of r.undocumentedContracts) lines.push(`- \`${a}\``);
+    lines.push('');
+  }
+
   if (r.uncached.length) {
     lines.push('## Contracts with no cached ABI', '');
     lines.push('Run `pnpm abi:fetch` to add these:', '');
@@ -502,8 +537,13 @@ async function main() {
     );
     console.log(`Baselined ${accepted.length} stale claim(s).`);
   } else if (args.includes('--fetch')) {
-    const contracts = verifiableContracts(claims);
-    console.log(`Fetching ABIs for ${contracts.length} contracts...`);
+    const fromDocs = verifiableContracts(claims);
+    const fromSource = await graphAccounts();
+    const contracts = [...new Set([...fromDocs, ...fromSource])].sort();
+    console.log(
+      `Fetching ABIs for ${contracts.length} contracts ` +
+        `(${fromDocs.length} claimed by docs, ${fromSource.length} named by source)...`
+    );
     await doFetch(contracts);
   } else {
     const result = await analyse(claims);
@@ -545,6 +585,7 @@ async function main() {
       console.error(
         `\nOK — ${result.contracts.length} contracts checked, no new drift. ` +
           `${result.knownStale.length} baselined stale claim(s), ` +
+          `${result.undocumentedContracts.length} undocumented contract(s), ` +
           `${result.undocumented.length} undocumented action(s)/table(s).`
       );
     }

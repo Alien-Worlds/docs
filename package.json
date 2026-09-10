@@ -20,7 +20,8 @@
     "abi:check": "node scripts/abi-sync.mjs --check",
     "abi:baseline": "node scripts/abi-sync.mjs --baseline",
     "abi:partials": "node scripts/abi-sync.mjs --partials",
-    "test": "node --test scripts/"
+    "test": "node --test scripts/",
+    "contracts:extract": "node scripts/contract-source-extract.mjs"
   },
   "dependencies": {
     "@docusaurus/core": "^3.0.0",
