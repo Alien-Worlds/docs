@@ -137,6 +137,26 @@ export function parseAccountConstants(src) {
   )) {
     accounts[m[1]] = m[2];
   }
+  // Aliases: `static constexpr name NFT_CONTRACT{NFT_CONTRACT_STR};` names a
+  // macro rather than a literal. Without following these, the most-used
+  // accounts (atomicassets, alien.worlds) never enter the registry and every
+  // inline call through them is reported as unresolved.
+  const aliases = [
+    ...clean.matchAll(
+      /static\s+constexpr\s+(?:eosio::)?name\s+([A-Z0-9_]+)\s*\{\s*([A-Z0-9_]+)\s*\}/g
+    ),
+  ].map((m) => [m[1], m[2]]);
+  // Iterate: an alias may point at another alias.
+  for (let pass = 0; pass < 5; pass++) {
+    let changed = false;
+    for (const [name, target] of aliases) {
+      if (accounts[name] === undefined && accounts[target] !== undefined) {
+        accounts[name] = accounts[target];
+        changed = true;
+      }
+    }
+    if (!changed) break;
+  }
   return accounts;
 }
 
@@ -270,7 +290,7 @@ function parseInlineSends(clean, accounts) {
   const resolved = [];
   const unresolved = [];
   for (const m of clean.matchAll(
-    /action\s*\(\s*permission_level\s*\{[^}]*\}\s*,\s*([^,]+?)\s*,\s*"([a-z0-9_.]+)"_n/g
+    /action\s*\(\s*(?:eosio::)?permission_level\s*\{[^}]*\}\s*,\s*([^,]+?)\s*,\s*"([a-z0-9_.]+)"_n/g
   )) {
     const rawTarget = m[1].trim();
     const action = m[2];
@@ -355,10 +375,23 @@ async function main() {
       continue;
     }
 
-    const configFile = path.join(repo.dir, 'contracts', 'config.hpp');
+    // Repo A keeps config.hpp under contracts/; repo B keeps it under
+    // contract-shared-headers/. Missing the second left the DAO-layer
+    // constants (DACDIRECTORY_CONTRACT, MSIG_CONTRACT, TLM_TOKEN_CONTRACT)
+    // unresolved in the call graph.
+    const configFiles = [
+      path.join(repo.dir, 'contracts', 'config.hpp'),
+      path.join(repo.dir, 'contract-shared-headers', 'config.hpp'),
+    ].filter((f) => existsSync(f));
+
     let accounts = {};
-    if (existsSync(configFile)) {
-      accounts = parseAccountConstants(await readFile(configFile, 'utf8'));
+    for (const configFile of configFiles) {
+      accounts = {
+        ...accounts,
+        ...parseAccountConstants(await readFile(configFile, 'utf8')),
+      };
+    }
+    if (configFiles.length) {
       for (const [constant, account] of Object.entries(accounts)) {
         const base = constant.replace(/_STR$/, '');
         if (NON_CONTRACT_CONSTANTS.has(base))

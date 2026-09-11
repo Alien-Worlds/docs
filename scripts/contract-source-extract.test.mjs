@@ -120,3 +120,25 @@ test('parseAccountConstants prefers the live define over a commented one', () =>
     'token.worlds'
   );
 });
+
+// `static constexpr name NFT_CONTRACT{NFT_CONTRACT_STR}` names a macro, not a
+// literal. Not following that left atomicassets and alien.worlds out of the
+// registry, so every inline call through them looked unresolved.
+test('parseAccountConstants follows _STR macro aliases', () => {
+  const src = [
+    '#define NFT_CONTRACT_STR "atomicassets"',
+    'static constexpr name NFT_CONTRACT{NFT_CONTRACT_STR};',
+  ].join('\n');
+  const out = parseAccountConstants(src);
+  assert.equal(out.NFT_CONTRACT, 'atomicassets');
+  assert.equal(out.NFT_CONTRACT_STR, 'atomicassets');
+});
+
+test('parseAccountConstants resolves an alias chain', () => {
+  const src = [
+    '#define A_STR "alien.worlds"',
+    'static constexpr name A{A_STR};',
+    'static constexpr name B{A};',
+  ].join('\n');
+  assert.equal(parseAccountConstants(src).B, 'alien.worlds');
+});
