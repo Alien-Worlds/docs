@@ -56,17 +56,51 @@ Emits the claim as an inline action purely so it can be read off-chain.
 #### <BlockExplorerActionLinks contract="inflt.worlds" action="pause"/> <BlockExplorerActionLinks contract="inflt.worlds" action="unpause"/>
 Halt and resume inflation. The `pausable` table holds that state.
 
-## The daily cap is a constant in the source
+## Daily inflation decreases over time
 
-The inflation ceiling is compiled in, not configured on chain:
+The amount minted each day is **not fixed**. It is a fixed *percentage of the remaining reserve*,
+and because each day's mint is deducted from that reserve, the daily amount falls continuously:
+
+```cpp
+const auto inflation_double =
+    (reserve * (S{13.0} + (S{number_planets}.to<double>() * S{1.9}))) / S{100000.0};
+...
+// Reduce the reserve by the amount of inflation we're about to issue
+res.total = S{res.total} - S{inflation_after_rounding.amount};
+```
+
+With the maximum of seven planets that rate is `(13 + 7 × 1.9) / 100000`, or about **0.0263% of
+the reserve per day**. A smaller reserve tomorrow means a smaller mint tomorrow — the curve
+decays and never resets, because nothing in the contract adds to the reserve during `inflate`.
+
+The number of planets is the only other input, and it is capped at seven.
+
+### The constant in `config.hpp` is a safety ceiling, not the daily amount
+
+`config.hpp` carries a figure that is easy to misread as the inflation rate:
 
 ```cpp
 // Inflation amount on 26th October 2025 was 829,029.5660 TLM
 static constexpr int64_t DAILY_INFLATION_CAP_UNITS = 8'290'295'660;
 ```
 
-Changing it requires recompiling and redeploying the contract. If you are reasoning about
-long-term supply, this is the number to look at, and its comment records when it was last set.
+:::caution This is a maximum, not the amount minted
+This constant is never used to calculate anything. It is only ever used to **assert** that the
+calculated inflation has not exceeded it, and the contract's own comments label both checks as
+"Defense-in-depth":
+
+```cpp
+::check(S{inflation.amount} <= S{DAILY_INFLATION_CAP_UNITS}, "Inflation exceeds daily cap. ...");
+```
+
+The check runs twice — once on the calculated figure and again after rounding — and a breach
+aborts the whole `inflate` action rather than clamping it to the cap. It exists so that a bug in
+the calculation, or a bad reserve value, can never mint an unbounded amount.
+
+The comment records what actual inflation was on the day the ceiling was set. Because real
+inflation decays with the reserve, the true daily figure has been below this number ever since
+and moves further below it every day.
+:::
 
 ## Planet voting tokens are locked TLM
 
