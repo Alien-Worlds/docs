@@ -35,7 +35,7 @@ sequenceDiagram
     MIN->>MIN: check land, cooldown, difficulty, bag
     MIN->>UPT: addpoints (from NFT attributes)
     MIN->>MIN: accrue miner reward into minerclaim
-    Note over MIN: with a claim delay;<br/>no TLM moves yet
+    Note over MIN: with a claim delay.<br/>No TLM moves yet
     alt landowner is open.worlds
         MIN->>TOK: transfer profit share immediately
     else normal landowner

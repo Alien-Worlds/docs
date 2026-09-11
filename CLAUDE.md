@@ -52,6 +52,8 @@ import {
 
 The components render the identifier as `<code>` plus themed icon links to wax.bloks.io and waxblock.io. Follow this pattern for new contract docs rather than hardcoding explorer URLs. Beyond rendering links, these props are the machine-readable index of what the docs claim — `scripts/abi-sync.mjs` parses them, so a hardcoded URL is invisible to the drift check. Icons live in `static/img/`; light/dark variants go through `@theme/ThemedImage`.
 
+**Mermaid diagrams are not validated by the build.** Docusaurus renders them in the browser, so `pnpm build` passes on a malformed diagram and the reader gets a red parse error where the picture should be. `pnpm test` covers that gap: it fully parses every sequence diagram, and lints all diagrams for a `;` inside label or note text, which ends the statement early. Flowcharts cannot be parsed headless — they reach DOMPurify and need a DOM, and jsdom's current release does not load under Node 20.
+
 **Mermaid** is enabled (`markdown.mermaid`, `@docusaurus/theme-mermaid`) — use ```mermaid fences directly. KaTeX deps (`remark-math`/`rehype-katex`) are installed but not currently wired into the preset.
 
 ## Contract docs are checked against the chain
