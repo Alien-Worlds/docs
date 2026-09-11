@@ -220,6 +220,9 @@ async function graphAccounts() {
   return [
     ...new Set(
       Object.values(contracts)
+        // 'internal' contracts are deployed but deliberately undocumented, so
+        // they should not be reported as a documentation gap.
+        .filter((c) => c.status !== 'internal')
         .map((c) => c.account)
         .filter(Boolean)
     ),

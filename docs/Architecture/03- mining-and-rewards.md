@@ -27,7 +27,6 @@ their land and tools — then submits it. Everything after that happens in one t
 sequenceDiagram
     participant P as Player
     participant MIN as m.federation
-    participant AA as atomicassets
     participant UPT as uspts.worlds
     participant TOK as alien.worlds
 
@@ -35,26 +34,51 @@ sequenceDiagram
     P->>MIN: mine
     MIN->>MIN: check land, cooldown, difficulty, bag
     MIN->>UPT: addpoints (from NFT attributes)
-    MIN->>TOK: transfer reward to miner
-    MIN->>TOK: transfer commission to landowner
-    Note over MIN: accrued, not sent per mine
-    MIN->>AA: mintasset (NFT rewards)
-    MIN->>MIN: pltdtapntfy
+    MIN->>MIN: accrue miner reward into minerclaim
+    Note over MIN: with a claim delay;<br/>no TLM moves yet
+    alt landowner is open.worlds
+        MIN->>TOK: transfer profit share immediately
+    else normal landowner
+        MIN->>MIN: accrue share into landcomms
+    end
 ```
 
 Because these are inline actions, a failure anywhere — insufficient pot, a cooldown not elapsed,
 a bad proof — rolls the whole thing back. There is no partial mine.
 
+:::note Mining does not transfer TLM
+A `mine` action moves **no TLM to the miner**. The reward is written into the `minerclaim` table
+with a claim delay, and the player collects it later with `claimmines`. The same is true of the
+landowner's share, which accrues into `landcomms` for `claimcomms`.
+
+There is exactly one inline transfer during a mine: when the landowner is `open.worlds`, the
+profit share is sent immediately rather than accrued.
+
+NFT minting is likewise not part of `mine` — the mining contract mints via `setland`, when a new
+player is given their first tool.
+:::
+
 ## Why rewards are accrued rather than paid
 
-Both miner rewards and landowner commissions accumulate in tables and are claimed later, by
+Both miner rewards and landowner commissions accumulate in tables and are paid out later, by
 <BlockExplorerActionLinks contract="m.federation" action="claimmines"/> and
 <BlockExplorerActionLinks contract="m.federation" action="claimcomms"/>.
 
-This is deliberate. Paying a landowner on every single mine action would spam the chain with
-micro-transfers, one per mine, for every parcel. Accruing means the landowner pays one
-transaction whenever they choose to collect. If you are building a UI, this is why a player's
-balance and their "mined so far" figure are different numbers in different tables.
+This is deliberate. Transferring on every mine would spam the chain with micro-transfers — one
+per mine, per miner, and one per parcel for every landowner. Accruing means each party pays for
+one transaction whenever they choose to collect.
+
+```mermaid
+flowchart LR
+  M["mine"] -->|"accrue"| MC["minerclaim"]
+  M -->|"accrue"| LC["landcomms"]
+  MC -->|"claimmines"| P([Miner])
+  LC -->|"claimcomms"| L([Landowner])
+```
+
+If you are building a UI, this is the reason a player's wallet balance and their "mined so far"
+figure are different numbers held in different tables, and why a freshly mined reward is not
+spendable until it has been claimed.
 
 ## What decides how much you earn
 

@@ -1,5 +1,5 @@
 {
-  "$comment": "Contract directory -> deployed WAX account. Hand-maintained: source does not encode this fully. `evidence` records WHY each mapping is believed, so a wrong entry can be traced rather than trusted. A null account means unknown - the extractor leaves such contracts unreconciled rather than guessing. Verify additions with `pnpm contracts:extract`, which flags a mapping whose source and ABI barely overlap.",
+  "$comment": "Contract directory -> deployed WAX account. Hand-maintained: source does not encode this fully. `evidence` records WHY each mapping is believed, so a wrong entry can be traced rather than trusted. A \"status\" of \"not-deployed\" means it was never deployed; \"internal\" means it is deployed but deliberately left out of the community docs. A null account means unknown - the extractor leaves such contracts unreconciled rather than guessing. Verify additions with `pnpm contracts:extract`, which flags a mapping whose source and ABI barely overlap.",
   "contracts": {
     "mining": {
       "account": "m.federation",
@@ -83,7 +83,8 @@
     },
     "autoteleport": {
       "account": "bina.world",
-      "evidence": "confirmed by maintainer; verified: all 4 source actions match the bina.world ABI exactly"
+      "evidence": "confirmed by maintainer; verified: all 4 source actions match the bina.world ABI exactly; internal operations only, deliberately not documented for the community",
+      "status": "internal"
     },
     "competitions": {
       "account": "comp.worlds",
@@ -95,7 +96,8 @@
     },
     "schedulepay": {
       "account": "arena.worlds",
-      "evidence": "confirmed by maintainer; verified: 5 of 6 source actions match. The deployed contract lacks setpayremain, so source is ahead of chain here"
+      "evidence": "confirmed by maintainer; verified: 5 of 6 source actions match. The deployed contract lacks setpayremain, so source is ahead of chain here; internal operations only, deliberately not documented for the community",
+      "status": "internal"
     },
     "staking": {
       "account": "stake.worlds",

@@ -2,11 +2,11 @@
 sidebar_position: 7
 ---
 
-# Cross-chain and payouts
+# Cross-chain, competitions and lore
 
 import {BlockExplorerContractLinks, BlockExplorerActionLinks, BlockExplorerTableLinks} from '@site/src/components/BlockExplorerLinks';
 
-TLM exists on more than one chain, and some payouts run on a schedule rather than on demand.
+TLM exists on more than one chain. This page also covers the two community-facing contracts that sit outside the core mining and governance loops.
 
 ## Teleporting TLM between chains
 
@@ -37,34 +37,6 @@ both directions can be reconciled and repaired if a transfer stalls.
 Teleport is only as trustworthy as its oracle set. Unlike mining or staking, which are settled
 entirely by contract logic, a cross-chain transfer depends on off-chain witnesses signing. That
 is a materially different security assumption and worth stating plainly to anyone building on it.
-:::
-
-### The automation helper
-
-<BlockExplorerContractLinks contract="bina.world"/> is a small automation contract that holds a
-config and can be started and stopped. It calls `alien.worlds::transfer` and
-`other.worlds::teleport`, so it exists to drive teleports automatically rather than to implement
-teleporting itself. Its whole surface is `setconfig`, `start`, `stop` and `trigger`.
-
-## Scheduled payouts
-
-<BlockExplorerContractLinks contract="arena.worlds"/> pays out on a schedule instead of on
-demand. A schedule is registered, then claimed against over time:
-
-| Action | Purpose |
-| --- | --- |
-| <BlockExplorerActionLinks contract="arena.worlds" action="addschedule"/> | Register a payment schedule |
-| <BlockExplorerActionLinks contract="arena.worlds" action="updschedule"/> | Change an existing schedule |
-| <BlockExplorerActionLinks contract="arena.worlds" action="claim"/> | Draw the amount currently due |
-| <BlockExplorerActionLinks contract="arena.worlds" action="setactive"/> | Enable or disable a schedule |
-| <BlockExplorerActionLinks contract="arena.worlds" action="remove"/> | Delete a schedule |
-
-The transfer target is resolved from the schedule record at run time rather than being a fixed
-account, so one deployment can pay in different tokens.
-
-:::info Source is ahead of the chain here
-The source declares a `setpayremain` action that is **not present in the deployed contract**. If
-you are working from the repository rather than the ABI, do not assume it is callable.
 :::
 
 ## Competitions

@@ -95,7 +95,7 @@ the directory rather than pointing at a fixed account.
 | What a planet is and why staking matters | [Planets and staking](./04-%20planets-and-staking.md) |
 | How a planet governs itself and spends | [DAO governance](./05-%20dao-governance.md) |
 | Tools, lands, packs and shining | [NFTs and items](./06-%20nfts-and-items.md) |
-| Bridging to other chains, scheduled payouts | [Cross-chain and payouts](./07-%20cross-chain-and-payouts.md) |
+| Bridging to other chains, competitions, lore | [Cross-chain and community](./07-%20cross-chain-and-community.md) |
 
 Then the [Antelope smart contracts](../02-%20Antelope%20smart-contracts/README.md) section is the
 per-contract reference: every action, every table, with field lists generated from the deployed

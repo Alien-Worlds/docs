@@ -14,8 +14,8 @@ A planet is a record, a treasury and a DAO. Staking TLM to one is the act that m
 | --- | --- |
 | <BlockExplorerContractLinks contract="federation"/> | Users, avatars and terms acceptance. |
 | <BlockExplorerContractLinks contract="plnts.worlds"/> | Planet records, map coordinates, stake totals. |
-| <BlockExplorerContractLinks contract="stake.worlds"/> | Staking TLM and issuing planet DAC tokens. |
-| <BlockExplorerContractLinks contract="token.worlds"/> | The planet DAC tokens themselves. |
+| <BlockExplorerContractLinks contract="stake.worlds"/> | Locks TLM against a planet and issues its voting token. |
+| <BlockExplorerContractLinks contract="token.worlds"/> | The planet voting tokens — receipts for locked TLM. |
 
 :::note The Federation contract is much smaller than it used to be
 The `federation` account now exposes only four actions. Planet management, staking and claims all
@@ -40,7 +40,9 @@ sequenceDiagram
     TOK-->>STK: on_notify transfer
     Note over STK: recorded in deposits
     P->>STK: stake (name the planet)
-    STK->>DAC: issue planet DAC tokens
+    Note over STK: TLM is now locked
+    STK->>DAC: issue the planet's voting token
+    Note over DAC: a receipt for the locked TLM
     STK->>PLN: updatestake
     Note over PLN: planet's stake weight changes,<br/>so its inflation share changes
 ```
@@ -48,22 +50,28 @@ sequenceDiagram
 Both steps can be sent in **one transaction**, which is the recommended approach: if the stake
 fails, the transfer rolls back with it and the player is never left with an unallocated deposit.
 
-Unstaking returns the DAC token and burns it:
-<BlockExplorerActionLinks contract="stake.worlds" action="withdraw"/> takes back deposits that
-have not yet been exchanged, and the staking contract calls `token.worlds::burn` when DAC tokens
-are redeemed.
+Unstaking reverses it: the voting token is burned via `token.worlds::burn` and the underlying TLM
+is released. <BlockExplorerActionLinks contract="stake.worlds" action="withdraw"/> takes back
+deposits that were transferred in but never staked.
 
-### Why staking has two effects at once
+### The planet token is not a second currency
+
+It is worth being explicit, because the two-token description misleads people: the planet token
+is a **receipt for TLM you have locked behind that planet**. It is minted only when TLM is
+locked, burned when that TLM is released, and its only real use is voting. TLM remains the only
+thing of value.
+
+So one act has two effects:
 
 | Effect | Consequence |
 | --- | --- |
-| Economic | The planet's stake total rises, so it claims a larger share of daily inflation. |
-| Political | You hold that planet's DAC token, which is your vote weight in its elections. |
+| Economic | Your TLM is locked behind the planet, raising its stake total and so its share of daily inflation. |
+| Political | While it is locked, you hold voting weight in that planet's DAO. |
 
-This coupling is intentional: the people who direct value to a planet are the people who govern
-it. It also means vote weight can be computed from token balances — see
-[DAO governance](./05-%20dao-governance.md) for how that is observed, and for how a DAC can
-override the calculation.
+This coupling is intentional: the people who commit value to a planet are the people who govern
+it, and a vote costs you the liquidity of the TLM behind it. It also means vote weight can be
+computed from token balances — see [DAO governance](./05-%20dao-governance.md) for how that is
+observed, and how a DAC can override the calculation.
 
 ## Planet records
 

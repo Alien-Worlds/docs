@@ -68,17 +68,22 @@ static constexpr int64_t DAILY_INFLATION_CAP_UNITS = 8'290'295'660;
 Changing it requires recompiling and redeploying the contract. If you are reasoning about
 long-term supply, this is the number to look at, and its comment records when it was last set.
 
-## Two different tokens
+## Planet voting tokens are locked TLM
 
-This trips people up constantly, so it is worth stating plainly:
+There is only one token of value in the system: **TLM**. When you stake TLM to a planet, that TLM
+is locked, and you receive that planet's voting token in return.
 
-- **TLM** (`alien.worlds`) is the shared game token. One symbol across the whole federation.
-- **Planet DAC tokens** (`token.worlds`) are separate, one per planet. You receive them by
-  staking TLM to that planet, and they are what give you governance weight in that planet's DAO.
+Technically the planet token is a separate symbol on `token.worlds`, but it is best understood as
+a **receipt for locked TLM that carries a vote**. It is not a second currency to trade or earn:
 
-So staking TLM is simultaneously an economic act (it directs inflation to that planet) and a
-political one (it buys you a vote there). The [staking page](./04-%20planets-and-staking.md)
-covers the exchange, and [DAO governance](./05-%20dao-governance.md) covers the vote.
+- It is issued only in exchange for TLM being locked, and burned when that TLM is released.
+- Its only real use is voting weight in that planet's DAO.
+- Its supply is therefore a direct measure of how much TLM is committed to that planet.
+
+So staking is one act with two effects: your TLM is locked behind a planet — which is what
+directs inflation to it — and while it is locked you hold a vote there. The
+[staking page](./04-%20planets-and-staking.md) covers the mechanics and
+[DAO governance](./05-%20dao-governance.md) covers the vote.
 
 ## Tables
 
