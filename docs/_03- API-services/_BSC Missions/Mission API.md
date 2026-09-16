@@ -51,7 +51,6 @@ Test instances
 There is a test instance on the Binance server that is reading events from the BSC test net.
 
 *   It's accessible via Cloudflare at [https://test-missions-api.alienworlds.io](https://test-missions-api.alienworlds.io)
-*   or directly from the server at 157.90.129.75
 
 Metadata related to service
 ---------------------------

@@ -15,17 +15,23 @@ but which are still committed files.
 `docs/_03- API-services/` is parked content — excluded from the site by its `_` prefix, but
 present in the repository and readable by anyone once it is public.
 
-| Finding                                              | Location                                                         |
-| ---------------------------------------------------- | ---------------------------------------------------------------- |
-| Bare server IP address `157.90.129.75`               | `_BSC Missions/Mission API.md:54`                                |
-| Private ClickUp board, explicitly labelled "Private" | `_BSC Missions/Mission Creator.md:55`                            |
-| ClickUp share-doc links (API specifications)         | `REST API - Legacy.md:47`, `_BSC Missions/Mission API.md:24`     |
-| New Relic dashboard links                            | `REST API - Legacy.md:52`, `_BSC Missions/Mission Creator.md:92` |
-| Google Sheets link                                   | `_BSC Missions/Mission Creator.md:82`                            |
+| Finding                                                     | Location                                                         |
+| ----------------------------------------------------------- | ---------------------------------------------------------------- |
+| ~~Bare origin server IP~~ **removed** from the working tree | `_BSC Missions/Mission API.md:54`                                |
+| Private ClickUp board, explicitly labelled "Private"        | `_BSC Missions/Mission Creator.md:55`                            |
+| ClickUp share-doc links (API specifications)                | `REST API - Legacy.md:47`, `_BSC Missions/Mission API.md:24`     |
+| New Relic dashboard links                                   | `REST API - Legacy.md:52`, `_BSC Missions/Mission Creator.md:92` |
+| Google Sheets link                                          | `_BSC Missions/Mission Creator.md:82`                            |
 
-The IP is the sharpest of these: publishing a host address hands out attack surface for free.
+The IP was the sharpest of these and has been **removed from the working tree**. It documented
+the direct origin address of a test API that is otherwise fronted by Cloudflare, so publishing it
+would have handed out a way to bypass that protection.
+
 The ClickUp and New Relic links are less severe but leak internal tooling and may themselves be
-readable without authentication.
+readable without authentication. They are still present.
+
+Note that this file deliberately no longer contains the address itself — quoting it here would
+just create another public copy of the thing being removed.
 
 **Decision needed:** delete the parked directories, or redact these specific lines. Deleting
 them from the working tree alone is **not sufficient** — they remain in git history. See
@@ -33,10 +39,14 @@ them from the working tree alone is **not sufficient** — they remain in git hi
 
 ### 2. History rewrite, if the above must not be public at all
 
-Removing a line in a new commit leaves the original readable in history. If the IP and the
-internal links must never be public, the history has to be rewritten before the repo is flipped
-(`git filter-repo`), which changes every commit SHA and requires a force push plus coordination
-with anyone holding a clone.
+Removing a line in a new commit leaves the original readable in history. The address is still
+reachable in two commits: `978fb33` (the repository's initial commit) and `1956bc8`, which quoted
+it while documenting the finding.
+
+If it must never be public, history has to be rewritten before the repo is flipped
+(`git filter-repo --replace-text`), which changes every commit SHA and requires a force push plus
+coordination with anyone holding a clone. Doing that _after_ going public is far worse — by then
+the value is in forks and clones beyond your control.
 
 If the team's judgement is that these are low-risk (a decommissioned host, expired share links),
 then redacting going forward is enough and no rewrite is needed. **That is a judgement call for
@@ -52,12 +62,13 @@ repositories this documents are MIT.
 
 ## Recommended before flipping
 
-- **`SECURITY.md`** — a disclosure route. Especially relevant here: this repository documents
-  smart contracts holding real value, so it will attract security researchers. They need
-  somewhere to report that is not a public issue.
-- **`CONTRIBUTING.md`** — how to run the site, the fact that `docs/03-API tools/` is generated
-  and edits belong upstream, and that `pnpm abi:check` gates contract claims.
-- **Issue and PR templates** — cheap, and they set expectations for drive-by contributors.
+- ~~**`CONTRIBUTING.md`**~~ — added.
+- ~~**`SECURITY.md`**~~ — added, but it still carries a visible TODO for the disclosure contact.
+  That must be filled in before going public.
+- ~~**Issue and PR templates**~~ — added. The PR template checklist names the two traps
+  (generated `docs/03-API tools/`, and using the `BlockExplorer*` components so claims stay
+  visible to the drift check), and the issue chooser routes security reports away from public
+  issues.
 
 ## Already verified clean
 
