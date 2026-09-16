@@ -10,55 +10,46 @@ but which are still committed files.
 
 ## Blockers
 
-### 1. Internal infrastructure detail in unpublished docs
+All cleared. The remaining item is the security contact.
 
-`docs/_03- API-services/` is parked content — excluded from the site by its `_` prefix, but
-present in the repository and readable by anyone once it is public.
+### 1. ~~Internal infrastructure detail in unpublished docs~~ — done
 
-| Finding                                                     | Location                                                         |
-| ----------------------------------------------------------- | ---------------------------------------------------------------- |
-| ~~Bare origin server IP~~ **removed** from the working tree | `_BSC Missions/Mission API.md:54`                                |
-| Private ClickUp board, explicitly labelled "Private"        | `_BSC Missions/Mission Creator.md:55`                            |
-| ClickUp share-doc links (API specifications)                | `REST API - Legacy.md:47`, `_BSC Missions/Mission API.md:24`     |
-| New Relic dashboard links                                   | `REST API - Legacy.md:52`, `_BSC Missions/Mission Creator.md:92` |
-| Google Sheets link                                          | `_BSC Missions/Mission Creator.md:82`                            |
+`docs/_03- API-services/` is parked content: excluded from the site by its `_` prefix, but
+committed, and so public once the repository is.
 
-The IP was the sharpest of these and has been **removed from the working tree**. It documented
-the direct origin address of a test API that is otherwise fronted by Cloudflare, so publishing it
-would have handed out a way to bypass that protection.
+All of it has been cleaned:
 
-The ClickUp and New Relic links are less severe but leak internal tooling and may themselves be
-readable without authentication. They are still present.
+| Finding                                              | Action                                                                    |
+| ---------------------------------------------------- | ------------------------------------------------------------------------- |
+| Bare origin server IP for the BSC missions test API  | Removed. It documented a way around the Cloudflare that fronts that host. |
+| ClickUp board links, several marked "Private"        | Removed across all files; descriptive text kept.                          |
+| New Relic dashboard links                            | Replaced with a note that monitoring exists but the link is internal.     |
+| Google Sheets links, including one of server details | Replaced with a note that access is on request.                           |
 
-Note that this file deliberately no longer contains the address itself — quoting it here would
-just create another public copy of the thing being removed.
+`grep` for `clickup`, `onenr.io` and `docs.google.com` across `docs/` now returns nothing.
 
-**Decision needed:** delete the parked directories, or redact these specific lines. Deleting
-them from the working tree alone is **not sufficient** — they remain in git history. See
-"History rewrite" below.
+Note the first sweep missed several because the audit listing was truncated; the fix was a
+generic pass over every internal domain rather than line-by-line edits. If more internal hosts
+are added later, repeat that sweep rather than trusting a spot check.
 
-### 2. History rewrite, if the above must not be public at all
+### 2. ~~History rewrite~~ — not needed
 
-Removing a line in a new commit leaves the original readable in history. The address is still
-reachable in two commits: `978fb33` (the repository's initial commit) and `1956bc8`, which quoted
-it while documenting the finding.
+Decision: rewrite history only if private keys or secrets were exposed. **They were not.**
 
-If it must never be public, history has to be rewritten before the repo is flipped
-(`git filter-repo --replace-text`), which changes every commit SHA and requires a force push plus
-coordination with anyone holding a clone. Doing that _after_ going public is far worse — by then
-the value is in forks and clones beyond your control.
+The scans found no credentials in the working tree or in any of the 392 paths ever committed.
+The one place that discusses key material — the BSC mission deployer account in
+`_BSC Missions/Mission Creator.md` — states only that a private key is required and that "this is
+kept as a secret"; no key is present. The BSC contract addresses alongside it are public
+on-chain data.
 
-If the team's judgement is that these are low-risk (a decommissioned host, expired share links),
-then redacting going forward is enough and no rewrite is needed. **That is a judgement call for
-someone who knows whether that host is still live.**
+The removed IP and internal links therefore remain readable in history, which is accepted.
 
-### 3. Licence
+### 3. ~~Licence~~ — done
 
-There is **no `LICENSE` file**. A public repository without one is "all rights reserved" by
-default, which prevents the community contribution this is being opened up for. The contract
-repositories this documents are MIT.
-
-**Decision needed:** which licence. MIT matches the contracts.
+MIT, matching the contract repositories. `LICENSE` added with the same copyright holder as
+`alienworlds-contracts-open-source-release` (Dacoco GmbH), and `package.json` now declares
+`"license": "MIT"`. **If the documentation should sit under a different holder, that is a
+one-line change.**
 
 ## Recommended before flipping
 

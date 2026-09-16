@@ -3,7 +3,7 @@
 
 #TODO: Details about hardware servers at a high level
 
-Link to Google sheet with Server details. Access granted upon request:[https://docs.google.com/spreadsheets/d/1RKpuC-H5in9thTUuIXYTFtCObC84aZ2RUlA0DlE5kBA/edit?usp=sharing](https://docs.google.com/spreadsheets/d/1RKpuC-H5in9thTUuIXYTFtCObC84aZ2RUlA0DlE5kBA/edit?usp=sharing)
+Server details are held in an internal document, not linked here. Access is granted on request.
 
   
 

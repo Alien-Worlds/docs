@@ -51,7 +51,7 @@ Technical roadmap
 1.  Ensure all keys can be safely injected as ENV variables to minimise security risks of leaked keys
 2.  Build CI/CD pipeline into the Github repo to facilitate safe deployable changes
 3.  Refactor helper scripts to include a DB so incomplete transactions can be readily highlighted with running through the entire teleport history.
-4.  Build a simple React UI which admins can use to identify missed teleports that need more oracle signatures Private ([https://app.clickup.com/t/18330827/DEV-1](https://app.clickup.com/t/18330827/DEV-1))
+4.  Build a simple React UI which admins can use to identify missed teleports that need more oracle signatures
 5.  Change the `owner` key on the BSC and ETH teleport smart contracts to be Multi-sig keys to increase the security around being able to change the current oracles.
 
   
@@ -66,7 +66,7 @@ Git repo(s)
 Links to Clickup
 ----------------
 
-No board or tickets yet other than for the UI Private ([https://app.clickup.com/t/18330827/DEV-1](https://app.clickup.com/t/18330827/DEV-1))
+No board or tickets yet other than for the UI
 
   
 

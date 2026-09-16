@@ -7,7 +7,7 @@ Some of these scripts are performing privileged actions so great care needs to b
 
 Over the next few months, these services should be migrated as much as possible to portable containers so they can be deployed easily onto various infrastructure platforms (including bare metal services or cloud in AWS). Secret key management will be easier in platforms like AWS since they natively provide secret management services that can be then injected into the services.
 
-Some of the services should be replicated on multiple instances to provide fail-over redundancy or to provide horizontal scaling under load. periodic actions that trigger events on the blockchain should not be run in multiple instances as this will cause duplicate events hitting the blockchains (eg. Spaceship missions Utility ([https://share-docs.clickup.com/d/h/hfd6b-9788/49593a316fe4392/hfd6b-3888](https://share-docs.clickup.com/d/h/hfd6b-9788/49593a316fe4392/hfd6b-3888)) should not be run multiple concurrent times since this will create duplicate missions.)
+Some of the services should be replicated on multiple instances to provide fail-over redundancy or to provide horizontal scaling under load. periodic actions that trigger events on the blockchain should not be run in multiple instances as this will cause duplicate events hitting the blockchains (eg. Spaceship missions Utility should not be run multiple concurrent times since this will create duplicate missions.)
 
 Blockchain nodes may not be able to be containerised due to the high resource requirements of those services. In this case, they will remain as Bare Metal instances in dedicated data centres. Examples of these are WAX blockchain nodes and BSC blockchain nodes.
 

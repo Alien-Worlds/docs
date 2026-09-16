@@ -44,12 +44,12 @@ Technical roadmap
 -----------------
 
 1.  Refactor to enable more generic consumption of the API (Possibly GraphQL rather than REST)
-2.  Consider how the API could work together with other API's, eg. Missions API ([https://share-docs.clickup.com/d/h/hfd6b-9788/49593a316fe4392/hfd6b-3768](https://share-docs.clickup.com/d/h/hfd6b-9788/49593a316fe4392/hfd6b-3768)), to work with GraphQL Federation to minimise client-side data joins.
+2.  Consider how the API could work together with other API's, eg. the Missions API, to work with GraphQL Federation to minimise client-side data joins.
 3.  Build CI/CD pipeline into the Github repo to facilitate safe deployable changes
 
 New Relic monitoring
 --------------------
-[https://onenr.io/0z7wkGgLlwL](https://onenr.io/0z7wkGgLlwL)
+Monitored in New Relic. The dashboard link is internal and is not published here.
 
 
 Git repo(s)

@@ -27,7 +27,7 @@ Since the test API does not directly reference specific code pairs, test files a
 How to write API tests?
 -----------------------
 
-The rules are similar to writing unit tests. You should remember about grouping tests, using the established naming convention. Check the guidelines in the sections [How to write Unit tests](https://app.clickup.com/18330827/v/dc/hfd6b-9788/hfd6b-4681), [How to write tests with Jest](https://app.clickup.com/18330827/v/dc/hfd6b-9788/hfd6b-4621) if you haven't already.
+The rules are similar to writing unit tests. You should remember about grouping tests, using the established naming convention. Check the guidelines in the sections How to write Unit tests, How to write tests with Jest if you haven't already.
 
 An important aspect is not to use the web frameworks directly in your tests. In the future, the framework may be replaced by another one. If that happens and you setup web framework directly in the test file, you will do yourself extra work replacing it with a new one. A better solution is to use test environments which you just need to import and initialize. In the minimal case it's about 3 lines of code that you add in each test, and if necessary, you can make changes in the environment itself.
 
@@ -54,7 +54,7 @@ describe('Testing GET method of /some-resource', () => {
 
   
 
-In chapter [How](https://app.clickup.com/18330827/v/dc/hfd6b-9788/hfd6b-4741) [to create a test environment](https://app.clickup.com/18330827/v/dc/hfd6b-9788/hfd6b-4741) you will learn how to use different test environments and how to create your own. In the case of API tests, as I wrote earlier, it is better not to refer to a specific web framework, so we suggest you use the `createApiTestEnvironment` function, which will return you a properly configured environment with the server. Inside this environment, setup and teardown actions are also defined to initialize and remove the server, respectively, before and after testing. So you don't have to worry about it.
+In chapter How to create a test environment you will learn how to use different test environments and how to create your own. In the case of API tests, as I wrote earlier, it is better not to refer to a specific web framework, so we suggest you use the `createApiTestEnvironment` function, which will return you a properly configured environment with the server. Inside this environment, setup and teardown actions are also defined to initialize and remove the server, respectively, before and after testing. So you don't have to worry about it.
 
   
 
