@@ -1,16 +1,13 @@
 # Security policy
 
-> **TODO before this repository is made public:** replace the contact below with a real
-> disclosure route. A security policy that points nowhere is worse than none, because it
-> convinces a reporter they have told someone.
-
 ## Reporting a vulnerability
 
 **Please do not open a public issue.** This repository documents smart contracts that hold real
 value, so a disclosure here can have immediate financial consequences.
 
-Report privately via **[TODO: security contact — a monitored address, or enable GitHub Private
-Vulnerability Reporting on this repository]**.
+Use **[GitHub Private Vulnerability Reporting](https://github.com/Alien-Worlds/docs/security/advisories/new)**
+on this repository. It is enabled, so the report goes straight to the maintainers and stays
+private until an advisory is published.
 
 Please include what you found, how to reproduce it, and which contract or page it affects.
 

@@ -10,7 +10,7 @@ but which are still committed files.
 
 ## Blockers
 
-All cleared. The remaining item is the security contact.
+All cleared.
 
 ### 1. ~~Internal infrastructure detail in unpublished docs~~ — done
 
@@ -54,12 +54,41 @@ one-line change.**
 ## Recommended before flipping
 
 - ~~**`CONTRIBUTING.md`**~~ — added.
-- ~~**`SECURITY.md`**~~ — added, but it still carries a visible TODO for the disclosure contact.
-  That must be filled in before going public.
+- ~~**`SECURITY.md`**~~ — added, and now points at GitHub Private Vulnerability Reporting, which
+  is enabled on this repository. No shared mailbox needed and nothing left to fill in.
 - ~~**Issue and PR templates**~~ — added. The PR template checklist names the two traps
   (generated `docs/03-API tools/`, and using the `BlockExplorer*` components so claims stay
   visible to the drift check), and the issue chooser routes security reports away from public
   issues.
+
+## Repository security settings (verified via the API)
+
+| Setting                         | State   |
+| ------------------------------- | ------- |
+| Private vulnerability reporting | enabled |
+| Secret scanning                 | enabled |
+| Secret scanning push protection | enabled |
+| Secret scanning AI detection    | enabled |
+| Dependabot security updates     | enabled |
+
+Secret scanning reports **0 alerts**, which independently corroborates the manual credential scan
+below rather than relying on it alone. Push protection also means a future commit containing a
+recognised credential is blocked at push time — worth having in place _before_ the repository is
+public and gains outside contributors.
+
+## Open before flipping: dependency advisories
+
+30 open Dependabot alerts: 17 high, 8 medium, 5 low. The high ones are all transitive Docusaurus
+build dependencies — `js-yaml`, `nanoid`, `postcss`, `svgo`, `browserslist`, `image-size`,
+`brace-expansion`.
+
+They are reported with `runtime` scope because Docusaurus declares its packages under
+`dependencies`, but the deployed artifact is static HTML and none of these execute in production.
+The exposure is to the build, not to readers of the site.
+
+Not a blocker, but going public publishes the alert list, so it is better to land the pending
+Dependabot PRs first — in particular the Docusaurus group bump (this repo is on 3.0.1 against a
+much newer release), which should clear most of them at once.
 
 ## Already verified clean
 
