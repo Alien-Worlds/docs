@@ -1,0 +1,592 @@
+{
+  "account": "lore.worlds",
+  "version": "eosio::abi/1.2",
+  "actions": [
+    {
+      "name": "batchupdstat",
+      "type": "batchupdstat"
+    },
+    {
+      "name": "cancel",
+      "type": "cancel"
+    },
+    {
+      "name": "checkstatus",
+      "type": "checkstatus"
+    },
+    {
+      "name": "claimreward",
+      "type": "claimreward"
+    },
+    {
+      "name": "exec",
+      "type": "exec"
+    },
+    {
+      "name": "fillpot",
+      "type": "fillpot"
+    },
+    {
+      "name": "forcedel",
+      "type": "forcedel"
+    },
+    {
+      "name": "mint",
+      "type": "mint"
+    },
+    {
+      "name": "propose",
+      "type": "propose"
+    },
+    {
+      "name": "publresult",
+      "type": "publresult"
+    },
+    {
+      "name": "pubretry",
+      "type": "pubretry"
+    },
+    {
+      "name": "refund",
+      "type": "refund"
+    },
+    {
+      "name": "rmvcompleted",
+      "type": "rmvcompleted"
+    },
+    {
+      "name": "rmvexpired",
+      "type": "rmvexpired"
+    },
+    {
+      "name": "setmerged",
+      "type": "setmerged"
+    },
+    {
+      "name": "setmintprep",
+      "type": "setmintprep"
+    },
+    {
+      "name": "settemplid",
+      "type": "settemplid"
+    },
+    {
+      "name": "stake",
+      "type": "stake"
+    },
+    {
+      "name": "unstake",
+      "type": "unstake"
+    },
+    {
+      "name": "updateconfig",
+      "type": "updateconfig"
+    },
+    {
+      "name": "updatetotvp",
+      "type": "updatetotvp"
+    },
+    {
+      "name": "vote",
+      "type": "vote"
+    }
+  ],
+  "tables": [
+    {
+      "name": "deposits",
+      "type": "deposit_info",
+      "key_names": []
+    },
+    {
+      "name": "globals2",
+      "type": "globals_item2",
+      "key_names": []
+    },
+    {
+      "name": "rewardglob",
+      "type": "reward_globals_item",
+      "key_names": []
+    },
+    {
+      "name": "tokelores",
+      "type": "proposal_data",
+      "key_names": []
+    },
+    {
+      "name": "voterreward",
+      "type": "voter_reward_info",
+      "key_names": []
+    },
+    {
+      "name": "voters2",
+      "type": "voter_info2",
+      "key_names": []
+    }
+  ],
+  "structs": [
+    {
+      "name": "batchupdstat",
+      "base": "",
+      "fields": [
+        {
+          "name": "batch_size",
+          "type": "uint16"
+        }
+      ]
+    },
+    {
+      "name": "cancel",
+      "base": "",
+      "fields": [
+        {
+          "name": "proposal_id",
+          "type": "uint64"
+        }
+      ]
+    },
+    {
+      "name": "checkstatus",
+      "base": "",
+      "fields": [
+        {
+          "name": "proposal_id",
+          "type": "uint64"
+        }
+      ]
+    },
+    {
+      "name": "claimreward",
+      "base": "",
+      "fields": [
+        {
+          "name": "voter",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "deposit_info",
+      "base": "",
+      "fields": [
+        {
+          "name": "account",
+          "type": "name"
+        },
+        {
+          "name": "deposit",
+          "type": "asset"
+        }
+      ]
+    },
+    {
+      "name": "exec",
+      "base": "",
+      "fields": [
+        {
+          "name": "proposal_id",
+          "type": "uint64"
+        }
+      ]
+    },
+    {
+      "name": "fillpot",
+      "base": "",
+      "fields": [
+        {
+          "name": "filler",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "forcedel",
+      "base": "",
+      "fields": [
+        {
+          "name": "proposal_id",
+          "type": "uint64"
+        }
+      ]
+    },
+    {
+      "name": "globals_item2",
+      "base": "",
+      "fields": [
+        {
+          "name": "duration",
+          "type": "uint32"
+        },
+        {
+          "name": "fee",
+          "type": "asset"
+        },
+        {
+          "name": "quorum_percent_x100",
+          "type": "uint64"
+        },
+        {
+          "name": "pass_percent_x100",
+          "type": "uint16"
+        },
+        {
+          "name": "total_staked",
+          "type": "asset"
+        },
+        {
+          "name": "total_unstaking",
+          "type": "asset"
+        },
+        {
+          "name": "total_vote_power",
+          "type": "asset"
+        },
+        {
+          "name": "power_per_day",
+          "type": "asset"
+        },
+        {
+          "name": "last_update",
+          "type": "time_point_sec"
+        },
+        {
+          "name": "template_id",
+          "type": "int32"
+        }
+      ]
+    },
+    {
+      "name": "mint",
+      "base": "",
+      "fields": [
+        {
+          "name": "proposal_id",
+          "type": "uint64"
+        },
+        {
+          "name": "fnt_image",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "pair_string_ATOMIC_ATTRIBUTE",
+      "base": "",
+      "fields": [
+        {
+          "name": "key",
+          "type": "string"
+        },
+        {
+          "name": "value",
+          "type": "ATOMIC_ATTRIBUTE"
+        }
+      ]
+    },
+    {
+      "name": "proposal_data",
+      "base": "",
+      "fields": [
+        {
+          "name": "proposal_id",
+          "type": "uint64"
+        },
+        {
+          "name": "proposer",
+          "type": "name"
+        },
+        {
+          "name": "type",
+          "type": "name"
+        },
+        {
+          "name": "status",
+          "type": "name"
+        },
+        {
+          "name": "title",
+          "type": "string"
+        },
+        {
+          "name": "total_yes_votes",
+          "type": "asset"
+        },
+        {
+          "name": "total_no_votes",
+          "type": "asset"
+        },
+        {
+          "name": "number_yes_votes",
+          "type": "uint32"
+        },
+        {
+          "name": "number_no_votes",
+          "type": "uint32"
+        },
+        {
+          "name": "expires",
+          "type": "time_point_sec"
+        },
+        {
+          "name": "earliest_exec",
+          "type": "time_point_sec"
+        },
+        {
+          "name": "attributes",
+          "type": "ATTRIBUTE_MAP"
+        }
+      ]
+    },
+    {
+      "name": "propose",
+      "base": "",
+      "fields": [
+        {
+          "name": "proposal_id",
+          "type": "uint64"
+        },
+        {
+          "name": "proposer",
+          "type": "name"
+        },
+        {
+          "name": "title",
+          "type": "string"
+        },
+        {
+          "name": "type",
+          "type": "name"
+        },
+        {
+          "name": "attributes",
+          "type": "ATTRIBUTE_MAP"
+        }
+      ]
+    },
+    {
+      "name": "publresult",
+      "base": "",
+      "fields": [
+        {
+          "name": "proposal",
+          "type": "proposal_data"
+        }
+      ]
+    },
+    {
+      "name": "pubretry",
+      "base": "",
+      "fields": [
+        {
+          "name": "proposal_id",
+          "type": "uint64"
+        }
+      ]
+    },
+    {
+      "name": "refund",
+      "base": "",
+      "fields": [
+        {
+          "name": "account",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "reward_globals_item",
+      "base": "",
+      "fields": [
+        {
+          "name": "reward_pot",
+          "type": "asset"
+        },
+        {
+          "name": "reward_per_vp_stored",
+          "type": "uint128"
+        },
+        {
+          "name": "total_vp_participating",
+          "type": "int64"
+        }
+      ]
+    },
+    {
+      "name": "rmvcompleted",
+      "base": "",
+      "fields": [
+        {
+          "name": "proposal_id",
+          "type": "uint64"
+        }
+      ]
+    },
+    {
+      "name": "rmvexpired",
+      "base": "",
+      "fields": [
+        {
+          "name": "proposal_id",
+          "type": "uint64"
+        }
+      ]
+    },
+    {
+      "name": "set_config_item",
+      "base": "",
+      "fields": [
+        {
+          "name": "duration",
+          "type": "uint32"
+        },
+        {
+          "name": "fee",
+          "type": "asset"
+        },
+        {
+          "name": "pass_percent_x100",
+          "type": "uint16"
+        },
+        {
+          "name": "quorum_percent_x100",
+          "type": "uint64"
+        }
+      ]
+    },
+    {
+      "name": "setmerged",
+      "base": "",
+      "fields": [
+        {
+          "name": "proposal_id",
+          "type": "uint64"
+        }
+      ]
+    },
+    {
+      "name": "setmintprep",
+      "base": "",
+      "fields": [
+        {
+          "name": "proposal_id",
+          "type": "uint64"
+        }
+      ]
+    },
+    {
+      "name": "settemplid",
+      "base": "",
+      "fields": [
+        {
+          "name": "template_id",
+          "type": "uint32"
+        }
+      ]
+    },
+    {
+      "name": "stake",
+      "base": "",
+      "fields": [
+        {
+          "name": "account",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "unstake",
+      "base": "",
+      "fields": [
+        {
+          "name": "account",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "updateconfig",
+      "base": "",
+      "fields": [
+        {
+          "name": "config",
+          "type": "set_config_item"
+        }
+      ]
+    },
+    {
+      "name": "updatetotvp",
+      "base": "",
+      "fields": [
+        {
+          "name": "total_power",
+          "type": "asset"
+        }
+      ]
+    },
+    {
+      "name": "vote",
+      "base": "",
+      "fields": [
+        {
+          "name": "voter",
+          "type": "name"
+        },
+        {
+          "name": "proposal_id",
+          "type": "uint64"
+        },
+        {
+          "name": "vote",
+          "type": "name"
+        },
+        {
+          "name": "vote_power",
+          "type": "asset"
+        }
+      ]
+    },
+    {
+      "name": "voter_info2",
+      "base": "",
+      "fields": [
+        {
+          "name": "voter",
+          "type": "name"
+        },
+        {
+          "name": "vote_power",
+          "type": "asset"
+        },
+        {
+          "name": "last_claim_time",
+          "type": "time_point_sec"
+        },
+        {
+          "name": "staked_amount",
+          "type": "asset"
+        }
+      ]
+    },
+    {
+      "name": "voter_reward_info",
+      "base": "",
+      "fields": [
+        {
+          "name": "voter",
+          "type": "name"
+        },
+        {
+          "name": "vp_participating",
+          "type": "int64"
+        },
+        {
+          "name": "reward_per_vp_paid",
+          "type": "uint128"
+        },
+        {
+          "name": "rewards_accrued",
+          "type": "int64"
+        }
+      ]
+    }
+  ]
+}

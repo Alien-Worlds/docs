@@ -83,10 +83,11 @@ singleton to store planet specific shared values related to mining. scoped by pl
 
 <State3Fields />
 
-### <BlockExplorerTableLinks contract="m.federation" table="claims"/>
-stores template ids that have been chosen, they must be claimed and minted in a separate tx so that the user cannot block the minting and get different nfts to game the system. - This is a legacy feature that is no longer active.
-  * name: miner
-  * vector: template ids
+### `claims` (removed)
+A legacy feature that is no longer active: this table stored template ids that had been
+chosen but not yet minted, so that a user could not block the minting and pick different
+NFTs to game the system. It is **not present in the deployed contract**, so there is no
+explorer link for it.
 
 ### <BlockExplorerTableLinks contract="m.federation" table="config"/>
 stores general purpose configs used within the contract logic. Can hold an array of arbitary key/value pairs.

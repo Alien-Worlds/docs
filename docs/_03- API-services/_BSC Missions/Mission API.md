@@ -21,7 +21,7 @@ Technical roadmap
 
 1.  De-duplicate data read and processed into the DB
 2.  Wrap functionality in automated tests
-3.  Consider how the API could work together with other API's, eg. Alien Worlds API ([https://share-docs.clickup.com/d/h/hfd6b-9788/49593a316fe4392/hfd6b-1748](https://share-docs.clickup.com/d/h/hfd6b-9788/49593a316fe4392/hfd6b-1748)), to work with GraphQL Federation to minimize client-side data joins.
+3.  Consider how the API could work together with other API's, eg. the Alien Worlds API, to work with GraphQL Federation to minimize client-side data joins.
 4.  Build CI/CD pipeline into the Github repo to facilitate safe deployable changes
 
 Git repo(s)
@@ -43,22 +43,19 @@ Context of relevant accounts/keys/permissions
     *   MissionJoined - 0xceb49b5adb5e3737df9e0679d210f1006878fb83bf58974f7279b0c79460898b
     *   RewardWithdrawn - 0x3f0d190fee71fcedf315c1a691ca936a8893467ce62d0bb52e5643ded084fe46
 
-Private ([https://app.clickup.com/18330827/v/gr/hfd6b-14961](https://app.clickup.com/18330827/v/gr/hfd6b-14961))
-
 Test instances
 --------------
 
 There is a test instance on the Binance server that is reading events from the BSC test net.
 
 *   It's accessible via Cloudflare at [https://test-missions-api.alienworlds.io](https://test-missions-api.alienworlds.io)
-*   or directly from the server at 157.90.129.75
 
 Metadata related to service
 ---------------------------
 
 None - all is derived from the blockchain state from the BSC nodes
 
-The mission configurations are handled by another service (Spaceship missions Utility ([https://share-docs.clickup.com/d/h/hfd6b-9788/49593a316fe4392/hfd6b-3888](https://share-docs.clickup.com/d/h/hfd6b-9788/49593a316fe4392/hfd6b-3888))) that does require metadata details
+The mission configurations are handled by another service (Spaceship missions Utility) that does require metadata details
 
 Running instances
 -----------------
@@ -69,4 +66,4 @@ Running instances
 New Relic monitoring
 --------------------
 
-[https://onenr.io/0GbRmybgNRy](https://onenr.io/0GbRmybgNRy)
+Monitored in New Relic; the dashboard link is internal and is not published here.

@@ -49,11 +49,6 @@ Git repo(s)
 
 [https://github.com/Alien-Worlds/spaceship-mission-utility](https://github.com/Alien-Worlds/spaceship-mission-utility)
 
-Links to Clickup
-----------------
-
-Private ([https://app.clickup.com/18330827/v/b/6-150389628-2](https://app.clickup.com/18330827/v/b/6-150389628-2))
-
 Context of relevant accounts/keys/permissions
 ---------------------------------------------
 
@@ -79,7 +74,7 @@ Metadata related to service
 
 The mission configurations and schedules are derived from this google sheet. In future this should be consolidated into a mission creator UI as mentioned above.
 
-[https://docs.google.com/spreadsheets/d/1QTsHfcFK0GcqNWnQY25H0STGREIWdTv0pmQWAQ4hfLY/edit?usp=sharing](https://docs.google.com/spreadsheets/d/1QTsHfcFK0GcqNWnQY25H0STGREIWdTv0pmQWAQ4hfLY/edit?usp=sharing)
+That sheet is internal and is not linked here.
 
 Running instances
 -----------------
@@ -89,4 +84,4 @@ The process is currently running on the Binance server adjacent to the test inst
 New Relic monitoring
 --------------------
 
-[https://onenr.io/0DvwB4VPKjp](https://onenr.io/0DvwB4VPKjp)
+Monitored in New Relic. The dashboard link is internal and is not published here.

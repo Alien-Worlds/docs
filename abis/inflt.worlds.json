@@ -1,0 +1,219 @@
+{
+  "account": "inflt.worlds",
+  "version": "eosio::abi/1.2",
+  "actions": [
+    {
+      "name": "claim",
+      "type": "claim"
+    },
+    {
+      "name": "inflate",
+      "type": "inflate"
+    },
+    {
+      "name": "logclaim",
+      "type": "logclaim"
+    },
+    {
+      "name": "pause",
+      "type": "pause"
+    },
+    {
+      "name": "unpause",
+      "type": "unpause"
+    }
+  ],
+  "tables": [
+    {
+      "name": "dacpayouts",
+      "type": "dac_payout_item",
+      "key_names": []
+    },
+    {
+      "name": "pausable",
+      "type": "pausable",
+      "key_names": []
+    },
+    {
+      "name": "payouts",
+      "type": "payout_item",
+      "key_names": []
+    },
+    {
+      "name": "planets",
+      "type": "planet_item",
+      "key_names": []
+    },
+    {
+      "name": "reserve",
+      "type": "reserve_item",
+      "key_names": []
+    },
+    {
+      "name": "state",
+      "type": "state_item",
+      "key_names": []
+    }
+  ],
+  "structs": [
+    {
+      "name": "claim",
+      "base": "",
+      "fields": [
+        {
+          "name": "planet_name",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "dac_payout_item",
+      "base": "",
+      "fields": [
+        {
+          "name": "dac_account",
+          "type": "name"
+        },
+        {
+          "name": "amount",
+          "type": "asset"
+        }
+      ]
+    },
+    {
+      "name": "inflate",
+      "base": "",
+      "fields": []
+    },
+    {
+      "name": "logclaim",
+      "base": "",
+      "fields": [
+        {
+          "name": "planet_name",
+          "type": "name"
+        },
+        {
+          "name": "planet_quantity",
+          "type": "asset"
+        },
+        {
+          "name": "mining_quantity",
+          "type": "asset"
+        }
+      ]
+    },
+    {
+      "name": "pausable",
+      "base": "",
+      "fields": [
+        {
+          "name": "paused",
+          "type": "bool"
+        }
+      ]
+    },
+    {
+      "name": "pause",
+      "base": "",
+      "fields": []
+    },
+    {
+      "name": "payout_item",
+      "base": "",
+      "fields": [
+        {
+          "name": "planet_name",
+          "type": "name"
+        },
+        {
+          "name": "mining",
+          "type": "asset"
+        },
+        {
+          "name": "reserve",
+          "type": "asset"
+        }
+      ]
+    },
+    {
+      "name": "planet_item",
+      "base": "",
+      "fields": [
+        {
+          "name": "planet_name",
+          "type": "name"
+        },
+        {
+          "name": "title",
+          "type": "string"
+        },
+        {
+          "name": "metadata",
+          "type": "string"
+        },
+        {
+          "name": "dac_symbol",
+          "type": "symbol"
+        },
+        {
+          "name": "active",
+          "type": "bool"
+        },
+        {
+          "name": "total_stake",
+          "type": "int64"
+        },
+        {
+          "name": "nft_multiplier",
+          "type": "int64"
+        },
+        {
+          "name": "last_claim",
+          "type": "time_point_sec"
+        }
+      ]
+    },
+    {
+      "name": "reserve_item",
+      "base": "",
+      "fields": [
+        {
+          "name": "total",
+          "type": "int64"
+        }
+      ]
+    },
+    {
+      "name": "state_item",
+      "base": "",
+      "fields": [
+        {
+          "name": "total_stake",
+          "type": "int64"
+        },
+        {
+          "name": "nft_genesis",
+          "type": "uint32"
+        },
+        {
+          "name": "nft_total",
+          "type": "uint64"
+        },
+        {
+          "name": "last_land_fill",
+          "type": "time_point_sec"
+        },
+        {
+          "name": "land_rating_total",
+          "type": "uint64"
+        }
+      ]
+    },
+    {
+      "name": "unpause",
+      "base": "",
+      "fields": []
+    }
+  ]
+}

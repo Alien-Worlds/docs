@@ -1,0 +1,121 @@
+{
+  "account": "bina.world",
+  "version": "eosio::abi/1.2",
+  "actions": [
+    {
+      "name": "setconfig",
+      "type": "setconfig"
+    },
+    {
+      "name": "start",
+      "type": "start"
+    },
+    {
+      "name": "stop",
+      "type": "stop"
+    },
+    {
+      "name": "trigger",
+      "type": "trigger"
+    }
+  ],
+  "tables": [
+    {
+      "name": "accounts",
+      "type": "account",
+      "key_names": []
+    },
+    {
+      "name": "config",
+      "type": "config_item",
+      "key_names": []
+    }
+  ],
+  "structs": [
+    {
+      "name": "account",
+      "base": "",
+      "fields": [
+        {
+          "name": "balance",
+          "type": "asset"
+        }
+      ]
+    },
+    {
+      "name": "config_item",
+      "base": "",
+      "fields": [
+        {
+          "name": "is_active",
+          "type": "bool"
+        },
+        {
+          "name": "min_amount",
+          "type": "asset"
+        },
+        {
+          "name": "max_amount",
+          "type": "asset"
+        },
+        {
+          "name": "min_frequency",
+          "type": "uint32"
+        },
+        {
+          "name": "last_teleport_time",
+          "type": "time_point_sec"
+        },
+        {
+          "name": "destination",
+          "type": "checksum256"
+        },
+        {
+          "name": "chain_id",
+          "type": "uint8"
+        }
+      ]
+    },
+    {
+      "name": "setconfig",
+      "base": "",
+      "fields": [
+        {
+          "name": "min_amount",
+          "type": "asset"
+        },
+        {
+          "name": "max_amount",
+          "type": "asset"
+        },
+        {
+          "name": "min_frequency",
+          "type": "uint32"
+        },
+        {
+          "name": "destination",
+          "type": "checksum256"
+        },
+        {
+          "name": "chain_id",
+          "type": "uint8"
+        }
+      ]
+    },
+    {
+      "name": "start",
+      "base": "",
+      "fields": []
+    },
+    {
+      "name": "stop",
+      "base": "",
+      "fields": []
+    },
+    {
+      "name": "trigger",
+      "base": "",
+      "fields": []
+    }
+  ]
+}

@@ -97,20 +97,35 @@ A candidate may update their requested pay as a custodian. This will not take ef
 ### Claim pay <BlockExplorerActionLinks contract="dao.worlds" action="claimpay"/>
 This is the action called by an active custodian in order to receive the payment amount that is due to be paid to them. This can be either paid directly from the DAO's treasury account to the custodian, or it can be paid by a nominated service entity to handle parts of the process not covered by the blockchain actions.
 
-### Update config <BlockExplorerActionLinks contract="dao.worlds" action="updateconfig"/>
-There are several configurable options on DAO voting contract code to allow it to be customised for use without needing to recompile and deploy the code. The future plan is that this will allow different DAOs to operate using the same deployed code but with their own custom configurations. The changes are made by setting a new config object via this action with the following options:
-  * `lockupasset`: The amount of DAO tokens that are required to be locked up by each candidate applying for election.
-  * `maxvotes`: The maximum number of votes that each member can make for a candidate. The default is 5.
-  * `numelected`: Number of custodians to be elected for each election count.
-  * `periodlength`: Length of a period in seconds. Used to prevent early elections from being called on the `newperiod` action. The default is 7 days.
-  * `should_pay_via_service_provider`: If set to true, the contract will direct all payments via the service provider rather than paying directly.
-  * `initial_vote_quorum_percent`: Amount of token value in votes required to trigger the initial set of custodians
-  * `token_supply_theshold`: Amount of token value in votes required to trigger the initial set of custodians
-  * `vote_quorum_percent`: Amount of token value in votes required to allow a new set of custodians to be set after the initial threshold has been achieved - election period 2 and onwards.
+### Configuration
 
-  * The required number of custodians to approve different levels of authenticated actions on the DAO smart contracts:
-    * `auth_threshold_high`
-    * `auth_threshold_mid`
-    * `auth_threshold_low`
-  * `lockup_release_time_delay`: The minmimum lockup time required for a candidate to be able to nominate as a candidate.
-  * `requested_pay_max`: The maximum amount of pay a custodian can request for payment.
+There are several configurable options on the DAO voting contract to allow it to be customised
+without recompiling and redeploying the code, so different DAOs can operate using the same
+deployed code with their own configuration.
+
+Configuration used to be set as one object through a single `updateconfig` action. **That action
+is no longer deployed** - it has been replaced by individual actions, each setting one option, so
+changing one value no longer requires restating the whole config.
+
+| Action | Sets |
+| --- | --- |
+| <BlockExplorerActionLinks contract="dao.worlds" action="setlockasset"/> | `lockupasset` - DAO tokens each candidate must lock up to stand for election |
+| <BlockExplorerActionLinks contract="dao.worlds" action="setdaogov"/> | `maxvotes`, `numelected` and the auth thresholds together. `numelected` must be 21 or fewer, `maxvotes` must be less than half of `numelected`, and the auth threshold must be below `numelected` - otherwise it could never be satisfied |
+| <BlockExplorerActionLinks contract="dao.worlds" action="setperiodlen"/> | `periodlength` in seconds, which prevents early elections via `newperiod`. Default 7 days |
+| <BlockExplorerActionLinks contract="dao.worlds" action="setpayvia"/> | `should_pay_via_service_provider` - route all payments via the service provider rather than paying directly |
+| <BlockExplorerActionLinks contract="dao.worlds" action="setinitvote"/> | `initial_vote_quorum_percent` - token value in votes required to trigger the initial set of custodians |
+| <BlockExplorerActionLinks contract="dao.worlds" action="setvotequor"/> | `vote_quorum_percent` - quorum required for each subsequent election period |
+| <BlockExplorerActionLinks contract="dao.worlds" action="settokensup"/> | `token_supply_theshold` |
+| <BlockExplorerActionLinks contract="dao.worlds" action="setlockdelay"/> | `lockup_release_time_delay` |
+| <BlockExplorerActionLinks contract="dao.worlds" action="setpaymax"/> | `requested_pay_max` - ceiling on the pay a candidate may request |
+| <BlockExplorerActionLinks contract="dao.worlds" action="setpenddelay"/> | `pending_period_delay` |
+| <BlockExplorerActionLinks contract="dao.worlds" action="setrequirewl"/> | whether candidates must be whitelisted |
+| <BlockExplorerActionLinks contract="dao.worlds" action="setbudget"/> | custodian budget as a percentage |
+| <BlockExplorerActionLinks contract="dao.worlds" action="setspendbudg"/> | spendings budget as an amount |
+| <BlockExplorerActionLinks contract="dao.worlds" action="setprpbudget"/> | proposals budget as a percentage |
+| <BlockExplorerActionLinks contract="dao.worlds" action="setprpbudga"/> | proposals budget as an amount |
+
+Each of these takes the `dac_id` as its last argument, so one deployed contract serves every DAO.
+They are authorised either by the contract itself or by the DAC owner recorded in the
+`index.worlds` directory.
+

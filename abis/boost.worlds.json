@@ -1,0 +1,53 @@
+{
+  "account": "boost.worlds",
+  "version": "eosio::abi/1.2",
+  "actions": [
+    {
+      "name": "ftransfer",
+      "type": "ftransfer"
+    },
+    {
+      "name": "withdraw",
+      "type": "withdraw"
+    }
+  ],
+  "tables": [],
+  "structs": [
+    {
+      "name": "ftransfer",
+      "base": "",
+      "fields": [
+        {
+          "name": "from",
+          "type": "name"
+        },
+        {
+          "name": "to",
+          "type": "name"
+        },
+        {
+          "name": "quantity",
+          "type": "asset"
+        },
+        {
+          "name": "memo",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "withdraw",
+      "base": "",
+      "fields": [
+        {
+          "name": "user",
+          "type": "name"
+        },
+        {
+          "name": "quantity",
+          "type": "asset"
+        }
+      ]
+    }
+  ]
+}

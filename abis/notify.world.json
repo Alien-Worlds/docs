@@ -1,0 +1,125 @@
+{
+  "account": "notify.world",
+  "version": "eosio::abi/1.2",
+  "actions": [
+    {
+      "name": "logmine",
+      "type": "logmine"
+    }
+  ],
+  "tables": [],
+  "structs": [
+    {
+      "name": "logmine",
+      "base": "",
+      "fields": [
+        {
+          "name": "miner",
+          "type": "name"
+        },
+        {
+          "name": "params",
+          "type": "mining_data2"
+        },
+        {
+          "name": "bounty",
+          "type": "asset"
+        },
+        {
+          "name": "land_id",
+          "type": "uint64"
+        },
+        {
+          "name": "planet_name",
+          "type": "name"
+        },
+        {
+          "name": "landowner",
+          "type": "name"
+        },
+        {
+          "name": "bag_items",
+          "type": "uint64[]"
+        },
+        {
+          "name": "offset",
+          "type": "uint32"
+        },
+        {
+          "name": "landowner_share",
+          "type": "asset"
+        },
+        {
+          "name": "pool_amounts",
+          "type": "pair_string_asset[]"
+        }
+      ]
+    },
+    {
+      "name": "mining_data2",
+      "base": "",
+      "fields": [
+        {
+          "name": "invalid",
+          "type": "uint8"
+        },
+        {
+          "name": "error",
+          "type": "string"
+        },
+        {
+          "name": "delay",
+          "type": "uint16"
+        },
+        {
+          "name": "difficulty",
+          "type": "uint8"
+        },
+        {
+          "name": "ease",
+          "type": "uint16"
+        },
+        {
+          "name": "luck",
+          "type": "uint16"
+        },
+        {
+          "name": "commission",
+          "type": "uint16"
+        },
+        {
+          "name": "eases",
+          "type": "pair_string_uint16[]"
+        }
+      ]
+    },
+    {
+      "name": "pair_string_asset",
+      "base": "",
+      "fields": [
+        {
+          "name": "key",
+          "type": "string"
+        },
+        {
+          "name": "value",
+          "type": "asset"
+        }
+      ]
+    },
+    {
+      "name": "pair_string_uint16",
+      "base": "",
+      "fields": [
+        {
+          "name": "first",
+          "type": "string"
+        },
+        {
+          "name": "second",
+          "type": "uint16"
+        }
+      ]
+    }
+  ]
+}

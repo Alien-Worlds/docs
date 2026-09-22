@@ -2,6 +2,7 @@
   "name": "docs-dao",
   "version": "0.0.0",
   "private": true,
+  "license": "MIT",
   "packageManager": "pnpm@9.15.4",
   "scripts": {
     "docusaurus": "docusaurus",
@@ -20,7 +21,8 @@
     "abi:check": "node scripts/abi-sync.mjs --check",
     "abi:baseline": "node scripts/abi-sync.mjs --baseline",
     "abi:partials": "node scripts/abi-sync.mjs --partials",
-    "test": "node --test scripts/"
+    "test": "node --test scripts/",
+    "contracts:extract": "node scripts/contract-source-extract.mjs"
   },
   "dependencies": {
     "@docusaurus/core": "^3.0.0",
@@ -42,6 +44,7 @@
     "@docusaurus/tsconfig": "3.0.0",
     "@docusaurus/types": "^3.0.0",
     "@types/node": "^26.4.0",
+    "mermaid": "10.6.1",
     "prettier": "^3.9.6",
     "typescript": "~5.2.2"
   },

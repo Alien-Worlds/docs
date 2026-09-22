@@ -7,3 +7,4 @@ docs/03-API tools/
 docs/**/*.md
 docs/**/*.mdx
 blog/
+contract-graph.json

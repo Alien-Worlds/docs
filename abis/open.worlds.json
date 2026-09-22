@@ -1,0 +1,548 @@
+{
+  "account": "open.worlds",
+  "version": "eosio::abi/1.1",
+  "actions": [
+    {
+      "name": "activatepack",
+      "type": "activatepack"
+    },
+    {
+      "name": "addasset",
+      "type": "addasset"
+    },
+    {
+      "name": "addcard",
+      "type": "addcard"
+    },
+    {
+      "name": "addcrate",
+      "type": "addcrate"
+    },
+    {
+      "name": "addpack",
+      "type": "addpack"
+    },
+    {
+      "name": "claim",
+      "type": "claim"
+    },
+    {
+      "name": "clearcards",
+      "type": "clearcards"
+    },
+    {
+      "name": "clearcrates",
+      "type": "clearcrates"
+    },
+    {
+      "name": "clearpacks",
+      "type": "clearpacks"
+    },
+    {
+      "name": "delcard",
+      "type": "delcard"
+    },
+    {
+      "name": "delclaim",
+      "type": "delclaim"
+    },
+    {
+      "name": "delcrate",
+      "type": "delcrate"
+    },
+    {
+      "name": "delpack",
+      "type": "delpack"
+    },
+    {
+      "name": "editcard",
+      "type": "editcard"
+    },
+    {
+      "name": "editcrate",
+      "type": "editcrate"
+    },
+    {
+      "name": "editpack",
+      "type": "editpack"
+    },
+    {
+      "name": "emptycrate",
+      "type": "emptycrate"
+    },
+    {
+      "name": "logopen",
+      "type": "logopen"
+    },
+    {
+      "name": "open",
+      "type": "open"
+    },
+    {
+      "name": "receiverand",
+      "type": "receiverand"
+    }
+  ],
+  "tables": [
+    {
+      "name": "cards",
+      "type": "card_item",
+      "key_names": []
+    },
+    {
+      "name": "claims",
+      "type": "claim_item",
+      "key_names": []
+    },
+    {
+      "name": "crateassets",
+      "type": "crateasset_item",
+      "key_names": []
+    },
+    {
+      "name": "crates",
+      "type": "crate_item",
+      "key_names": []
+    },
+    {
+      "name": "deposits",
+      "type": "deposit_item",
+      "key_names": []
+    },
+    {
+      "name": "minepot",
+      "type": "minepot_item",
+      "key_names": []
+    },
+    {
+      "name": "packs",
+      "type": "pack_item",
+      "key_names": []
+    }
+  ],
+  "structs": [
+    {
+      "name": "activatepack",
+      "base": "",
+      "fields": [
+        {
+          "name": "pack_name",
+          "type": "name"
+        },
+        {
+          "name": "active",
+          "type": "bool"
+        }
+      ]
+    },
+    {
+      "name": "addasset",
+      "base": "",
+      "fields": [
+        {
+          "name": "crate_name",
+          "type": "name"
+        },
+        {
+          "name": "asset_id",
+          "type": "uint64"
+        }
+      ]
+    },
+    {
+      "name": "addcard",
+      "base": "",
+      "fields": [
+        {
+          "name": "pack_name",
+          "type": "name"
+        },
+        {
+          "name": "card_id",
+          "type": "uint64"
+        },
+        {
+          "name": "card_probabilities",
+          "type": "cardprob[]"
+        }
+      ]
+    },
+    {
+      "name": "addcrate",
+      "base": "",
+      "fields": [
+        {
+          "name": "crate_name",
+          "type": "name"
+        },
+        {
+          "name": "type",
+          "type": "name"
+        },
+        {
+          "name": "ids",
+          "type": "uint64[]"
+        }
+      ]
+    },
+    {
+      "name": "addpack",
+      "base": "",
+      "fields": [
+        {
+          "name": "pack_name",
+          "type": "name"
+        },
+        {
+          "name": "pack_symbol",
+          "type": "symbol"
+        },
+        {
+          "name": "bonus_ft",
+          "type": "extended_asset"
+        },
+        {
+          "name": "active",
+          "type": "bool"
+        }
+      ]
+    },
+    {
+      "name": "card_item",
+      "base": "",
+      "fields": [
+        {
+          "name": "card_id",
+          "type": "uint64"
+        },
+        {
+          "name": "pack_name",
+          "type": "name"
+        },
+        {
+          "name": "card_probabilities",
+          "type": "cardprob[]"
+        }
+      ]
+    },
+    {
+      "name": "cardprob",
+      "base": "",
+      "fields": [
+        {
+          "name": "crate_name",
+          "type": "name"
+        },
+        {
+          "name": "probability",
+          "type": "uint16"
+        }
+      ]
+    },
+    {
+      "name": "chosen_card",
+      "base": "",
+      "fields": [
+        {
+          "name": "crate_name",
+          "type": "name"
+        },
+        {
+          "name": "crate_number",
+          "type": "uint16"
+        },
+        {
+          "name": "crate_size",
+          "type": "uint16"
+        },
+        {
+          "name": "template_number",
+          "type": "uint16"
+        },
+        {
+          "name": "template_id",
+          "type": "uint32"
+        },
+        {
+          "name": "asset_id",
+          "type": "uint64"
+        },
+        {
+          "name": "rand_1",
+          "type": "uint16"
+        },
+        {
+          "name": "rand_2",
+          "type": "uint32"
+        }
+      ]
+    },
+    {
+      "name": "claim",
+      "base": "",
+      "fields": [
+        {
+          "name": "account",
+          "type": "name"
+        },
+        {
+          "name": "pack_name",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "claim_item",
+      "base": "",
+      "fields": [
+        {
+          "name": "account",
+          "type": "name"
+        },
+        {
+          "name": "chosen_cards",
+          "type": "chosen_card[]"
+        },
+        {
+          "name": "ft",
+          "type": "asset"
+        }
+      ]
+    },
+    {
+      "name": "clearcards",
+      "base": "",
+      "fields": []
+    },
+    {
+      "name": "clearcrates",
+      "base": "",
+      "fields": []
+    },
+    {
+      "name": "clearpacks",
+      "base": "",
+      "fields": []
+    },
+    {
+      "name": "crate_item",
+      "base": "",
+      "fields": [
+        {
+          "name": "crate_name",
+          "type": "name"
+        },
+        {
+          "name": "type",
+          "type": "name"
+        },
+        {
+          "name": "ids",
+          "type": "uint64[]"
+        }
+      ]
+    },
+    {
+      "name": "crateasset_item",
+      "base": "",
+      "fields": [
+        {
+          "name": "asset_id",
+          "type": "uint64"
+        },
+        {
+          "name": "index",
+          "type": "uint64"
+        }
+      ]
+    },
+    {
+      "name": "delcard",
+      "base": "",
+      "fields": [
+        {
+          "name": "card_id",
+          "type": "uint64"
+        }
+      ]
+    },
+    {
+      "name": "delclaim",
+      "base": "",
+      "fields": [
+        {
+          "name": "account",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "delcrate",
+      "base": "",
+      "fields": [
+        {
+          "name": "crate_name",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "delpack",
+      "base": "",
+      "fields": [
+        {
+          "name": "pack_name",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "deposit_item",
+      "base": "",
+      "fields": [
+        {
+          "name": "account",
+          "type": "name"
+        },
+        {
+          "name": "deposited_asset",
+          "type": "asset"
+        }
+      ]
+    },
+    {
+      "name": "editcard",
+      "base": "",
+      "fields": [
+        {
+          "name": "card_id",
+          "type": "uint64"
+        },
+        {
+          "name": "card_probabilities",
+          "type": "cardprob[]"
+        }
+      ]
+    },
+    {
+      "name": "editcrate",
+      "base": "",
+      "fields": [
+        {
+          "name": "crate_name",
+          "type": "name"
+        },
+        {
+          "name": "template_ids",
+          "type": "uint64[]"
+        }
+      ]
+    },
+    {
+      "name": "editpack",
+      "base": "",
+      "fields": [
+        {
+          "name": "pack_name",
+          "type": "name"
+        },
+        {
+          "name": "pack_symbol",
+          "type": "symbol"
+        },
+        {
+          "name": "bonus_ft",
+          "type": "extended_asset"
+        }
+      ]
+    },
+    {
+      "name": "emptycrate",
+      "base": "",
+      "fields": [
+        {
+          "name": "crate_name",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "logopen",
+      "base": "",
+      "fields": [
+        {
+          "name": "opener",
+          "type": "name"
+        },
+        {
+          "name": "pack_name",
+          "type": "name"
+        },
+        {
+          "name": "chosen_cards",
+          "type": "chosen_card[]"
+        },
+        {
+          "name": "ft_bonus",
+          "type": "asset"
+        }
+      ]
+    },
+    {
+      "name": "minepot_item",
+      "base": "",
+      "fields": [
+        {
+          "name": "commission",
+          "type": "asset"
+        }
+      ]
+    },
+    {
+      "name": "open",
+      "base": "",
+      "fields": [
+        {
+          "name": "account",
+          "type": "name"
+        }
+      ]
+    },
+    {
+      "name": "pack_item",
+      "base": "",
+      "fields": [
+        {
+          "name": "pack_name",
+          "type": "name"
+        },
+        {
+          "name": "pack_symbol",
+          "type": "symbol"
+        },
+        {
+          "name": "bonus_ft",
+          "type": "extended_asset"
+        },
+        {
+          "name": "active",
+          "type": "bool"
+        }
+      ]
+    },
+    {
+      "name": "receiverand",
+      "base": "",
+      "fields": [
+        {
+          "name": "assoc_id",
+          "type": "uint64"
+        },
+        {
+          "name": "random_value",
+          "type": "checksum256"
+        }
+      ]
+    }
+  ]
+}

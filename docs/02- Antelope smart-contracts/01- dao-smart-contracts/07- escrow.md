@@ -27,11 +27,26 @@ Once an escrow has been initialised but not yet funded with a transfer, this act
 <BlockExplorerActionLinks contract="escrw.worlds" action="approve"/> 
 <BlockExplorerActionLinks contract="escrw.worlds" action="disapprove"/>
 
-Once an escrow has been initialised and populated with a transfer action the next step would be to approve the escrow either by the sender, the nominated arbitrator or receiver. Two approvals are required from any of these three accounts to allow the `claim` action to be performed. `disapprove` may be subsequently called to remove an existing approval by the relevant actor.
+Once an escrow has been initialised and populated with a transfer action, the next step is to
+approve it. `approve` is what actually settles the escrow: it pays the arbitrator, transfers the
+escrowed amount to the receiver, and erases the escrow record.
 
-### Claim an approved escrow payment <BlockExplorerActionLinks contract="escrw.worlds" action="claim"/>
+Who may approve depends on whether the escrow is disputed. An undisputed escrow is approved by
+the **sender**; a disputed one can only be approved by the **arbitrator**, who steps in to
+adjudicate. `disapprove` is the arbitrator's counterpart for refusing a disputed escrow.
 
-The claim action can only be executed by the intended receiver for an escrow payment and will only succeed with the correct approval state for the escrow record. At this point, the escrowed amount will be transferred to the nominated service company account so that payments can be processed to the intended receiver.
+Neither action can be called directly by those accounts. Both require the escrow contract's own
+authority, so settlement is only reachable through the proposals contract sending
+`escrow@approve` — the proposals contract treats the presence of the escrow row as the truth
+about whether the work is still live, and letting an arbitrator settle an escrow directly would
+leave the tracking proposal behind.
+
+### `claim` (removed)
+
+Earlier versions required the receiver to call a separate `claim` action once an escrow had
+enough approvals. That action **no longer exists in the deployed contract** — and so has no
+explorer link — because `approve` now transfers the funds to the receiver directly as part of
+settling the escrow.
 
 ### Dispute before expiry <BlockExplorerActionLinks contract="escrw.worlds" action="dispute"/>
 

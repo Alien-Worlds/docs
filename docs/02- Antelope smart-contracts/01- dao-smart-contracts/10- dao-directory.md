@@ -110,7 +110,7 @@ This action allow for setting the `owner` account of a DAO to a new accout. This
 ### Unregister a DAO <BlockExplorerActionLinks contract="index.worlds" action="unregdac"/>
 This action removes the the DAO from the directory and it ceases to function. If there are assets that are locked in accounts managed by the DAO they may not be retrievable after this action has run. So this should be the last action called when shutting down a DAO after all it's assets have been moved.
 
-### Configure Social media links <BlockExplorerActionLinks contract="index.worlds" action="setsociallink"/>
+### Configure Social media links <BlockExplorerActionLinks contract="index.worlds" action="setsociallnk"/>
 This action adds a social media reference for the DAO (eg. Twitter, Telegram) to give the DAO and official "voice". The available social media links currently include:
 * Twitter
 * Telegram
