@@ -1,8 +1,15 @@
 name: Contract ABI drift
 
-# Re-reads the deployed ABIs and opens a PR when they have changed. That PR is
-# the signal that a contract moved and the docs need a human look — it arrives
-# on its own instead of waiting for someone to notice a wrong action name.
+# Re-reads the deployed ABIs and, when they've changed, pushes a branch with
+# the refreshed cache and opens an issue linking to it. That issue is the
+# signal that a contract moved and the docs need a human look — it arrives on
+# its own instead of waiting for someone to notice a wrong action name.
+#
+# Opens an issue rather than a PR because the default GITHUB_TOKEN cannot
+# create pull requests unless "Allow GitHub Actions to create and approve
+# pull requests" is enabled repo-wide for every workflow — a blast radius
+# this repo deliberately doesn't accept for one weekly job. Issue creation
+# and branch pushes both work fine under the default token's permissions.
 on:
   schedule:
     - cron: '0 4 * * 1'
@@ -10,7 +17,7 @@ on:
 
 permissions:
   contents: write
-  pull-requests: write
+  issues: write
 
 jobs:
   drift:
@@ -30,16 +37,48 @@ jobs:
       - name: Write drift report
         run: node scripts/abi-sync.mjs --out abi-drift-report.md
 
-      - uses: peter-evans/create-pull-request@v7
-        with:
-          branch: automated/abi-drift
-          title: 'docs: deployed contract ABIs have changed'
-          commit-message: 'chore: refresh cached contract ABIs'
-          labels: documentation, automated
-          # Deliberately excludes the drift baseline: regenerating it here would
-          # let new drift be auto-accepted, which is the one thing the gate exists
-          # to prevent.
-          add-paths: |
-            abis/*.json
-            :!abis/drift-baseline.json
-          body-path: abi-drift-report.md
+      - name: Push refreshed ABI branch
+        id: push
+        run: |
+          git checkout -b automated/abi-drift
+
+          # Deliberately excludes the drift baseline: regenerating it here
+          # would let new drift be auto-accepted, which is the one thing the
+          # gate exists to prevent.
+          git add abis/*.json ':!abis/drift-baseline.json'
+
+          if git diff --cached --quiet; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'chore: refresh cached contract ABIs'
+          git push --force origin automated/abi-drift
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+
+      - name: Open or update drift issue
+        if: steps.push.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          {
+            echo 'Refreshed ABIs pushed to `automated/abi-drift`. Diff:'
+            echo "https://github.com/${{ github.repository }}/compare/main...automated/abi-drift"
+            echo
+            cat abi-drift-report.md
+          } > issue-body.md
+
+          existing=$(gh issue list --label automated --state open \
+            --search 'in:title "deployed contract ABIs have changed"' \
+            --json number --jq '.[0].number')
+
+          if [ -n "$existing" ]; then
+            gh issue comment "$existing" --body-file issue-body.md
+          else
+            gh issue create \
+              --title 'docs: deployed contract ABIs have changed' \
+              --label documentation,automated \
+              --body-file issue-body.md
+          fi
