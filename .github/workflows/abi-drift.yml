@@ -41,5 +41,5 @@ jobs:
           # to prevent.
           add-paths: |
             abis/*.json
-            !abis/drift-baseline.json
+            :!abis/drift-baseline.json
           body-path: abi-drift-report.md
